@@ -1,54 +1,52 @@
 /* ==========================================================================
    Design System Tokens — Niyi Portfolio
-   Restrained, Editorial, High-Contrast Modern Tech Palette
-   Mobile-First Fluid Sizing & Touch Targets
+   Kreatify Labs Inspired: Restrained, Deep Obsidian, Editorial Typography
    ========================================================================== */
 
 :root {
-  /* Surface Colors */
-  --bg-body: #07090e;
-  --bg-primary: #0a0e17;
-  --bg-surface: #0f1422;
-  --bg-surface-elevated: #151b2d;
-  --bg-surface-subtle: rgba(255, 255, 255, 0.02);
-  --bg-card: rgba(15, 20, 34, 0.7);
-  --bg-card-hover: rgba(21, 27, 45, 0.95);
+  /* Surface Colors (Deep Obsidian & Liquid Glass) */
+  --bg-body: #05070a;
+  --bg-primary: #080c14;
+  --bg-surface: #0c111d;
+  --bg-surface-elevated: #111728;
+  --bg-surface-subtle: rgba(255, 255, 255, 0.025);
+  --bg-card: rgba(12, 17, 29, 0.7);
+  --bg-card-hover: rgba(17, 23, 40, 0.95);
+  --bg-pill-nav: rgba(10, 14, 23, 0.78);
   
   /* Borders & Dividers */
-  --border-subtle: rgba(255, 255, 255, 0.07);
-  --border-light: rgba(255, 255, 255, 0.12);
-  --border-active: rgba(0, 210, 255, 0.35);
-  --border-focus: rgba(0, 210, 255, 0.6);
+  --border-subtle: rgba(255, 255, 255, 0.08);
+  --border-light: rgba(255, 255, 255, 0.14);
+  --border-active: rgba(198, 255, 58, 0.4);
+  --border-focus: rgba(198, 255, 58, 0.6);
 
-  /* Primary Accent & Technical Highlights */
+  /* Curated Accents (Electric Lime & Refined Cyan) */
+  --accent-lime: #c6ff3a;
+  --accent-lime-subtle: rgba(198, 255, 58, 0.1);
+  --accent-lime-border: rgba(198, 255, 58, 0.25);
+  --accent-lime-glow: rgba(198, 255, 58, 0.35);
+
   --accent-cyan: #00d2ff;
   --accent-cyan-subtle: rgba(0, 210, 255, 0.08);
-  --accent-cyan-border: rgba(0, 210, 255, 0.2);
+  --accent-cyan-border: rgba(0, 210, 255, 0.22);
   --accent-cyan-light: #70e6ff;
   
   --accent-indigo: #6366f1;
   --accent-indigo-subtle: rgba(99, 102, 241, 0.08);
-  --accent-indigo-light: #a5b4fc;
-  
-  --accent-emerald: #10b981;
-  --accent-emerald-subtle: rgba(16, 185, 129, 0.08);
-  --accent-emerald-light: #6ee7b7;
 
   --accent-amber: #f59e0b;
   --accent-amber-subtle: rgba(245, 158, 11, 0.08);
-  --accent-amber-light: #fcd34d;
 
   /* Typography Colors */
-  --text-primary: #f8fafc;
+  --text-primary: #ffffff;
   --text-secondary: #94a3b8;
   --text-muted: #64748b;
-  --text-faint: #475569;
-  --text-accent: #00d2ff;
+  --text-faint: #334155;
+  --text-accent: #c6ff3a;
 
   /* Gradients */
-  --grad-text: linear-gradient(135deg, #ffffff 0%, #cbd5e1 50%, #94a3b8 100%);
-  --grad-accent-text: linear-gradient(135deg, #ffffff 0%, #00d2ff 60%, #6366f1 100%);
-  --grad-primary-btn: linear-gradient(135deg, #00d2ff 0%, #3b82f6 50%, #6366f1 100%);
+  --grad-text: linear-gradient(135deg, #ffffff 0%, #cbd5e1 60%, #94a3b8 100%);
+  --grad-accent-lime: linear-gradient(135deg, #c6ff3a 0%, #a3e635 100%);
   --grad-card-border: linear-gradient(135deg, rgba(255, 255, 255, 0.12) 0%, rgba(255, 255, 255, 0.02) 100%);
 
   /* Typography Stacks */
@@ -62,10 +60,10 @@
   --font-size-base: clamp(0.92rem, 0.88rem + 0.25vw, 1.05rem);
   --font-size-md: clamp(1.05rem, 1rem + 0.35vw, 1.25rem);
   --font-size-lg: clamp(1.2rem, 1.1rem + 0.5vw, 1.45rem);
-  --font-size-xl: clamp(1.35rem, 1.2rem + 0.75vw, 1.75rem);
-  --font-size-2xl: clamp(1.65rem, 1.4rem + 1.25vw, 2.35rem);
-  --font-size-3xl: clamp(2.1rem, 1.75rem + 1.8vw, 3.2rem);
-  --font-size-hero: clamp(2.2rem, 1.85rem + 2.5vw, 4rem);
+  --font-size-xl: clamp(1.4rem, 1.25rem + 0.75vw, 1.85rem);
+  --font-size-2xl: clamp(1.75rem, 1.5rem + 1.2vw, 2.5rem);
+  --font-size-3xl: clamp(2.2rem, 1.85rem + 1.8vw, 3.4rem);
+  --font-size-hero: clamp(2.4rem, 2rem + 3vw, 4.4rem);
 
   /* Spacing Tokens */
   --space-2xs: 0.25rem;
@@ -76,29 +74,29 @@
   --space-xl: 2rem;
   --space-2xl: 3rem;
   --space-3xl: 4.5rem;
-  --space-4xl: 6rem;
+  --space-4xl: 6.5rem;
 
   /* Touch Target Minimum (44px) */
   --touch-target-min: 44px;
 
   /* Container & Grid */
-  --container-max: 1180px;
-  --container-pad: clamp(1rem, 4.5vw, 2.5rem);
-  --nav-height: 72px;
+  --container-max: 1140px;
+  --container-pad: clamp(1.1rem, 4.5vw, 2.5rem);
+  --nav-height: 76px;
 
   /* Radii */
-  --radius-xs: 4px;
-  --radius-sm: 8px;
-  --radius-md: 12px;
-  --radius-lg: 18px;
-  --radius-xl: 24px;
+  --radius-xs: 6px;
+  --radius-sm: 10px;
+  --radius-md: 14px;
+  --radius-lg: 20px;
+  --radius-xl: 28px;
   --radius-full: 9999px;
 
   /* Shadows */
-  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.4);
-  --shadow-card: 0 8px 24px -6px rgba(0, 0, 0, 0.5);
-  --shadow-card-hover: 0 16px 36px -8px rgba(0, 0, 0, 0.7);
-  --shadow-accent-glow: 0 0 20px rgba(0, 210, 255, 0.25);
+  --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.4);
+  --shadow-card: 0 12px 32px -8px rgba(0, 0, 0, 0.65);
+  --shadow-card-hover: 0 20px 45px -10px rgba(0, 0, 0, 0.85);
+  --shadow-lime-glow: 0 0 24px rgba(198, 255, 58, 0.3);
 
   /* Transitions */
   --transition-fast: 160ms cubic-bezier(0.16, 1, 0.3, 1);

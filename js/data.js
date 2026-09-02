@@ -1,55 +1,47 @@
 /**
- * Portfolio Data Source — Niyi (Akeredolu Kolade David Omoniyi)
- * Audited, authentic, and defensible data without exaggerated claims.
+ * Central Portfolio Data Store — Niyi (Akeredolu Kolade David Omoniyi)
+ * Authentic, Defensible, and Grounded in Real Builder Experience
  */
 
 window.PORTFOLIO_DATA = {
   profile: {
     displayName: "Niyi",
     fullName: "Akeredolu Kolade David Omoniyi",
+    headline: "I turn ideas into digital products.",
     role: "Web Developer • AI-Assisted Developer • Digital Builder • Problem Solver",
     location: "Nigeria",
     education: "Mathematical Science student at the Federal University of Technology, Akure (FUTA)",
+    bioShort: "Mathematical Science student at FUTA with a strong focus on building responsive web applications, experimenting with digital products, and troubleshooting website issues.",
     email: "akeredoludavid967@gmail.com",
-    phone: "09054168609",
-    phoneTel: "+2349054168609",
+    phone: "+2349054168609",
+    phoneDisplay: "09054168609",
     github: "https://github.com/davidakeredolu967-pixel",
-    linkedin: "", // Optional: add URL when available
-    twitter: "",  // Optional: add URL when available
-    cvAvailable: false, // Set to true when assets/cv.pdf is added
+    cvAvailable: false,
     cvPath: "assets/cv.pdf"
   },
 
   skills: {
     development: [
-      { name: "HTML", level: "Comfortable with", tag: "comfortable" },
-      { name: "CSS", level: "Comfortable with", tag: "comfortable" },
-      { name: "JavaScript", level: "Comfortable with", tag: "comfortable" },
-      { name: "React", level: "Currently learning", tag: "learning" },
-      { name: "Firebase", level: "Comfortable with", tag: "comfortable" },
-      { name: "Firestore", level: "Comfortable with", tag: "comfortable" },
-      { name: "Git", level: "Comfortable with", tag: "comfortable" },
-      { name: "GitHub", level: "Comfortable with", tag: "comfortable" }
+      { name: "HTML", tag: "comfortable" },
+      { name: "CSS", tag: "comfortable" },
+      { name: "JavaScript", tag: "comfortable" },
+      { name: "React", tag: "learning" },
+      { name: "Firebase", tag: "comfortable" },
+      { name: "Firestore", tag: "comfortable" },
+      { name: "Git", tag: "comfortable" }
     ],
-    aiWorkflow: [
-      { name: "AI-assisted coding", level: "Comfortable with", tag: "comfortable" },
-      { name: "Vibe coding", level: "Comfortable with", tag: "comfortable" },
-      { name: "Prompt engineering", level: "Comfortable with", tag: "comfortable" },
-      { name: "Debugging with AI", level: "Comfortable with", tag: "comfortable" },
-      { name: "Rapid prototyping", level: "Comfortable with", tag: "comfortable" },
-      { name: "Problem solving", level: "Comfortable with", tag: "comfortable" }
+    tools: [
+      { name: "GitHub", tag: "comfortable" },
+      { name: "Canva", tag: "comfortable" },
+      { name: "Shopify", tag: "exploring" },
+      { name: "VS Code", tag: "comfortable" }
     ],
-    digitalBusiness: [
-      { name: "Shopify", level: "Exploring", tag: "exploring" },
-      { name: "E-commerce", level: "Exploring", tag: "exploring" },
-      { name: "Product research", level: "Exploring", tag: "exploring" },
-      { name: "Dropshipping", level: "Exploring", tag: "exploring" }
-    ],
-    design: [
-      { name: "Canva", level: "Comfortable with", tag: "comfortable" },
-      { name: "UI design", level: "Comfortable with", tag: "comfortable" },
-      { name: "Digital branding", level: "Comfortable with", tag: "comfortable" },
-      { name: "Social media graphics", level: "Comfortable with", tag: "comfortable" }
+    approach: [
+      { name: "Responsive Design", tag: "comfortable" },
+      { name: "Problem Solving", tag: "comfortable" },
+      { name: "AI-Assisted Development", tag: "comfortable" },
+      { name: "Rapid Prototyping", tag: "comfortable" },
+      { name: "UI Design", tag: "comfortable" }
     ]
   },
 
@@ -60,16 +52,15 @@ window.PORTFOLIO_DATA = {
       title: "Attendance Management System",
       category: "Web Application",
       status: "In Development",
-      statusColor: "green",
-      shortDesc: "A web platform designed to let users register, sign in, and sign out while giving administrators a centralized dashboard for tracking attendance records.",
+      statusBadge: "Prototype",
+      statusColor: "lime",
+      shortDesc: "A web platform designed to let users register, sign in, and record check-ins with an administrative overview for tracking session records.",
       problemSolved: "Paper attendance sheets are prone to lost records, inaccurate timestamps, and tedious manual tallying.",
-      solutionApproach: "Building a web-based sign-in system utilizing Firebase Authentication and Cloud Firestore for record storage and an admin overview.",
       features: [
         "User registration and sign-in authentication",
         "Sign-in and sign-out timestamp recording",
-        "Centralized administrator monitoring view",
-        "User attendance activity tracking",
-        "Firebase & Firestore cloud integration"
+        "Centralized administrator monitoring overview",
+        "Firebase & Firestore cloud data integration"
       ],
       techStack: ["JavaScript", "React", "Firebase", "Firestore", "CSS"],
       imageSrc: "assets/images/projects/attendance.png",
@@ -77,7 +68,7 @@ window.PORTFOLIO_DATA = {
       details: {
         problem: "Manual attendance records lead to lost data, inaccurate timestamps, and administrative delays.",
         solution: "Building a cloud-backed check-in system with dynamic timestamp logging and an administrator overview.",
-        takeaway: "Practicing Firebase authentication flow, Firestore document reads/writes, and building reactive UI states."
+        takeaway: "Practicing Firebase authentication state handling, Firestore document reads/writes, and building reactive UI states."
       }
     },
     {
@@ -86,16 +77,15 @@ window.PORTFOLIO_DATA = {
       title: "Recipe Platform",
       category: "Web Application",
       status: "Built / Experimental",
-      statusColor: "green",
-      shortDesc: "A responsive recipe platform designed to organize and present culinary recipes through a clean, accessible interface.",
-      problemSolved: "Many online cooking pages are overloaded with intrusive ads and slow scripts, making them difficult to read while cooking.",
-      solutionApproach: "Built a responsive frontend that retrieves structured recipes from Firestore, with clear ingredient lists and step-by-step instructions.",
+      statusBadge: "Concept",
+      statusColor: "cyan",
+      shortDesc: "A responsive culinary platform designed to organize and present cooking recipes through a clean, fast, clutter-free interface.",
+      problemSolved: "Many recipe websites are crowded with intrusive ads and slow scripts that make reading ingredients on mobile phones difficult.",
       features: [
         "Recipe category browsing and instant search",
-        "Clean ingredient indexing and preparation steps",
+        "Clean ingredient indexing and preparation timing",
         "Firebase Firestore dynamic content integration",
-        "Mobile-friendly interface for kitchen use",
-        "Fast client-side rendering"
+        "Mobile-friendly interface for kitchen use"
       ],
       techStack: ["JavaScript", "Firebase", "Firestore", "HTML", "CSS"],
       imageSrc: "assets/images/projects/recipe.png",
@@ -112,18 +102,17 @@ window.PORTFOLIO_DATA = {
       title: "Avanti Vogue — E-commerce Concept",
       category: "E-Commerce",
       status: "Concept / Exploration",
+      statusBadge: "Store Concept",
       statusColor: "amber",
-      shortDesc: "An e-commerce concept exploring online fashion retail, Shopify store structure, product curation, and digital store branding.",
+      shortDesc: "An e-commerce concept exploring lifestyle fashion retail, Shopify store structure, product curation, and digital brand guidelines.",
       problemSolved: "New online storefronts often struggle with weak visual identity and confusing navigation that hurts customer engagement.",
-      solutionApproach: "Explored full store concept layouts, lifestyle product research, customer journey planning, and brand positioning.",
       features: [
-        "Online fashion boutique store concept",
+        "Online fashion boutique store concept layout",
         "Product selection and lifestyle niche research",
         "Customer journey and checkout flow planning",
-        "Store visual branding and typography guidelines",
-        "Shopify e-commerce platform exploration"
+        "Store visual branding and typography guidelines"
       ],
-      techStack: ["Shopify", "E-commerce", "Product research", "UI design", "Digital branding"],
+      techStack: ["Shopify", "E-commerce", "Product research", "UI design", "Canva"],
       imageSrc: "assets/images/projects/avanti.png",
       previewType: "ecommerce",
       details: {
@@ -138,10 +127,10 @@ window.PORTFOLIO_DATA = {
       title: "Digital Design & Branding",
       category: "Design & Media",
       status: "Active Gallery",
-      statusColor: "blue",
-      shortDesc: "A collection of digital designs, promotional materials, department event flyers, and social media graphics I have worked on.",
+      statusBadge: "Visual Media",
+      statusColor: "indigo",
+      shortDesc: "A collection of digital designs, promotional materials, department event flyers, and social media graphics created for campus events.",
       problemSolved: "Departmental and student event announcements often lack consistent visual appeal to effectively engage their audience.",
-      solutionApproach: "Designed clear, eye-catching visual assets focusing on readable typography, color balance, and coherent branding.",
       features: [
         "Departmental and university event promotional flyers",
         "Social media graphics & visual identity materials",
@@ -156,6 +145,31 @@ window.PORTFOLIO_DATA = {
         solution: "Designed visual assets that clearly deliver key messages and engage audiences.",
         takeaway: "Developed a stronger eye for color harmony, spatial hierarchy, typography selection, and brand consistency."
       }
+    },
+    {
+      id: "project-portfolio",
+      number: "05",
+      title: "Personal Portfolio & Brand",
+      category: "Personal Brand & Web Platform",
+      status: "Production Ready",
+      statusBadge: "Live Build",
+      statusColor: "lime",
+      shortDesc: "This personal portfolio website, designed with an editorial studio aesthetic, generous whitespace, and pure semantic HTML/CSS/JS architecture.",
+      problemSolved: "Generic templates fail to communicate authentic problem-solving capability, technical discipline, or modern builder workflow.",
+      features: [
+        "Minimal floating liquid-glass pill navigation",
+        "Responsive single-page architecture across 320px to 1920px",
+        "Interactive 4-stage process and problem-solving showcases",
+        "Zero external framework dependencies (Vanilla JS/CSS)"
+      ],
+      techStack: ["HTML5", "CSS3", "JavaScript", "Responsive Design", "Git"],
+      imageSrc: "assets/images/projects/portfolio.png",
+      previewType: "portfolio",
+      details: {
+        problem: "Need a high-polish, authentic proof-of-work website that is defensible in an interview and shows real capability.",
+        solution: "Built a custom, responsive, accessible portfolio with editorial typography and modular JavaScript.",
+        takeaway: "Mastered fluid clamp typography, CSS custom properties architecture, and accessible interactive modules."
+      }
     }
   ],
 
@@ -167,19 +181,19 @@ window.PORTFOLIO_DATA = {
       steps: {
         idea: {
           title: "The Idea",
-          desc: "To create a simple, paperless check-in and check-out tool where attendance records can be monitored digitally."
+          desc: "Create a simple, paperless check-in tool where attendance records can be monitored digitally."
         },
         problem: {
           title: "The Problem",
-          desc: "Paper logs and manual sheets are easily misplaced, prone to proxy entries, and require tedious manual calculation."
+          desc: "Paper logs and manual sheets are easily misplaced, prone to errors, and require tedious manual calculation."
         },
         build: {
           title: "The Build",
-          desc: "Built user authentication using Firebase Auth and linked records to Cloud Firestore for real-time timestamp logging."
+          desc: "Built user authentication using Firebase Auth and linked records to Cloud Firestore for timestamp logging."
         },
         result: {
           title: "The Result",
-          desc: "A functional working prototype with instant status updates and an administrator view that simplifies attendance tracking."
+          desc: "A functional working prototype with instant status updates and an administrator overview."
         }
       }
     },
@@ -190,19 +204,19 @@ window.PORTFOLIO_DATA = {
       steps: {
         idea: {
           title: "The Idea",
-          desc: "To build an accessible recipe directory where browsing and reading cooking instructions is straightforward and fast."
+          desc: "Build an accessible recipe directory where browsing and reading cooking instructions is straightforward and fast."
         },
         problem: {
           title: "The Problem",
-          desc: "Many recipe websites are crowded with popups and heavy scripts that make reading ingredients on a mobile phone frustrating."
+          desc: "Many recipe websites are crowded with intrusive popups and heavy scripts that make reading ingredients on mobile frustrating."
         },
         build: {
           title: "The Build",
-          desc: "Structured clean Firestore collections for categories and ingredients. Built dynamic JS rendering and responsive CSS layouts."
+          desc: "Structured clean Firestore collections for categories and ingredients. Built dynamic JS rendering and responsive layouts."
         },
         result: {
           title: "The Result",
-          desc: "A clean, responsive web application that loads quickly and lets users easily filter recipes by category."
+          desc: "A clean, responsive web application that loads quickly and lets users filter recipes by category."
         }
       }
     },
@@ -213,7 +227,7 @@ window.PORTFOLIO_DATA = {
       steps: {
         idea: {
           title: "The Idea",
-          desc: "To formulate a modern online boutique concept exploring lifestyle fashion e-commerce."
+          desc: "Formulate a modern online boutique concept exploring lifestyle fashion e-commerce."
         },
         problem: {
           title: "The Problem",
@@ -221,26 +235,26 @@ window.PORTFOLIO_DATA = {
         },
         build: {
           title: "The Build",
-          desc: "Researched trending products, configured Shopify store layout ideas, selected typography, and created visual brand assets."
+          desc: "Researched trending products, configured Shopify store layout ideas, selected typography, and created brand assets."
         },
         result: {
           title: "The Result",
-          desc: "A comprehensive e-commerce concept demonstrating brand consistency, product presentation, and store organization."
+          desc: "A comprehensive e-commerce concept demonstrating brand consistency and store structure."
         }
       }
     },
     {
       id: "portfolio-case",
       projectName: "Personal Portfolio & Brand",
-      badge: "In Development",
+      badge: "Production Ready",
       steps: {
         idea: {
           title: "The Idea",
-          desc: "To build an authentic personal portfolio that honestly reflects my skills, projects, problem-solving mindset, and AI-assisted workflow."
+          desc: "Build an authentic personal portfolio that honestly reflects my skills, projects, and problem-solving mindset."
         },
         problem: {
           title: "The Problem",
-          desc: "Generic student CV templates look alike and fail to show genuine technical curiosity or how I actually build and solve problems."
+          desc: "Generic templates look alike and fail to show genuine technical curiosity or how I actually build and solve problems."
         },
         build: {
           title: "The Build",
@@ -248,7 +262,7 @@ window.PORTFOLIO_DATA = {
         },
         result: {
           title: "The Result",
-          desc: "A fast, fully responsive portfolio that serves as a central hub for all my projects, experiments, and contact info."
+          desc: "A fast, fully responsive portfolio that serves as a central hub for all my projects and contact info."
         }
       }
     }
@@ -257,43 +271,37 @@ window.PORTFOLIO_DATA = {
   aiWorkflow: [
     {
       step: "01",
-      title: "Idea & Architecture",
-      icon: "01",
-      summary: "Defining the core problem and structure before writing prompts.",
+      title: "Idea & Requirements",
+      summary: "Defining the core problem and data structure before writing prompts.",
       detail: "I start by clearly defining the goal, what data is needed, and how the interface should work. Clear human thinking is the essential starting point for effective AI assistance."
     },
     {
       step: "02",
       title: "Targeted Prompting",
-      icon: "02",
       summary: "Drafting specific prompts with clear constraints and specifications.",
       detail: "Instead of vague questions, I provide exact requirements: data formats, component structure, edge cases, and design tokens to get useful, relevant code snippets."
     },
     {
       step: "03",
       title: "Build & Assembly",
-      icon: "03",
       summary: "Assembling functional code, combining generated snippets with custom logic.",
       detail: "I inspect and understand every piece of code, ensuring clean organization, proper naming, and maintainable structure across files."
     },
     {
       step: "04",
       title: "Testing & Validation",
-      icon: "04",
       summary: "Checking responsiveness, edge cases, and accessibility across screen sizes.",
       detail: "I test on different screen sizes (mobile, tablet, desktop), check form validations, verify button interactions, and ensure there are no layout breaks."
     },
     {
       step: "05",
       title: "Debugging & Troubleshooting",
-      icon: "05",
       summary: "Diagnosing console errors, layout bugs, and configuration issues.",
       detail: "When errors occur, I use AI to help understand stack traces and explore alternative solutions, while manually checking browser developer tools to verify the fix."
     },
     {
       step: "06",
       title: "Refinement & Polish",
-      icon: "06",
       summary: "Improving usability, micro-interactions, and visual cleanliness.",
       detail: "Tuning typography, spacing, transitions, and code comments to make sure the project feels cohesive, fast, and user-friendly."
     }
@@ -303,28 +311,24 @@ window.PORTFOLIO_DATA = {
     {
       title: "Authentication State Handling",
       category: "Firebase / Auth",
-      badge: "Resolved",
       problem: "User session state took a moment to load on page refresh, causing brief visual glitch on protected views.",
       solution: "Used Firebase onAuthStateChanged listener with a simple loading state to wait until credentials initialize before rendering the page."
     },
     {
       title: "Firestore Document Permissions",
       category: "Database / Rules",
-      badge: "Resolved",
       problem: "Database write operations failed due to improperly structured collection path checks in Firestore security rules.",
       solution: "Reviewed Firestore documentation and used AI to clarify rule syntax, ensuring authenticated user IDs matched document ownership."
     },
     {
       title: "Responsive Grid Overflow on Small Screens",
       category: "CSS / Layout",
-      badge: "Resolved",
       problem: "Card grids caused unwanted horizontal scrollbars on mobile screens narrower than 380px.",
       solution: "Replaced rigid minmax values with auto-fit, clamp() typography, and box-sizing guards to eliminate overflow."
     },
     {
       title: "Asynchronous Search Query Ordering",
       category: "JavaScript / Logic",
-      badge: "Resolved",
       problem: "Rapid typing in recipe search inputs caused delayed search results to arrive out of order.",
       solution: "Added input debouncing in JavaScript to limit query frequency and ensure only the latest search input is processed."
     }
@@ -349,7 +353,7 @@ window.PORTFOLIO_DATA = {
     {
       period: "Milestone 04",
       title: "Incorporating AI-Assisted Development",
-      desc: "Started integrating modern AI tools into my daily workflow for rapid prototyping, debugging, brainstorming, and accelerating my learning."
+      desc: "Started integrating modern AI tools into my daily workflow for rapid prototyping, debugging, brainstorming, and accelerating learning."
     },
     {
       period: "Milestone 05",
@@ -363,48 +367,21 @@ window.PORTFOLIO_DATA = {
     }
   ],
 
-  leadership: [
-    {
-      title: "Student Coordination",
-      desc: "Active participation in coordinating academic study discussions and collaborative group tasks among university peers at FUTA."
-    },
-    {
-      title: "Academic Communication",
-      desc: "Helping facilitate clear communication for course updates, collaborative problem sets, and departmental announcements."
-    },
-    {
-      title: "Event & Seminar Organization",
-      desc: "Participating in organizing student-led tech discussions, department seminars, and academic study sessions."
-    },
-    {
-      title: "Group Project Coordination",
-      desc: "Helping coordinate project task breakdowns and milestone tracking in collaborative coursework assignments."
-    },
-    {
-      title: "Peer Problem Solving",
-      desc: "Assisting fellow students with debugging basic code issues, navigating software tools, and understanding mathematical concepts."
-    },
-    {
-      title: "Self-Directed Learning",
-      desc: "Balancing university coursework in Mathematical Science with consistent self-directed software development and practical project building."
-    }
-  ],
-
   currentlyBuilding: [
-    {
-      title: "Personal Portfolio Website",
-      status: "In Development",
-      statusType: "green",
-      desc: "Building and refining this clean, interactive portfolio website using modern semantic HTML, CSS, and modular JavaScript."
-    },
     {
       title: "Attendance Management System",
       status: "In Development",
       statusType: "green",
-      desc: "Developing the Firebase-backed attendance tracking web app with check-in/out timestamps and admin dashboard view."
+      desc: "Developing the Firebase-backed attendance tracking web app with check-in/out timestamps and admin overview."
     },
     {
-      title: "Future Digital Tools",
+      title: "Personal Portfolio & Brand",
+      status: "Refining",
+      statusType: "green",
+      desc: "Refining this editorial-style portfolio website built with modern HTML, CSS, and vanilla JavaScript."
+    },
+    {
+      title: "Future Digital Utilities",
       status: "Exploring",
       statusType: "amber",
       desc: "Exploring ideas for useful student productivity tools, campus utilities, and e-commerce concepts."

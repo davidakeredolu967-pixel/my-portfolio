@@ -1,108 +1,14 @@
 /**
- * Interactive Modules for Ideas -> Built, AI Workflow, Troubleshooting, Hero Canvas, and CV
+ * Interactive Modules for Ideas -> Built, AI Workflow, Troubleshooting, and CV Download
+ * Restrained, Subtle, High-Polish Interactions
  */
 
 document.addEventListener('DOMContentLoaded', () => {
-  initHeroCanvas();
   initIdeasToBuilt();
   initAiWorkflow();
   initTroubleshooting();
   initCvButton();
 });
-
-/**
- * 0. Hero Interactive Canvas Tabs (Architecture / State / Terminal Output)
- */
-function initHeroCanvas() {
-  const mount = document.getElementById('hero-canvas-body');
-  const tabs = document.querySelectorAll('.hero-tab-pill');
-  if (!mount || !tabs.length) return;
-
-  const views = {
-    code: `
-      <div class="canvas-line">
-        <span class="canvas-ln">01</span>
-        <span class="canvas-text"><span class="token-kw">const</span> <span class="token-fn">builder</span> = {</span>
-      </div>
-      <div class="canvas-line">
-        <span class="canvas-ln">02</span>
-        <span class="canvas-text">&nbsp;&nbsp;<span class="token-prop">name</span>: <span class="token-str">"Akeredolu Kolade David Omoniyi"</span>,</span>
-      </div>
-      <div class="canvas-line">
-        <span class="canvas-ln">03</span>
-        <span class="canvas-text">&nbsp;&nbsp;<span class="token-prop">alias</span>: <span class="token-str">"Niyi"</span>,</span>
-      </div>
-      <div class="canvas-line">
-        <span class="canvas-ln">04</span>
-        <span class="canvas-text">&nbsp;&nbsp;<span class="token-prop">discipline</span>: <span class="token-str">"Mathematical Science @ FUTA"</span>,</span>
-      </div>
-      <div class="canvas-line">
-        <span class="canvas-ln">05</span>
-        <span class="canvas-text">&nbsp;&nbsp;<span class="token-prop">focus</span>: [<span class="token-str">"Web Apps"</span>, <span class="token-str">"AI-Assisted Dev"</span>, <span class="token-str">"E-Commerce"</span>],</span>
-      </div>
-      <div class="canvas-line">
-        <span class="canvas-ln">06</span>
-        <span class="canvas-text">&nbsp;&nbsp;<span class="token-prop">workflow</span>: <span class="token-str">"AI doesn't replace thinking. It accelerates it."</span>,</span>
-      </div>
-      <div class="canvas-line">
-        <span class="canvas-ln">07</span>
-        <span class="canvas-text">&nbsp;&nbsp;<span class="token-prop">status</span>: <span class="token-str">"Building & Troubleshooting Daily"</span></span>
-      </div>
-      <div class="canvas-line">
-        <span class="canvas-ln">08</span>
-        <span class="canvas-text">};</span>
-      </div>
-      <div class="canvas-line" style="margin-top: 6px;">
-        <span class="canvas-ln">09</span>
-        <span class="canvas-text"><span class="token-fn">builder</span>.<span class="token-fn">turnIdeaIntoProduct</span>();</span>
-      </div>
-    `,
-    telemetry: `
-      <div class="canvas-line">
-        <span class="canvas-ln">01</span>
-        <span class="canvas-text"><span class="token-cmt">// System Telemetry & Workflow State</span></span>
-      </div>
-      <div class="canvas-line">
-        <span class="canvas-ln">02</span>
-        <span class="canvas-text"><span class="token-kw">status</span>: <span style="color: #34d399;">● READY_FOR_BUILD</span></span>
-      </div>
-      <div class="canvas-line">
-        <span class="canvas-ln">03</span>
-        <span class="canvas-text"><span class="token-prop">core_frameworks</span>: [<span class="token-str">"HTML"</span>, <span class="token-str">"CSS"</span>, <span class="token-str">"JavaScript"</span>, <span class="token-str">"React"</span>]</span>
-      </div>
-      <div class="canvas-line">
-        <span class="canvas-ln">04</span>
-        <span class="canvas-text"><span class="token-prop">cloud_backend</span>: [<span class="token-str">"Firebase Auth"</span>, <span class="token-str">"Firestore"</span>]</span>
-      </div>
-      <div class="canvas-line">
-        <span class="canvas-ln">05</span>
-        <span class="canvas-text"><span class="token-prop">ai_workflow</span>: [<span class="token-str">"Prompting"</span>, <span class="token-str">"Debugging"</span>, <span class="token-str">"Rapid Prototyping"</span>]</span>
-      </div>
-      <div class="canvas-line">
-        <span class="canvas-ln">06</span>
-        <span class="canvas-text"><span class="token-prop">contact</span>: <span class="token-str">"akeredoludavid967@gmail.com"</span> | <span class="token-str">"09054168609"</span></span>
-      </div>
-      <div class="canvas-line" style="margin-top: 6px;">
-        <span class="canvas-ln">07</span>
-        <span class="canvas-text"><span class="token-cmt">// 0 console errors • 100% responsive • accessible</span></span>
-      </div>
-    `
-  };
-
-  tabs.forEach(tab => {
-    tab.addEventListener('click', () => {
-      const viewKey = tab.getAttribute('data-view');
-      if (!views[viewKey]) return;
-
-      tabs.forEach(t => t.classList.remove('active'));
-      tab.classList.add('active');
-      mount.innerHTML = views[viewKey];
-    });
-  });
-
-  // Initial render
-  mount.innerHTML = views.code;
-}
 
 /**
  * 1. "Ideas → Built" Signature Interactive Module
@@ -131,7 +37,7 @@ function initIdeasToBuilt() {
               aria-selected="${idx === activeIndex}"
             >
               <span>${item.projectName}</span>
-              <span class="badge ${item.badge.includes('Development') ? 'badge-emerald' : item.badge.includes('Built') ? 'badge-cyan' : 'badge-amber'}" style="font-size: 10px;">
+              <span class="badge ${item.badge.includes('Development') ? 'badge-lime' : item.badge.includes('Built') ? 'badge-cyan' : 'badge-amber'}" style="font-size: 10px;">
                 ${item.badge}
               </span>
             </button>
@@ -141,19 +47,19 @@ function initIdeasToBuilt() {
         <!-- 4-Stage Visual Pipeline Header -->
         <div class="ideas-steps-flow">
           <div class="ideas-flow-item active">
-            <span class="ideas-flow-step">Stage 01</span>
+            <span class="ideas-flow-step">01</span>
             <span class="ideas-flow-label">1. The Idea</span>
           </div>
           <div class="ideas-flow-item active">
-            <span class="ideas-flow-step">Stage 02</span>
+            <span class="ideas-flow-step">02</span>
             <span class="ideas-flow-label">2. The Problem</span>
           </div>
           <div class="ideas-flow-item active">
-            <span class="ideas-flow-step">Stage 03</span>
+            <span class="ideas-flow-step">03</span>
             <span class="ideas-flow-label">3. The Build</span>
           </div>
           <div class="ideas-flow-item active">
-            <span class="ideas-flow-step">Stage 04</span>
+            <span class="ideas-flow-step">04</span>
             <span class="ideas-flow-label">4. The Result</span>
           </div>
         </div>
@@ -221,14 +127,14 @@ function initAiWorkflow() {
         <!-- Left: Credo & Focus Spotlight -->
         <div class="ai-credo-card">
           <div class="ai-quote-box">
-            <div style="font-family: var(--font-mono); font-size: 11px; color: var(--accent-indigo-light); margin-bottom: 8px; text-transform: uppercase; letter-spacing: 0.1em;">
+            <div style="font-family: var(--font-mono); font-size: 11px; color: var(--accent-lime); margin-bottom: 8px; text-transform: uppercase; letter-spacing: 0.12em;">
               Development Approach
             </div>
             <p class="ai-quote-text">
               "AI doesn't replace my thinking. It accelerates it."
             </p>
             <p class="ai-quote-detail">
-              I use AI as part of my development workflow for rapid prototyping, debugging, brainstorming, and exploring solutions—while making the architectural decisions and understanding the code myself.
+              I use modern AI tools to explore ideas, understand problems, accelerate development, debug, and learn faster—while keeping architectural decisions, logic, and code quality in my own hands.
             </p>
           </div>
 
@@ -252,7 +158,7 @@ function initAiWorkflow() {
                   <div class="ai-step-summary">${item.summary}</div>
                 </div>
               </div>
-              <span style="font-size: 11px; font-family: var(--font-mono); color: ${idx === activeIndex ? 'var(--accent-cyan)' : 'var(--text-muted)'};">
+              <span style="font-size: 11px; font-family: var(--font-mono); color: ${idx === activeIndex ? 'var(--accent-lime)' : 'var(--text-muted)'};">
                 ${idx === activeIndex ? '● ACTIVE' : '▹'}
               </span>
             </div>
@@ -291,7 +197,7 @@ function initTroubleshooting() {
         <div class="troubleshoot-case-item reveal-on-scroll">
           <div class="troubleshoot-case-header">
             <span class="badge badge-indigo">${item.category}</span>
-            <span class="badge badge-emerald">✓ ${item.badge}</span>
+            <span class="badge badge-lime">✓ Resolved</span>
           </div>
           <h4 class="troubleshoot-case-title">${item.title}</h4>
           <p class="troubleshoot-case-body">

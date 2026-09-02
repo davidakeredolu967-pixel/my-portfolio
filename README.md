@@ -1,19 +1,27 @@
 # Niyi (Akeredolu Kolade David Omoniyi) — Personal Portfolio & Brand
 
-A personal brand and proof-of-work portfolio website for **Niyi (Akeredolu Kolade David Omoniyi)** — Mathematical Science student at the Federal University of Technology, Akure (FUTA), Web Developer, AI-Assisted Builder, and Problem Solver.
+An editorial personal portfolio and proof-of-work website for **Niyi (Akeredolu Kolade David Omoniyi)** — Mathematical Science student at the Federal University of Technology, Akure (FUTA), Web Developer, AI-Assisted Builder, and Problem Solver.
+
+Designed with inspiration from modern creative developer portfolios (such as Kreatify Labs), featuring generous whitespace, deep obsidian surfaces, liquid-glass pill navigation, and bold editorial storytelling.
 
 ---
 
 ## 🌟 Highlights & Features
 
-- **Design System**: Restrained modern tech palette (`#07090e`, `#0a0e17`), fluid `clamp()` typography, subtle architectural grid canvas, and refined micro-interactions.
-- **Hero & Interactive Builder Canvas**: Two-column composition with live workspace code inspector and telemetry viewer.
-- **Editorial Projects Showcase**: Alternating layout (UI preview left / content right, content left / UI preview right) with simulated high-fidelity UI mockup components (Dashboard, Recipe platform, E-Commerce, and Visual Media) and deep-dive case study modal.
-- **"Ideas → Built" Signature Module**: Interactive 4-stage pipeline (*Idea → Problem → Build → Result*) breaking down project development.
-- **"Building With AI" Engine**: 6-phase interactive workflow (*Idea → Prompt → Build → Test → Debug → Improve*) showcasing how AI accelerates development alongside human understanding.
-- **Troubleshooting Showcase**: Real-world problem solving (*Authentication state handling, Firestore document permissions, responsive layout fixes, and async query ordering*).
-- **Categorized Skills**: Honest, authentic proficiency tags (*Comfortable with*, *Currently learning*, *Exploring*).
-- **Direct Contacts**: Clickable primary email (`akeredoludavid967@gmail.com`) + 1-click clipboard copy toast, and clickable phone (`09054168609` / `tel:+2349054168609`).
+- **Editorial Design System**: Deep obsidian surface (`#05070a`, `#080c14`), liquid-glass pill navigation (`backdrop-filter: blur(20px)`), electric lime accents (`#c6ff3a`), and fluid `clamp()` typography.
+- **Impactful Hero**: Confident and uncluttered opening highlighting identity, core statement (*"I turn ideas into digital products."*), and direct pill action buttons.
+- **Curated Projects Showcase**: Large, prominent visual project cards covering all 5 core projects:
+  1. **Attendance Management System** (Web Application • Firebase • Prototype)
+  2. **Recipe Platform** (Web Application • Firestore • Concept / Experimental)
+  3. **Avanti Vogue** (E-Commerce • Shopify Store Concept)
+  4. **Digital Design & Branding** (Visual Media • Canva • Campus Design Assets)
+  5. **This Portfolio** (Personal Brand • Vanilla JS/CSS Architecture)
+- **Dual Visual System**: Displays real screenshots directly when placed into `assets/images/projects/`, with automatic fallback to high-fidelity prototype mockups.
+- **"Ideas → Built" 4-Stage Pipeline**: Minimal, interactive process breakdown (*IDEA → PROBLEM → BUILD → RESULT*).
+- **"Building With AI" Engine**: Human-centered explanation of how AI accelerates prototyping and debugging while human reasoning leads architecture.
+- **Problem Solving Showcase**: Real troubleshooting case studies (*Authentication state handling, Firestore document permissions, responsive grid overflow, and async search debouncing*).
+- **Clean Grouped Skills**: Categorized technology pills (*Development*, *Tools & Platforms*, *Approach & Mindset*) without fake percentage bars.
+- **Direct Contacts**: Clickable primary email (`akeredoludavid967@gmail.com`) with 1-click copy toast, and direct phone link (`09054168609` / `+2349054168609`).
 - **Zero Heavy Dependencies**: Pure Vanilla HTML5, modern CSS3 (Custom Properties, Grid, Flexbox), and modular JavaScript.
 
 ---
@@ -28,59 +36,29 @@ my-portfolio/
 │   └── images/
 │       └── projects/       # Real project screenshots directory (with README guide)
 ├── css/
-│   ├── variables.css       # Design tokens, fluid clamp typography, radii, spacing
-│   ├── base.css            # Base styles, architectural canvas, typography hierarchy, reset
-│   ├── components.css      # Reusable UI components (buttons, badges, mock frames, modals, toasts)
-│   ├── sections.css        # Alternating project layouts, two-column hero, redesigned sections
+│   ├── variables.css       # Design tokens, fluid clamp typography, radii, spacing, lime accent
+│   ├── base.css            # Base styles, atmospheric canvas, typography hierarchy, reset
+│   ├── components.css      # Liquid-glass pill header, pill buttons, large project frames, modal
+│   ├── sections.css        # Editorial hero, project cards, 4-stage pipeline, AI stepper, contact
 │   └── responsive.css      # Mobile navigation drawer & strict breakpoint matrix (320px–1920px)
 ├── js/
 │   ├── data.js             # Central data source for projects, skills, journey, & contact details
-│   ├── interactions.js     # Hero canvas tabs, "Ideas → Built" selector, AI stepper, Troubleshooting
-│   ├── projects.js         # Alternating project cards, skill pills, timeline, and quick-view modal
+│   ├── interactions.js     # Ideas → Built tabs, AI workflow stepper, Problem Solving, CV toast
+│   ├── projects.js         # Large editorial project cards, skill pills, timeline, and modal
 │   ├── contact.js          # Form handler, email copy to clipboard, and toast alerts
-│   └── main.js             # Header scroll, mobile drawer, IntersectionObserver, ScrollSpy
+│   └── main.js             # Sticky pill header, mobile drawer, IntersectionObserver, ScrollSpy
 └── README.md               # Documentation & setup guide
 ```
 
 ---
 
-## 🛠️ How to Customize
-
-All data is separated into [`js/data.js`](js/data.js) for quick edits:
-
-1. **Update Projects**: Open `js/data.js` and add/edit objects in `PORTFOLIO_DATA.projects`.
-2. **Update Skills**: Edit `PORTFOLIO_DATA.skills` with your latest technologies and proficiency tags.
-3. **Update Ideas → Built**: Add new case studies under `PORTFOLIO_DATA.ideasToBuilt`.
-4. **Update Contact Info**: Adjust `PORTFOLIO_DATA.profile` in `js/data.js`.
-5. **Add Screenshots**: Drop screenshots into `assets/images/projects/` to display real image captures.
-6. **Add CV**: Place `cv.pdf` into `assets/` and set `cvAvailable: true` in `js/data.js`.
-
----
-
 ## 🚀 How to Run Locally
 
-You can open `index.html` directly in any web browser, or serve it locally:
+Open `index.html` directly in any web browser, or serve it locally:
 
-### Open Directly:
-Double click `index.html` in your file explorer.
-
-### Using Python:
 ```bash
 python -m http.server 3000
 ```
-
----
-
-## 🌐 How to Deploy for Free
-
-### Option 1: GitHub Pages
-1. Push this repository to GitHub: `https://github.com/davidakeredolu967-pixel/my-portfolio`.
-2. Go to **Settings** > **Pages**.
-3. Under **Branch**, select `main` / `root` and click **Save**.
-4. Your site will be live at `https://davidakeredolu967-pixel.github.io/my-portfolio/`.
-
-### Option 2: Vercel / Netlify
-Connect your GitHub repository or drag-and-drop the folder for instant global HTTPS deployment.
 
 ---
 
