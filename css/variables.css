@@ -33,9 +33,9 @@
   --text-faint: #3E4450;
 
   /* Typography Stacks */
-  --font-heading: 'Space Grotesk', sans-serif;
+  --font-heading: 'Space Grotesk', 'Plus Jakarta Sans', sans-serif;
   --font-body: 'Inter', sans-serif;
-  --font-mono: 'JetBrains Mono', monospace;
+  --font-mono: 'Space Grotesk', 'Inter', -apple-system, sans-serif;
   --font-condensed: 'Bebas Neue', -apple-system, sans-serif;
   --font-script: 'Caveat', cursive, sans-serif;
 

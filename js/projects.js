@@ -246,7 +246,7 @@ function initProjects() {
             <!-- Info Column -->
             <div class="project-info-col">
               <div class="project-meta-header">
-                <span class="project-index">0${project.number} // ${project.category}</span>
+                <span class="project-index">${project.category}</span>
                 <span class="badge badge-copper">
                   ● ${project.statusBadge}
                 </span>
@@ -256,7 +256,7 @@ function initProjects() {
               <p class="project-desc">${project.shortDesc}</p>
 
               <div style="background: var(--bg-glass); border-left: 2px solid var(--accent-copper); padding: 8px 12px; border-radius: 0 var(--radius-xs) var(--radius-xs) 0;">
-                <div style="font-size: 11px; font-family: var(--font-mono); color: var(--accent-copper); text-transform: uppercase;">Problem Addressed</div>
+                <div style="font-size: 11px; font-family: var(--font-heading); font-weight: 600; color: var(--accent-copper); text-transform: uppercase; letter-spacing: 0.08em;">Problem Addressed</div>
                 <div style="font-size: 12px; color: var(--text-secondary); margin-top: 2px;">${project.problemSolved}</div>
               </div>
 
@@ -305,19 +305,16 @@ function initCapabilities() {
 
   const categories = [
     { 
-      number: "01",
       title: "Development", 
       desc: "Core frontend architecture, state management, and real-time backend integrations.",
       items: development 
     },
     { 
-      number: "02",
       title: "Tools & Platforms", 
       desc: "Production developer tooling, version control, store platforms, and asset creation.",
       items: tools 
     },
     { 
-      number: "03",
       title: "Approach & Mindset", 
       desc: "Disciplined problem solving, rapid prototyping, and AI-accelerated workflows.",
       items: approach 
@@ -329,7 +326,6 @@ function initCapabilities() {
       ${categories.map(cat => `
         <div class="capability-column-block reveal-on-scroll">
           <div class="capability-col-header">
-            <span class="capability-col-num">${cat.number}</span>
             <h3 class="capability-col-title">${cat.title}</h3>
           </div>
           <p class="capability-col-desc">${cat.desc}</p>
@@ -436,7 +432,7 @@ function openProjectModal(projectId) {
   modalBody.innerHTML = `
     <div style="display: flex; flex-direction: column; gap: var(--space-md);">
       <div style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 8px;">
-        <span class="project-index">0${project.number} // ${project.category}</span>
+        <span class="project-index">${project.category}</span>
         <span class="badge badge-copper">
           ● ${project.statusBadge}
         </span>

@@ -335,10 +335,16 @@
 }
 
 .project-index {
-  font-family: var(--font-mono);
-  font-size: var(--font-size-xs);
+  font-family: var(--font-heading);
+  font-size: 0.72rem;
+  font-weight: 600;
+  text-transform: uppercase;
   color: var(--accent-lime);
-  letter-spacing: 0.12em;
+  letter-spacing: 0.14em;
+  background: var(--accent-lime-subtle);
+  border: 1px solid var(--accent-lime-border);
+  padding: 3px 10px;
+  border-radius: var(--radius-full);
 }
 
 .project-title {

@@ -173,18 +173,22 @@ textarea:focus-visible {
   text-align: left;
 }
 
-/* Editorial Studio Metadata Label: "01 — SELECTED WORK" */
+/* Studio Section Meta Tag Label */
 .section-meta-tag {
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  font-family: var(--font-mono);
-  font-size: var(--font-size-xs);
+  font-family: var(--font-heading);
+  font-size: 0.72rem;
   text-transform: uppercase;
   letter-spacing: 0.16em;
-  color: var(--accent-copper);
+  color: var(--accent-lime);
+  background: var(--accent-lime-subtle);
+  border: 1px solid var(--accent-lime-border);
+  padding: 4px 14px;
+  border-radius: var(--radius-full);
   margin-bottom: var(--space-xs);
-  font-weight: 500;
+  font-weight: 600;
 }
 
 .section-title {
