@@ -1,7 +1,7 @@
 /**
- * Abstract 3D Digital Workspace Canvas Engine — Studio Edition
- * Dark Chrome, Smoked Glass, and Warm Silver Architectural Sculpture
- * Hardware-accelerated mathematical 3D projection
+ * Multi-Layered Abstract 3D Architectural Workspace Engine
+ * Deep Obsidian Espresso, Smoked Glass, Dark Chrome, and Antique Copper
+ * Hardware-accelerated mathematical 3D projection responding to scroll & mouse depth
  */
 
 (function () {
@@ -22,6 +22,15 @@
     targetY: 0
   };
 
+  // Scroll tracking for camera shift
+  let scrollProgress = 0;
+  function updateScroll() {
+    const maxScroll = document.documentElement.scrollHeight - window.innerHeight;
+    scrollProgress = maxScroll > 0 ? window.scrollY / maxScroll : 0;
+  }
+  window.addEventListener('scroll', updateScroll, { passive: true });
+  updateScroll();
+
   window.addEventListener('mousemove', (e) => {
     mouse.targetX = (e.clientX / window.innerWidth) * 2 - 1;
     mouse.targetY = (e.clientY / window.innerHeight) * 2 - 1;
@@ -33,14 +42,14 @@
   });
 
   document.addEventListener('DOMContentLoaded', () => {
-    initBackgroundCanvas();
+    initMultiLayerBackgroundCanvas();
     initHeroInteractiveCanvas();
   });
 
   /* --------------------------------------------------------------------------
-     1. Ambient Background 3D Field (Subtle smoked particles & faint lattice)
+     1. Multi-Layer Background 3D Spatial Canvas (Far + Mid Spatial Depth)
      -------------------------------------------------------------------------- */
-  function initBackgroundCanvas() {
+  function initMultiLayerBackgroundCanvas() {
     const canvas = document.getElementById('bg-3d-canvas');
     if (!canvas) return;
 
@@ -48,8 +57,14 @@
     if (!ctx) return;
 
     let width, height, cx, cy;
-    let nodes = [];
-    const nodeCount = 32;
+    
+    // Layer 1: Far atmospheric space nodes
+    let farNodes = [];
+    const farCount = 28;
+
+    // Layer 2: Mid architectural floating geometry frames
+    let archStructures = [];
+    const structureCount = 6;
 
     function resize() {
       const dpr = Math.min(window.devicePixelRatio || 1, 2);
@@ -62,92 +77,111 @@
       cy = height / 2;
     }
 
-    function createNodes() {
-      nodes = [];
-      for (let i = 0; i < nodeCount; i++) {
-        nodes.push({
-          x: (Math.random() - 0.5) * 1200,
-          y: (Math.random() - 0.5) * 1000,
+    function createLayers() {
+      farNodes = [];
+      for (let i = 0; i < farCount; i++) {
+        farNodes.push({
+          x: (Math.random() - 0.5) * 1400,
+          y: (Math.random() - 0.5) * 1600,
           z: Math.random() * 800 - 400,
-          vx: (Math.random() - 0.5) * 0.18,
-          vy: (Math.random() - 0.5) * 0.18,
-          vz: (Math.random() - 0.5) * 0.18,
-          size: Math.random() * 1.8 + 0.8,
-          baseAlpha: Math.random() * 0.25 + 0.08
+          vx: (Math.random() - 0.5) * 0.15,
+          vy: (Math.random() - 0.5) * 0.15,
+          vz: (Math.random() - 0.5) * 0.15,
+          size: Math.random() * 1.6 + 0.8,
+          baseAlpha: Math.random() * 0.22 + 0.08
+        });
+      }
+
+      archStructures = [];
+      for (let s = 0; s < structureCount; s++) {
+        const rad = 45 + Math.random() * 35;
+        archStructures.push({
+          x: (Math.random() - 0.5) * 1100,
+          y: (Math.random() - 0.5) * 1400,
+          z: Math.random() * 600 - 300,
+          rx: Math.random() * Math.PI,
+          ry: Math.random() * Math.PI,
+          speedRx: (Math.random() * 0.002 + 0.001) * (s % 2 === 0 ? 1 : -1),
+          speedRy: (Math.random() * 0.002 + 0.001),
+          radius: rad,
+          alpha: Math.random() * 0.18 + 0.08
         });
       }
     }
 
     window.addEventListener('resize', resize, { passive: true });
     resize();
-    createNodes();
+    createLayers();
 
     let rotY = 0;
     let rotX = 0;
 
-    function render() {
+    function renderBg() {
       if (!isReducedMotion) {
         mouse.x += (mouse.targetX - mouse.x) * 0.035;
         mouse.y += (mouse.targetY - mouse.y) * 0.035;
 
-        rotY += 0.0006;
-        rotX = mouse.y * 0.12;
+        rotY += 0.0005;
+        rotX = mouse.y * 0.1;
       }
 
       ctx.clearRect(0, 0, width, height);
 
-      const focalLength = 650;
-      const cosY = Math.cos(rotY + mouse.x * 0.15);
-      const sinY = Math.sin(rotY + mouse.x * 0.15);
+      const focalLength = 680;
+      // Scroll shifts camera Y and angle subtly
+      const cameraYShift = scrollProgress * 280;
+      const cosY = Math.cos(rotY + mouse.x * 0.12);
+      const sinY = Math.sin(rotY + mouse.x * 0.12);
       const cosX = Math.cos(rotX);
       const sinX = Math.sin(rotX);
 
-      const projected = [];
-
-      for (let i = 0; i < nodes.length; i++) {
-        const node = nodes[i];
+      // 1. Render Far Layer Nodes & Connecting Lattice
+      const projectedFar = [];
+      for (let i = 0; i < farNodes.length; i++) {
+        const node = farNodes[i];
 
         if (!isReducedMotion) {
           node.x += node.vx;
           node.y += node.vy;
           node.z += node.vz;
 
-          if (node.x < -600) node.x = 600;
-          if (node.x > 600) node.x = -600;
-          if (node.y < -500) node.y = 500;
-          if (node.y > 500) node.y = -500;
+          if (node.x < -700) node.x = 700;
+          if (node.x > 700) node.x = -700;
+          if (node.y < -800) node.y = 800;
+          if (node.y > 800) node.y = -800;
           if (node.z < -400) node.z = 400;
           if (node.z > 400) node.z = -400;
         }
 
+        const yEff = node.y - cameraYShift * 0.3;
         const x1 = node.x * cosY - node.z * sinY;
         const z1 = node.z * cosY + node.x * sinY;
-        const y1 = node.y * cosX - z1 * sinX;
-        const z2 = z1 * cosX + node.y * sinX + 600;
+        const y1 = yEff * cosX - z1 * sinX;
+        const z2 = z1 * cosX + yEff * sinX + 650;
 
         if (z2 > 50) {
           const scale = focalLength / z2;
           const px = cx + x1 * scale;
           const py = cy + y1 * scale;
-          const alpha = Math.max(0, Math.min(1, (1 - z2 / 1200) * node.baseAlpha));
+          const alpha = Math.max(0, Math.min(1, (1 - z2 / 1300) * node.baseAlpha));
 
-          projected.push({ px, py, scale, alpha });
+          projectedFar.push({ px, py, scale, alpha });
         }
       }
 
-      // Faint champagne connecting lines
+      // Connecting copper lattice lines
       ctx.lineWidth = 0.5;
-      for (let i = 0; i < projected.length; i++) {
-        for (let j = i + 1; j < projected.length; j++) {
-          const p1 = projected[i];
-          const p2 = projected[j];
+      for (let i = 0; i < projectedFar.length; i++) {
+        for (let j = i + 1; j < projectedFar.length; j++) {
+          const p1 = projectedFar[i];
+          const p2 = projectedFar[j];
           const dx = p1.px - p2.px;
           const dy = p1.py - p2.py;
           const dist = Math.sqrt(dx * dx + dy * dy);
 
-          if (dist < 120) {
-            const lineAlpha = (1 - dist / 120) * Math.min(p1.alpha, p2.alpha) * 0.35;
-            ctx.strokeStyle = `rgba(200, 184, 154, ${lineAlpha})`;
+          if (dist < 110) {
+            const lineAlpha = (1 - dist / 110) * Math.min(p1.alpha, p2.alpha) * 0.3;
+            ctx.strokeStyle = `rgba(184, 137, 90, ${lineAlpha})`;
             ctx.beginPath();
             ctx.moveTo(p1.px, p1.py);
             ctx.lineTo(p2.px, p2.py);
@@ -156,23 +190,67 @@
         }
       }
 
-      // Smoked silver particles
-      for (let i = 0; i < projected.length; i++) {
-        const p = projected[i];
-        ctx.fillStyle = `rgba(241, 240, 236, ${p.alpha * 0.7})`;
+      // Far nodes
+      for (let i = 0; i < projectedFar.length; i++) {
+        const p = projectedFar[i];
+        ctx.fillStyle = `rgba(242, 239, 232, ${p.alpha * 0.6})`;
         ctx.beginPath();
-        ctx.arc(p.px, p.py, p.scale * 1.3, 0, Math.PI * 2);
+        ctx.arc(p.px, p.py, p.scale * 1.2, 0, Math.PI * 2);
         ctx.fill();
       }
 
-      requestAnimationFrame(render);
+      // 2. Render Mid Layer Architectural Isometric Frames
+      for (let s = 0; s < archStructures.length; s++) {
+        const arch = archStructures[s];
+        if (!isReducedMotion) {
+          arch.rx += arch.speedRx;
+          arch.ry += arch.speedRy;
+        }
+
+        const yEff = arch.y - cameraYShift * 0.6;
+        const ax1 = arch.x * cosY - arch.z * sinY;
+        const az1 = arch.z * cosY + arch.x * sinY;
+        const ay1 = yEff * cosX - az1 * sinX;
+        const az2 = az1 * cosX + yEff * sinX + 600;
+
+        if (az2 > 50) {
+          const scale = focalLength / az2;
+          const apx = cx + ax1 * scale;
+          const apy = cy + ay1 * scale;
+          const rScaled = arch.radius * scale;
+
+          const alpha = Math.max(0, Math.min(0.25, (1 - az2 / 1200) * arch.alpha));
+
+          // Draw floating geometric faceted diamond
+          ctx.strokeStyle = `rgba(184, 137, 90, ${alpha * 0.65})`;
+          ctx.lineWidth = 0.8;
+          ctx.beginPath();
+          ctx.moveTo(apx, apy - rScaled);
+          ctx.lineTo(apx + rScaled * 0.8, apy);
+          ctx.lineTo(apx, apy + rScaled);
+          ctx.lineTo(apx - rScaled * 0.8, apy);
+          ctx.closePath();
+          ctx.stroke();
+
+          // Subtle inner cross
+          ctx.strokeStyle = `rgba(255, 255, 255, ${alpha * 0.35})`;
+          ctx.beginPath();
+          ctx.moveTo(apx - rScaled * 0.8, apy);
+          ctx.lineTo(apx + rScaled * 0.8, apy);
+          ctx.moveTo(apx, apy - rScaled);
+          ctx.lineTo(apx, apy + rScaled);
+          ctx.stroke();
+        }
+      }
+
+      requestAnimationFrame(renderBg);
     }
 
-    render();
+    renderBg();
   }
 
   /* --------------------------------------------------------------------------
-     2. Hero Interactive 3D Digital Sculpture (Dark Chrome & Smoked Glass)
+     2. Hero Interactive 3D Architectural Sculpture (Dark Chrome & Antique Bronze)
      -------------------------------------------------------------------------- */
   function initHeroInteractiveCanvas() {
     const canvas = document.getElementById('hero-interactive-canvas');
@@ -198,8 +276,8 @@
     window.addEventListener('resize', resize, { passive: true });
     resize();
 
-    // Architectural geometric structure: Intersecting faceted prism
-    const size = 105;
+    // Architectural geometric structure: Intersecting faceted prism + Suspended Rings
+    const size = 100;
     const vertices = [
       // Outer faceted frame
       { x: -size, y: -size, z: -size },
@@ -210,7 +288,7 @@
       { x: size, y: -size, z: size },
       { x: size, y: size, z: size },
       { x: -size, y: size, z: size },
-      // Inner core facets
+      // Inner octahedron core
       { x: 0, y: -size * 1.35, z: 0 },
       { x: 0, y: size * 1.35, z: 0 },
       { x: -size * 1.35, y: 0, z: 0 },
@@ -233,20 +311,21 @@
       [13, 4], [13, 5], [13, 6], [13, 7]
     ];
 
-    // Subtle orbital accent satellites
-    const orbits = [];
-    for (let i = 0; i < 12; i++) {
-      orbits.push({
-        radius: 145 + Math.random() * 45,
-        angle: (i / 12) * Math.PI * 2,
-        speed: (Math.random() * 0.006 + 0.003) * (i % 2 === 0 ? 1 : -1),
-        yOffset: (Math.random() - 0.5) * 70,
-        size: Math.random() * 2.2 + 1.2
-      });
+    // Suspended orbital bronze rings
+    const ringCount = 28;
+    const ring1 = [];
+    const ring2 = [];
+    const r1Radius = 148;
+    const r2Radius = 168;
+
+    for (let i = 0; i < ringCount; i++) {
+      const a = (i / ringCount) * Math.PI * 2;
+      ring1.push({ x: Math.cos(a) * r1Radius, y: Math.sin(a) * r1Radius * 0.35, z: Math.sin(a) * r1Radius * 0.9 });
+      ring2.push({ x: Math.sin(a) * r2Radius * 0.9, y: Math.cos(a) * r2Radius * 0.35, z: Math.cos(a) * r2Radius });
     }
 
-    let angleX = 0.35;
-    let angleY = 0.45;
+    let angleX = 0.32;
+    let angleY = 0.42;
     let angleZ = 0.12;
 
     function renderHero() {
@@ -261,9 +340,9 @@
 
       ctx.clearRect(0, 0, width, height);
 
-      // Soft ambient studio glow behind sculpture
-      const radGrad = ctx.createRadialGradient(cx, cy, 10, cx, cy, width * 0.45);
-      radGrad.addColorStop(0, 'rgba(200, 184, 154, 0.05)');
+      // Soft directional studio glow behind sculpture
+      const radGrad = ctx.createRadialGradient(cx, cy, 10, cx, cy, width * 0.48);
+      radGrad.addColorStop(0, 'rgba(184, 137, 90, 0.06)');
       radGrad.addColorStop(0.5, 'rgba(255, 255, 255, 0.015)');
       radGrad.addColorStop(1, 'rgba(0, 0, 0, 0)');
       ctx.fillStyle = radGrad;
@@ -277,8 +356,7 @@
       const cosZ = Math.cos(angleZ);
       const sinZ = Math.sin(angleZ);
 
-      // Transform 3D coordinates
-      const projVertices = vertices.map(v => {
+      function projectPoint(v) {
         let x = v.x * cosZ - v.y * sinZ;
         let y = v.y * cosZ + v.x * sinZ;
         let z = v.z;
@@ -296,7 +374,10 @@
           pz: z2,
           scale
         };
-      });
+      }
+
+      // Project vertices
+      const projVertices = vertices.map(projectPoint);
 
       // Render wireframe edges
       for (let i = 0; i < edges.length; i++) {
@@ -305,16 +386,16 @@
         const p2 = projVertices[idx2];
 
         const avgZ = (p1.pz + p2.pz) / 2;
-        const depthAlpha = Math.max(0.1, Math.min(0.65, (1 - avgZ / 800) * 0.85));
+        const depthAlpha = Math.max(0.12, Math.min(0.68, (1 - avgZ / 800) * 0.88));
 
         if (i < 12) {
           // Outer brushed silver frame
-          ctx.strokeStyle = `rgba(241, 240, 236, ${depthAlpha * 0.7})`;
+          ctx.strokeStyle = `rgba(242, 239, 232, ${depthAlpha * 0.75})`;
           ctx.lineWidth = 1.1;
         } else {
-          // Inner core subtle champagne connectors
-          ctx.strokeStyle = `rgba(200, 184, 154, ${depthAlpha * 0.4})`;
-          ctx.lineWidth = 0.8;
+          // Inner core antique copper connectors
+          ctx.strokeStyle = `rgba(184, 137, 90, ${depthAlpha * 0.45})`;
+          ctx.lineWidth = 0.85;
         }
 
         ctx.beginPath();
@@ -323,51 +404,46 @@
         ctx.stroke();
       }
 
+      // Suspended Ring 1 (Bronze)
+      const projRing1 = ring1.map(projectPoint);
+      ctx.strokeStyle = 'rgba(184, 137, 90, 0.35)';
+      ctx.lineWidth = 0.75;
+      ctx.beginPath();
+      for (let i = 0; i < projRing1.length; i++) {
+        const next = projRing1[(i + 1) % projRing1.length];
+        if (i === 0) ctx.moveTo(projRing1[i].px, projRing1[i].py);
+        ctx.lineTo(next.px, next.py);
+      }
+      ctx.stroke();
+
+      // Suspended Ring 2 (Smoked Chrome)
+      const projRing2 = ring2.map(projectPoint);
+      ctx.strokeStyle = 'rgba(255, 255, 255, 0.2)';
+      ctx.lineWidth = 0.65;
+      ctx.beginPath();
+      for (let i = 0; i < projRing2.length; i++) {
+        const next = projRing2[(i + 1) % projRing2.length];
+        if (i === 0) ctx.moveTo(projRing2[i].px, projRing2[i].py);
+        ctx.lineTo(next.px, next.py);
+      }
+      ctx.stroke();
+
       // Vertex nodes
       for (let i = 0; i < projVertices.length; i++) {
         const p = projVertices[i];
         const nodeAlpha = Math.max(0.2, (1 - p.pz / 800));
 
         if (i >= 8) {
-          // Inner champagne vertex highlights
-          ctx.fillStyle = `rgba(200, 184, 154, ${nodeAlpha * 0.9})`;
+          // Inner copper vertex highlights
+          ctx.fillStyle = `rgba(184, 137, 90, ${nodeAlpha * 0.95})`;
           ctx.beginPath();
           ctx.arc(p.px, p.py, p.scale * 3.2, 0, Math.PI * 2);
           ctx.fill();
         } else {
           // Outer brushed chrome vertices
-          ctx.fillStyle = `rgba(241, 240, 236, ${nodeAlpha * 0.8})`;
+          ctx.fillStyle = `rgba(242, 239, 232, ${nodeAlpha * 0.85})`;
           ctx.beginPath();
           ctx.arc(p.px, p.py, p.scale * 2.2, 0, Math.PI * 2);
-          ctx.fill();
-        }
-      }
-
-      // Satellites
-      for (let i = 0; i < orbits.length; i++) {
-        const orb = orbits[i];
-        if (!isReducedMotion) {
-          orb.angle += orb.speed;
-        }
-
-        const ox = Math.cos(orb.angle) * orb.radius;
-        const oz = Math.sin(orb.angle) * orb.radius;
-        const oy = orb.yOffset;
-
-        const ox1 = ox * cosY - oz * sinY;
-        const oz1 = oz * cosY + ox * sinY;
-        const oy1 = oy * cosX - oz1 * sinX;
-        const oz2 = oz1 * cosX + oy * sinX + 500;
-
-        if (oz2 > 50) {
-          const scale = focalLength / oz2;
-          const px = cx + ox1 * scale;
-          const py = cy + oy1 * scale;
-          const alpha = (1 - oz2 / 800) * 0.55;
-
-          ctx.fillStyle = `rgba(200, 184, 154, ${Math.max(0, alpha)})`;
-          ctx.beginPath();
-          ctx.arc(px, py, orb.size * scale, 0, Math.PI * 2);
           ctx.fill();
         }
       }

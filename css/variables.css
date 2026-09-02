@@ -1,48 +1,47 @@
 /* ==========================================================================
    Design System Tokens — Niyi Portfolio
-   Mature Glass & Creative Digital Studio Aesthetic
+   Deep Obsidian Espresso & Antique Copper Architectural Studio Aesthetic
    ========================================================================== */
 
 :root {
-  /* Surface Colors (Dark Graphite & Smoked Architectural Glass) */
-  --bg-body: #0B0C0E;
-  --bg-primary: #0F1014;
-  --bg-surface: #14161C;
-  --bg-surface-elevated: #1A1D24;
+  /* Surface Colors: Deep Obsidian & Espresso */
+  --bg-body: #090A0B;
+  --bg-primary: #11100F;
+  --bg-surface: #171615;
+  --bg-surface-elevated: #1E1D1B;
   --bg-glass: rgba(255, 255, 255, 0.045);
   --bg-glass-hover: rgba(255, 255, 255, 0.075);
   --bg-glass-subtle: rgba(255, 255, 255, 0.025);
-  --bg-pill-nav: rgba(15, 16, 20, 0.82);
+  --bg-pill-nav: rgba(17, 16, 15, 0.84);
   
   /* Smoked Glass Borders & Dividers */
   --border-subtle: rgba(255, 255, 255, 0.07);
   --border-light: rgba(255, 255, 255, 0.10);
   --border-hover: rgba(255, 255, 255, 0.18);
-  --border-accent: rgba(200, 184, 154, 0.4);
-  --border-focus: rgba(200, 184, 154, 0.6);
+  --border-accent: rgba(184, 137, 90, 0.38);
+  --border-focus: rgba(184, 137, 90, 0.6);
 
-  /* Restrained Accent: Muted Champagne / Warm Silver / Soft Sand */
-  --accent-champagne: #C8B89A;
-  --accent-champagne-light: #DDD2BC;
-  --accent-champagne-subtle: rgba(200, 184, 154, 0.09);
-  --accent-champagne-border: rgba(200, 184, 154, 0.22);
-  --accent-champagne-glow: rgba(200, 184, 154, 0.18);
+  /* Sophisticated Muted Copper / Antique Bronze Accent */
+  --accent-copper: #B8895A;
+  --accent-copper-light: #D0A878;
+  --accent-copper-subtle: rgba(184, 137, 90, 0.10);
+  --accent-copper-border: rgba(184, 137, 90, 0.25);
+  --accent-copper-glow: rgba(184, 137, 90, 0.18);
 
-  /* Neutral Status Accents */
-  --accent-neutral: rgba(255, 255, 255, 0.12);
+  /* Functional Status Accents */
   --accent-green-soft: #86efac;
   --accent-amber-soft: #fde047;
 
-  /* Typography Colors (Warm Off-White & Muted Warm Gray) */
-  --text-primary: #F1F0EC;
-  --text-secondary: #9A9A96;
-  --text-muted: #6C6C68;
-  --text-faint: #444440;
-  --text-accent: #C8B89A;
+  /* Typography Colors: Warm Ivory Off-White & Warm Stone Gray */
+  --text-primary: #F2EFE8;
+  --text-secondary: #A7A39B;
+  --text-muted: #716D66;
+  --text-faint: #44423E;
+  --text-accent: #B8895A;
 
   /* Gradients */
-  --grad-text: linear-gradient(135deg, #F1F0EC 0%, #D4D3CE 55%, #9A9A96 100%);
-  --grad-champagne: linear-gradient(135deg, #DDD2BC 0%, #C8B89A 100%);
+  --grad-text: linear-gradient(135deg, #F2EFE8 0%, #D8D4CC 55%, #A7A39B 100%);
+  --grad-copper: linear-gradient(135deg, #D0A878 0%, #B8895A 100%);
   --grad-glass-surface: linear-gradient(135deg, rgba(255, 255, 255, 0.06) 0%, rgba(255, 255, 255, 0.02) 100%);
 
   /* Typography Stacks */
@@ -72,7 +71,7 @@
   --space-3xl: 4.5rem;
   --space-4xl: 6.5rem;
 
-  /* Touch Target Minimum (44px) */
+  /* Touch Target Minimum */
   --touch-target-min: 44px;
 
   /* Container & Grid */
@@ -90,8 +89,8 @@
 
   /* Shadows */
   --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.4);
-  --shadow-glass: 0 16px 40px -10px rgba(0, 0, 0, 0.65);
-  --shadow-glass-hover: 0 24px 50px -12px rgba(0, 0, 0, 0.85);
+  --shadow-glass: 0 16px 40px -10px rgba(0, 0, 0, 0.75);
+  --shadow-glass-hover: 0 24px 50px -12px rgba(0, 0, 0, 0.9);
 
   /* Transitions */
   --transition-fast: 160ms cubic-bezier(0.16, 1, 0.3, 1);

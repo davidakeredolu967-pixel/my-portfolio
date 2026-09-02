@@ -1,6 +1,6 @@
 /**
  * Interactive Modules for Ideas -> Built, AI Workflow, Troubleshooting, and CV Download
- * Mature Smoked Glass & Creative Digital Studio Interactions
+ * Deep Obsidian Espresso & Antique Copper Architectural Studio Interactions
  */
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -11,7 +11,7 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 /**
- * 1. "Ideas → Built" Signature Interactive Module
+ * 1. "Ideas → Built" Signature Interactive Module (4-Stage Horizontal/Vertical Pipeline)
  */
 function initIdeasToBuilt() {
   const container = document.getElementById('ideas-built-mount');
@@ -127,7 +127,7 @@ function initAiWorkflow() {
         <!-- Left: Credo & Focus Spotlight -->
         <div class="ai-credo-card">
           <div class="ai-quote-box">
-            <div style="font-family: var(--font-mono); font-size: 11px; color: var(--accent-champagne); margin-bottom: 8px; text-transform: uppercase; letter-spacing: 0.14em;">
+            <div style="font-family: var(--font-mono); font-size: 11px; color: var(--accent-copper); margin-bottom: 8px; text-transform: uppercase; letter-spacing: 0.14em;">
               DEVELOPMENT PHILOSOPHY
             </div>
             <p class="ai-quote-text">
@@ -158,7 +158,7 @@ function initAiWorkflow() {
                   <div class="ai-step-summary">${item.summary}</div>
                 </div>
               </div>
-              <span style="font-size: 11px; font-family: var(--font-mono); color: ${idx === activeIndex ? 'var(--accent-champagne)' : 'var(--text-muted)'};">
+              <span style="font-size: 11px; font-family: var(--font-mono); color: ${idx === activeIndex ? 'var(--accent-copper)' : 'var(--text-muted)'};">
                 ${idx === activeIndex ? '● ACTIVE' : '▹'}
               </span>
             </div>
@@ -197,7 +197,7 @@ function initTroubleshooting() {
         <div class="troubleshoot-case-item reveal-on-scroll">
           <div class="troubleshoot-case-header">
             <span class="badge badge-glass">${item.category}</span>
-            <span class="badge badge-champagne">✓ Resolved</span>
+            <span class="badge badge-copper">✓ Resolved</span>
           </div>
           <h4 class="troubleshoot-case-title">${item.title}</h4>
           <p class="troubleshoot-case-body">
