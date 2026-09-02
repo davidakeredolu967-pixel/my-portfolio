@@ -1,20 +1,19 @@
-# Akeredolu Kolade David Omoniyi (niyi) — Personal Portfolio
+# Niyi (Akeredolu Kolade David Omoniyi) — Personal Portfolio & Brand
 
-A modern, high-performance personal brand and proof-of-work portfolio website for **Akeredolu Kolade David Omoniyi (niyi)** — Mathematical Science student at the Federal University of Technology, Akure (FUTA), Web Developer, AI-Assisted Builder, and Problem Solver.
+A modern, high-performance personal brand and proof-of-work portfolio website for **Niyi (Akeredolu Kolade David Omoniyi)** — Mathematical Science student at the Federal University of Technology, Akure (FUTA), Web Developer, AI-Assisted Builder, and Problem Solver.
 
 ---
 
 ## 🌟 Highlights & Features
 
-- **Aesthetic**: Deep dark modern tech UI (`#07090e`), subtle glowing ambient mesh background, glassmorphism cards, and refined micro-interactions.
-- **Hero & Live Code Terminal**: Interactive visualizer reflecting builder mindset, education at FUTA, and live building status.
-- **"Ideas → Built" Signature Module**: Interactive 4-step pipeline (*Idea → Problem → Build → Result*) breaking down project development.
+- **Design System**: Restrained modern tech palette (`#07090e`, `#0a0e17`), fluid `clamp()` typography, subtle architectural grid canvas, and refined micro-interactions.
+- **Hero & Interactive Builder Canvas**: Asymmetrical two-column composition with live workspace code inspector and telemetry viewer.
+- **Editorial Projects Showcase**: Alternating layout (UI preview left / content right, content left / UI preview right) with simulated high-fidelity UI mockup components (Dashboard, Recipe platform, E-Commerce, and Visual Media) and deep-dive case study modal.
+- **"Ideas → Built" Signature Module**: Interactive 4-phase pipeline (*Idea → Problem → Build → Result*) breaking down project engineering.
 - **"Building With AI" Engine**: 6-phase interactive workflow (*Idea → Prompt → Build → Test → Debug → Improve*) showcasing how AI accelerates engineering without replacing human logic.
 - **Troubleshooting Showcase**: Real-world problem solving (*Authentication state persistence, Firestore security rules, responsive grid overflows, and async race conditions*).
 - **Categorized Skills**: Honest, authentic proficiency tags (*Comfortable with*, *Currently learning*, *Exploring*).
-- **Featured Projects**: Complete with deep-dive modal views.
-- **My Journey Timeline**: Clear milestones from digital commerce exploration to fullstack web development and AI-assisted workflows.
-- **Contact Hub**: Interactive contact form with mailto fallback and 1-click email copy button with toast notification.
+- **Direct Contacts**: Clickable primary email (`akeredoludavid967@gmail.com`) + 1-click clipboard copy toast, and clickable phone (`09054168609` / `tel:+2349054168609`).
 - **Zero Heavy Dependencies**: Pure Vanilla HTML5, modern CSS3 (Custom Properties, Grid, Flexbox), and modular JavaScript.
 
 ---
@@ -23,17 +22,17 @@ A modern, high-performance personal brand and proof-of-work portfolio website fo
 
 ```
 my-portfolio/
-├── index.html              # Main single-page application
+├── index.html              # Main single-page application with complete SEO meta tags
 ├── css/
-│   ├── variables.css       # Design tokens, color palettes, typography, radii
-│   ├── base.css            # Base styles, ambient gradients, typography, reset
-│   ├── components.css      # Reusable UI components (buttons, badges, modals, toasts)
-│   ├── sections.css        # Section-specific styles
-│   └── responsive.css      # Mobile navigation drawer and responsive breakpoints
+│   ├── variables.css       # Design tokens, fluid clamp typography, radii, spacing
+│   ├── base.css            # Base styles, architectural canvas, typography hierarchy, reset
+│   ├── components.css      # Reusable UI components (buttons, badges, mock frames, modals, toasts)
+│   ├── sections.css        # Alternating project layouts, two-column hero, redesigned sections
+│   └── responsive.css      # Mobile navigation drawer & strict breakpoint matrix (320px–1920px)
 ├── js/
-│   ├── data.js             # Central data source for projects, skills, journey, & builds
-│   ├── interactions.js     # "Ideas → Built" tabs, AI workflow stepper, Troubleshooting
-│   ├── projects.js         # Project cards, skill pills, timeline, and quick-view modal
+│   ├── data.js             # Central data source for projects, skills, journey, & contact details
+│   ├── interactions.js     # Hero canvas tabs, "Ideas → Built" selector, AI stepper, Troubleshooting
+│   ├── projects.js         # Alternating project cards, skill pills, timeline, and quick-view modal
 │   ├── contact.js          # Form handler, email copy to clipboard, and toast alerts
 │   └── main.js             # Header scroll, mobile drawer, IntersectionObserver, ScrollSpy
 └── README.md               # Documentation & setup guide
@@ -48,7 +47,7 @@ All data is separated into [`js/data.js`](js/data.js) for quick edits:
 1. **Update Projects**: Open `js/data.js` and add/edit objects in `PORTFOLIO_DATA.projects`.
 2. **Update Skills**: Edit `PORTFOLIO_DATA.skills` with your latest technologies and proficiency tags.
 3. **Update Ideas → Built**: Add new case studies under `PORTFOLIO_DATA.ideasToBuilt`.
-4. **Update Contact Info**: Adjust `PORTFOLIO_DATA.profile.email` or social URLs in `js/data.js`.
+4. **Update Contact Info**: Adjust `PORTFOLIO_DATA.profile` with updated email or social URLs in `js/data.js`.
 
 ---
 
@@ -56,14 +55,12 @@ All data is separated into [`js/data.js`](js/data.js) for quick edits:
 
 You can open `index.html` directly in any web browser, or serve it using Python or Node:
 
+### Open Directly:
+Double click `index.html` in your file explorer.
+
 ### Using Python:
 ```bash
 python -m http.server 3000
-```
-
-### Using Node / npx:
-```bash
-npx serve .
 ```
 
 ---
@@ -76,13 +73,8 @@ npx serve .
 3. Under **Branch**, select `main` / `root` and click **Save**.
 4. Your site will be live at `https://<username>.github.io/<repo-name>/`.
 
-### Option 2: Vercel
-1. Import your GitHub repository to [Vercel](https://vercel.com).
-2. Click **Deploy**. Vercel will automatically host your static portfolio with global CDN caching.
-
-### Option 3: Netlify
-1. Drag and drop the portfolio folder onto [Netlify Drop](https://app.netlify.com/drop), or connect via GitHub.
-2. Your portfolio will deploy instantly with HTTPS enabled.
+### Option 2: Vercel / Netlify
+Connect your GitHub repository or drag-and-drop the folder for instant global HTTPS deployment.
 
 ---
 

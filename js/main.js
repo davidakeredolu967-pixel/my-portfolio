@@ -1,6 +1,6 @@
 /**
- * Main Application Script
- * Orchestrates Navbar, ScrollSpy, IntersectionObserver, and Mobile Drawer
+ * Main Application Script — Niyi Portfolio
+ * Handles Navbar scroll effects, Mobile Drawer, IntersectionObserver, and ScrollSpy
  */
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -12,14 +12,14 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 /**
- * 1. Sticky Navbar styling on scroll
+ * 1. Sticky Navbar on Scroll
  */
 function initNavbar() {
-  const header = document.querySelector('.site-header');
+  const header = document.getElementById('site-header');
   if (!header) return;
 
   const handleScroll = () => {
-    if (window.scrollY > 30) {
+    if (window.scrollY > 20) {
       header.classList.add('scrolled');
     } else {
       header.classList.remove('scrolled');
@@ -68,9 +68,7 @@ function initMobileDrawer() {
   overlay.addEventListener('click', closeDrawer);
 
   navLinks.forEach(link => {
-    link.addEventListener('click', () => {
-      closeDrawer();
-    });
+    link.addEventListener('click', closeDrawer);
   });
 }
 
@@ -82,7 +80,6 @@ function initScrollReveal() {
   if (!elements.length) return;
 
   if (!('IntersectionObserver' in window)) {
-    // Fallback if IntersectionObserver isn't supported
     elements.forEach(el => el.classList.add('is-revealed'));
     return;
   }
@@ -96,8 +93,8 @@ function initScrollReveal() {
     });
   }, {
     root: null,
-    rootMargin: '0px 0px -40px 0px',
-    threshold: 0.1
+    rootMargin: '0px 0px -30px 0px',
+    threshold: 0.08
   });
 
   elements.forEach(el => observer.observe(el));
@@ -113,7 +110,7 @@ function initScrollSpy() {
   if (!sections.length || !desktopLinks.length) return;
 
   const onScroll = () => {
-    const scrollY = window.scrollY + 120;
+    const scrollY = window.scrollY + 140;
 
     sections.forEach(sec => {
       const secTop = sec.offsetTop;
@@ -136,18 +133,18 @@ function initScrollSpy() {
 }
 
 /**
- * 5. Smooth Scroll Helper for Internal Links
+ * 5. Smooth Scroll Offset Helper
  */
 function initSmoothScroll() {
   document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function (e) {
       const targetId = this.getAttribute('href');
-      if (targetId === '#') return;
+      if (!targetId || targetId === '#') return;
 
       const targetElement = document.querySelector(targetId);
       if (targetElement) {
         e.preventDefault();
-        const headerOffset = 80;
+        const headerOffset = 76;
         const elementPosition = targetElement.getBoundingClientRect().top;
         const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
 

@@ -1,38 +1,38 @@
 /* ==========================================================================
-   Reusable UI Components
+   Reusable UI Components & Design Modules
    ========================================================================== */
 
 /* --------------------------------------------------------------------------
-   Buttons
+   1. Buttons
    -------------------------------------------------------------------------- */
 .btn {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  gap: var(--space-2);
+  gap: var(--space-xs);
   font-family: var(--font-heading);
   font-weight: 600;
-  font-size: var(--text-sm);
-  padding: 0.75rem 1.5rem;
-  border-radius: var(--radius-md);
+  font-size: var(--font-size-sm);
+  padding: 0.75rem 1.4rem;
+  border-radius: var(--radius-sm);
   transition: all var(--transition-normal);
   text-decoration: none;
   cursor: pointer;
   position: relative;
-  overflow: hidden;
   white-space: nowrap;
+  letter-spacing: -0.01em;
 }
 
 .btn-primary {
-  background: var(--grad-cyan-indigo);
+  background: var(--grad-primary-btn);
   color: #ffffff;
-  box-shadow: 0 4px 20px -2px rgba(99, 102, 241, 0.4);
-  border: 1px solid rgba(255, 255, 255, 0.15);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 4px 16px -2px rgba(0, 210, 255, 0.35);
 }
 
 .btn-primary:hover {
   transform: translateY(-2px);
-  box-shadow: 0 8px 25px -2px rgba(6, 182, 212, 0.5);
+  box-shadow: 0 8px 24px -2px rgba(0, 210, 255, 0.45);
   color: #ffffff;
 }
 
@@ -41,105 +41,67 @@
 }
 
 .btn-secondary {
-  background: var(--bg-surface-glass);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
+  background: rgba(255, 255, 255, 0.04);
   color: var(--text-primary);
-  border: 1px solid var(--bg-surface-glass-border);
+  border: 1px solid var(--border-subtle);
 }
 
 .btn-secondary:hover {
   background: rgba(255, 255, 255, 0.08);
-  border-color: rgba(255, 255, 255, 0.2);
-  color: var(--text-primary);
+  border-color: var(--border-light);
+  color: #ffffff;
   transform: translateY(-2px);
 }
 
-.btn-outline-cyan {
-  background: transparent;
-  color: var(--accent-cyan);
-  border: 1px solid rgba(6, 182, 212, 0.3);
+.btn-secondary:active {
+  transform: translateY(0);
 }
 
-.btn-outline-cyan:hover {
-  background: rgba(6, 182, 212, 0.1);
-  border-color: var(--accent-cyan);
+.btn-ghost {
+  background: transparent;
+  color: var(--text-secondary);
+  padding: 0.5rem 0.75rem;
+}
+
+.btn-ghost:hover {
+  color: var(--text-primary);
 }
 
 .btn-sm {
   padding: 0.5rem 1rem;
-  font-size: var(--text-xs);
+  font-size: var(--font-size-xs);
 }
 
-.btn-icon-only {
-  padding: 0.65rem;
-  border-radius: var(--radius-md);
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
+.btn-lg {
+  padding: 0.9rem 1.8rem;
+  font-size: var(--font-size-base);
 }
 
 /* --------------------------------------------------------------------------
-   Badges & Status Pills
+   2. Status Pills & Indicators
    -------------------------------------------------------------------------- */
-.badge {
-  display: inline-flex;
-  align-items: center;
-  gap: var(--space-2);
-  font-size: var(--text-xs);
-  font-weight: 500;
-  padding: 3px 10px;
-  border-radius: var(--radius-full);
-}
-
-.badge-cyan {
-  background: rgba(6, 182, 212, 0.1);
-  color: var(--accent-cyan-light);
-  border: 1px solid rgba(6, 182, 212, 0.25);
-}
-
-.badge-indigo {
-  background: rgba(99, 102, 241, 0.1);
-  color: var(--accent-indigo-light);
-  border: 1px solid rgba(99, 102, 241, 0.25);
-}
-
-.badge-emerald {
-  background: rgba(16, 185, 129, 0.1);
-  color: var(--accent-emerald-light);
-  border: 1px solid rgba(16, 185, 129, 0.25);
-}
-
-.badge-amber {
-  background: rgba(245, 158, 11, 0.1);
-  color: var(--accent-amber-light);
-  border: 1px solid rgba(245, 158, 11, 0.25);
-}
-
-/* Status Indicator Dot */
 .status-pill {
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  padding: 6px 14px;
-  background: rgba(15, 23, 42, 0.85);
-  border: 1px solid rgba(16, 185, 129, 0.3);
+  padding: 4px 12px;
+  background: rgba(15, 20, 34, 0.9);
+  border: 1px solid var(--border-subtle);
   border-radius: var(--radius-full);
-  font-family: var(--font-code);
-  font-size: var(--text-xs);
-  color: var(--text-primary);
-  box-shadow: 0 0 15px rgba(16, 185, 129, 0.15);
+  font-family: var(--font-mono);
+  font-size: var(--font-size-xs);
+  color: var(--text-secondary);
 }
 
 .status-dot {
-  width: 8px;
-  height: 8px;
+  width: 7px;
+  height: 7px;
   border-radius: 50%;
   position: relative;
 }
 
 .status-dot.status-green {
-  background-color: #10b981;
+  background-color: var(--accent-emerald);
 }
 
 .status-dot.status-green::after {
@@ -147,81 +109,150 @@
   position: absolute;
   inset: -3px;
   border-radius: 50%;
-  background-color: rgba(16, 185, 129, 0.5);
-  animation: pulsePing 2s cubic-bezier(0, 0, 0.2, 1) infinite;
+  background-color: rgba(16, 185, 129, 0.4);
+  animation: pulseDot 2.2s infinite ease-out;
 }
 
 .status-dot.status-amber {
-  background-color: #f59e0b;
-}
-
-.status-dot.status-amber::after {
-  content: '';
-  position: absolute;
-  inset: -3px;
-  border-radius: 50%;
-  background-color: rgba(245, 158, 11, 0.5);
-  animation: pulsePing 2s cubic-bezier(0, 0, 0.2, 1) infinite;
+  background-color: var(--accent-amber);
 }
 
 .status-dot.status-blue {
-  background-color: #3b82f6;
+  background-color: var(--accent-cyan);
 }
 
-.status-dot.status-blue::after {
-  content: '';
-  position: absolute;
-  inset: -3px;
-  border-radius: 50%;
-  background-color: rgba(59, 130, 246, 0.5);
-  animation: pulsePing 2s cubic-bezier(0, 0, 0.2, 1) infinite;
-}
-
-@keyframes pulsePing {
-  0% {
-    transform: scale(0.9);
-    opacity: 0.8;
-  }
-  70%, 100% {
-    transform: scale(2.2);
-    opacity: 0;
-  }
+@keyframes pulseDot {
+  0% { transform: scale(0.9); opacity: 0.8; }
+  70%, 100% { transform: scale(2.3); opacity: 0; }
 }
 
 /* --------------------------------------------------------------------------
-   Glass Cards
+   3. Badges & Tags
    -------------------------------------------------------------------------- */
-.glass-card {
-  background: var(--bg-card);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
-  border: 1px solid var(--bg-surface-glass-border);
-  border-radius: var(--radius-lg);
-  padding: var(--space-6);
-  position: relative;
-  transition: transform var(--transition-normal), border-color var(--transition-normal), box-shadow var(--transition-normal), background var(--transition-normal);
-  overflow: hidden;
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 11px;
+  font-family: var(--font-mono);
+  font-weight: 500;
+  padding: 3px 8px;
+  border-radius: var(--radius-xs);
+  letter-spacing: 0.02em;
 }
 
-.glass-card:hover {
-  background: var(--bg-card-hover);
-  border-color: rgba(255, 255, 255, 0.16);
-  transform: translateY(-4px);
-  box-shadow: 0 12px 30px -10px rgba(0, 0, 0, 0.5);
+.badge-emerald {
+  background: var(--accent-emerald-subtle);
+  color: var(--accent-emerald-light);
+  border: 1px solid rgba(16, 185, 129, 0.25);
 }
 
-.glass-card-glow-cyan:hover {
-  border-color: rgba(6, 182, 212, 0.4);
-  box-shadow: 0 10px 30px -5px rgba(6, 182, 212, 0.2);
+.badge-cyan {
+  background: var(--accent-cyan-subtle);
+  color: var(--accent-cyan-light);
+  border: 1px solid rgba(0, 210, 255, 0.25);
 }
 
-.glass-card-glow-indigo:hover {
-  border-color: rgba(99, 102, 241, 0.4);
-  box-shadow: 0 10px 30px -5px rgba(99, 102, 241, 0.2);
+.badge-indigo {
+  background: var(--accent-indigo-subtle);
+  color: var(--accent-indigo-light);
+  border: 1px solid rgba(99, 102, 241, 0.25);
+}
+
+.badge-amber {
+  background: var(--accent-amber-subtle);
+  color: var(--accent-amber-light);
+  border: 1px solid rgba(245, 158, 11, 0.25);
+}
+
+.tech-tag {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: var(--text-secondary);
+  background: rgba(255, 255, 255, 0.035);
+  border: 1px solid var(--border-subtle);
+  padding: 3px 8px;
+  border-radius: var(--radius-xs);
+  white-space: nowrap;
 }
 
 /* --------------------------------------------------------------------------
-   Custom Toast Notifications
+   4. Glass & Editorial Cards
+   -------------------------------------------------------------------------- */
+.editorial-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-lg);
+  padding: var(--space-xl);
+  transition: border-color var(--transition-normal), transform var(--transition-normal), box-shadow var(--transition-normal);
+  position: relative;
+}
+
+.editorial-card:hover {
+  border-color: var(--border-light);
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-card-hover);
+}
+
+/* --------------------------------------------------------------------------
+   5. Simulated UI Preview Canvas (For High-Fidelity Project Visuals)
+   -------------------------------------------------------------------------- */
+.ui-preview-window {
+  background: #0b0f19;
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  box-shadow: 0 16px 40px -10px rgba(0, 0, 0, 0.7);
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  min-height: 280px;
+}
+
+.ui-preview-topbar {
+  background: #0e1422;
+  padding: 10px 14px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid var(--border-subtle);
+}
+
+.ui-window-dots {
+  display: flex;
+  gap: 6px;
+}
+
+.ui-dot {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+}
+.ui-dot-red { background: #ef4444; }
+.ui-dot-yellow { background: #f59e0b; }
+.ui-dot-green { background: #10b981; }
+
+.ui-preview-url {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  color: var(--text-muted);
+  background: rgba(0, 0, 0, 0.3);
+  padding: 2px 10px;
+  border-radius: var(--radius-full);
+}
+
+.ui-preview-canvas {
+  padding: var(--space-lg);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+  flex-grow: 1;
+  background: linear-gradient(180deg, #090e18 0%, #060910 100%);
+  position: relative;
+}
+
+/* --------------------------------------------------------------------------
+   6. Custom Toast Notifications
    -------------------------------------------------------------------------- */
 .toast-container {
   position: fixed;
@@ -230,25 +261,25 @@
   z-index: 1000;
   display: flex;
   flex-direction: column;
-  gap: 12px;
+  gap: 10px;
   pointer-events: none;
 }
 
 .toast {
   pointer-events: auto;
-  background: #111827;
-  border: 1px solid rgba(6, 182, 212, 0.4);
+  background: #0f1524;
+  border: 1px solid var(--accent-cyan-border);
   color: var(--text-primary);
-  padding: 12px 20px;
-  border-radius: var(--radius-md);
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5), 0 0 15px rgba(6, 182, 212, 0.2);
+  padding: 12px 18px;
+  border-radius: var(--radius-sm);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6), 0 0 15px rgba(0, 210, 255, 0.15);
   display: flex;
   align-items: center;
-  gap: 12px;
-  font-size: var(--text-sm);
-  transform: translateY(30px);
+  gap: 10px;
+  font-size: var(--font-size-sm);
+  transform: translateY(20px);
   opacity: 0;
-  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  transition: all 0.28s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .toast.show {
@@ -257,22 +288,22 @@
 }
 
 /* --------------------------------------------------------------------------
-   Modal / Project Quick View Drawer
+   7. Project Detail Modal
    -------------------------------------------------------------------------- */
 .modal-backdrop {
   position: fixed;
   inset: 0;
-  background: rgba(3, 7, 18, 0.8);
+  background: rgba(3, 6, 12, 0.85);
   backdrop-filter: blur(8px);
   -webkit-backdrop-filter: blur(8px);
   z-index: 999;
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: var(--space-4);
+  padding: var(--space-md);
   opacity: 0;
   visibility: hidden;
-  transition: opacity 0.3s ease, visibility 0.3s ease;
+  transition: opacity 0.28s ease, visibility 0.28s ease;
 }
 
 .modal-backdrop.is-active {
@@ -281,18 +312,18 @@
 }
 
 .modal-content {
-  background: #0f172a;
-  border: 1px solid rgba(255, 255, 255, 0.12);
-  border-radius: var(--radius-xl);
+  background: #0d121f;
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-lg);
   max-width: 680px;
   width: 100%;
-  max-height: 85vh;
+  max-height: 88vh;
   overflow-y: auto;
-  padding: var(--space-8);
+  padding: var(--space-xl);
   position: relative;
-  transform: scale(0.95) translateY(10px);
-  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.7);
+  transform: scale(0.96) translateY(8px);
+  transition: transform 0.28s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.85);
 }
 
 .modal-backdrop.is-active .modal-content {
@@ -301,45 +332,44 @@
 
 .modal-close {
   position: absolute;
-  top: 20px;
-  right: 20px;
-  width: 36px;
-  height: 36px;
+  top: 18px;
+  right: 18px;
+  width: 32px;
+  height: 32px;
   border-radius: 50%;
-  background: rgba(255, 255, 255, 0.06);
+  background: rgba(255, 255, 255, 0.05);
   display: flex;
   align-items: center;
   justify-content: center;
   color: var(--text-secondary);
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  border: 1px solid var(--border-subtle);
   transition: all var(--transition-fast);
 }
 
 .modal-close:hover {
-  background: rgba(255, 255, 255, 0.15);
+  background: rgba(255, 255, 255, 0.12);
   color: #fff;
-  transform: rotate(90deg);
 }
 
 /* --------------------------------------------------------------------------
-   Tab Controllers
+   8. Tabs Controller
    -------------------------------------------------------------------------- */
 .tab-list {
   display: flex;
   flex-wrap: wrap;
-  gap: var(--space-2);
-  background: rgba(15, 23, 42, 0.7);
-  padding: 6px;
-  border-radius: var(--radius-lg);
-  border: 1px solid rgba(255, 255, 255, 0.06);
-  margin-bottom: var(--space-8);
+  gap: var(--space-xs);
+  background: rgba(11, 16, 28, 0.8);
+  padding: 5px;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--border-subtle);
+  margin-bottom: var(--space-xl);
 }
 
 .tab-btn {
-  padding: 8px 18px;
-  border-radius: var(--radius-md);
+  padding: 7px 16px;
+  border-radius: var(--radius-sm);
   font-family: var(--font-heading);
-  font-size: var(--text-sm);
+  font-size: var(--font-size-sm);
   font-weight: 500;
   color: var(--text-secondary);
   transition: all var(--transition-fast);
@@ -355,7 +385,6 @@
 
 .tab-btn.is-active {
   background: var(--bg-surface-elevated);
-  color: var(--accent-cyan-light);
-  border: 1px solid rgba(6, 182, 212, 0.3);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  color: var(--text-primary);
+  border: 1px solid var(--accent-cyan-border);
 }

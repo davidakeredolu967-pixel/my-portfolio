@@ -1,5 +1,5 @@
 /* ==========================================================================
-   Base Styles, Reset, Background Atmosphere & Typography
+   Base Styles, Layout & Typography Rules
    ========================================================================== */
 
 *,
@@ -21,7 +21,7 @@ body {
   font-family: var(--font-body);
   background-color: var(--bg-body);
   color: var(--text-primary);
-  line-height: 1.65;
+  line-height: 1.68;
   overflow-x: hidden;
   position: relative;
   min-height: 100vh;
@@ -29,8 +29,8 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-/* Ambient Background Glows and Grid */
-.bg-ambient-layer {
+/* Subtle Architectural Grid Background */
+.bg-canvas {
   position: fixed;
   inset: 0;
   pointer-events: none;
@@ -38,85 +38,71 @@ body {
   overflow: hidden;
 }
 
-.bg-ambient-layer::before {
+.bg-canvas::before {
   content: '';
   position: absolute;
-  top: -10vw;
-  left: 10vw;
-  width: 45vw;
-  height: 45vw;
-  background: radial-gradient(circle, rgba(99, 102, 241, 0.12) 0%, rgba(6, 182, 212, 0.05) 50%, transparent 75%);
+  top: -150px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 900px;
+  max-width: 100vw;
+  height: 480px;
+  background: radial-gradient(ellipse at center, rgba(0, 210, 255, 0.07) 0%, rgba(99, 102, 241, 0.03) 45%, transparent 70%);
   filter: blur(80px);
-  border-radius: 50%;
-  animation: pulseOrb 12s ease-in-out infinite alternate;
+  pointer-events: none;
 }
 
-.bg-ambient-layer::after {
-  content: '';
-  position: absolute;
-  bottom: 10vw;
-  right: 5vw;
-  width: 40vw;
-  height: 40vw;
-  background: radial-gradient(circle, rgba(6, 182, 212, 0.1) 0%, rgba(16, 185, 129, 0.05) 50%, transparent 75%);
-  filter: blur(90px);
-  border-radius: 50%;
-  animation: pulseOrb 16s ease-in-out infinite alternate-reverse;
-}
-
-.bg-grid-overlay {
+.bg-grid-subtle {
   position: fixed;
   inset: 0;
   background-image: 
-    linear-gradient(to right, rgba(255, 255, 255, 0.02) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
-  background-size: 40px 40px;
-  mask-image: radial-gradient(ellipse at center, black 40%, transparent 80%);
-  -webkit-mask-image: radial-gradient(ellipse at center, black 40%, transparent 80%);
+    linear-gradient(to right, rgba(255, 255, 255, 0.018) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.018) 1px, transparent 1px);
+  background-size: 48px 48px;
+  mask-image: radial-gradient(ellipse at 50% 20%, black 40%, transparent 80%);
+  -webkit-mask-image: radial-gradient(ellipse at 50% 20%, black 40%, transparent 80%);
   pointer-events: none;
   z-index: 0;
 }
 
-@keyframes pulseOrb {
-  0% {
-    transform: scale(0.95) translate(0, 0);
-    opacity: 0.7;
-  }
-  100% {
-    transform: scale(1.1) translate(30px, -20px);
-    opacity: 1;
-  }
-}
-
-/* Container */
+/* Container Constraint */
 .container {
   width: 100%;
-  max-width: var(--max-width);
+  max-width: var(--container-max);
   margin-left: auto;
   margin-right: auto;
-  padding-left: var(--space-6);
-  padding-right: var(--space-6);
+  padding-left: var(--container-pad);
+  padding-right: var(--container-pad);
   position: relative;
   z-index: 1;
 }
 
-/* Typography Helpers */
+/* Typography Hierarchy */
 h1, h2, h3, h4, h5, h6 {
   font-family: var(--font-heading);
   font-weight: 700;
-  line-height: 1.2;
+  line-height: 1.18;
   color: var(--text-primary);
-  letter-spacing: -0.02em;
+  letter-spacing: -0.025em;
 }
+
+h1 { font-size: var(--font-size-hero); }
+h2 { font-size: var(--font-size-3xl); }
+h3 { font-size: var(--font-size-2xl); }
+h4 { font-size: var(--font-size-xl); }
+h5 { font-size: var(--font-size-lg); }
+h6 { font-size: var(--font-size-md); }
 
 p {
   color: var(--text-secondary);
+  font-size: var(--font-size-base);
+  font-weight: 400;
 }
 
 a {
   color: inherit;
   text-decoration: none;
-  transition: color var(--transition-fast);
+  transition: color var(--transition-fast), border-color var(--transition-fast), opacity var(--transition-fast);
 }
 
 img, svg {
@@ -133,40 +119,46 @@ button {
 }
 
 code, pre {
-  font-family: var(--font-code);
+  font-family: var(--font-mono);
 }
 
-/* Gradient Text Utilities */
+/* Accessibility Focus States */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+textarea:focus-visible {
+  outline: 2px solid var(--accent-cyan);
+  outline-offset: 3px;
+}
+
+/* Text Utility Helpers */
 .text-gradient {
-  background: var(--grad-primary);
+  background: var(--grad-accent-text);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
 }
 
-.text-cyan-gradient {
-  background: var(--grad-cyan-indigo);
+.text-white-gradient {
+  background: var(--grad-text);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
 }
 
-.text-emerald-gradient {
-  background: var(--grad-emerald-cyan);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
+.text-mono {
+  font-family: var(--font-mono);
 }
 
-/* Section Header Structure */
+/* Section Structure */
 .section {
-  padding-top: var(--space-20);
-  padding-bottom: var(--space-20);
+  padding-top: var(--space-4xl);
+  padding-bottom: var(--space-4xl);
   position: relative;
 }
 
 .section-header {
-  margin-bottom: var(--space-12);
+  margin-bottom: var(--space-2xl);
   text-align: center;
 }
 
@@ -174,39 +166,33 @@ code, pre {
   text-align: left;
 }
 
-.section-tag {
+.section-label {
   display: inline-flex;
   align-items: center;
-  gap: var(--space-2);
-  font-family: var(--font-code);
-  font-size: var(--text-xs);
+  gap: var(--space-xs);
+  font-family: var(--font-mono);
+  font-size: var(--font-size-xs);
   text-transform: uppercase;
   letter-spacing: 0.12em;
   color: var(--accent-cyan);
-  background: rgba(6, 182, 212, 0.08);
-  border: 1px solid rgba(6, 182, 212, 0.2);
+  background: var(--accent-cyan-subtle);
+  border: 1px solid var(--accent-cyan-border);
   padding: 4px 12px;
   border-radius: var(--radius-full);
-  margin-bottom: var(--space-4);
+  margin-bottom: var(--space-md);
 }
 
 .section-title {
-  font-size: var(--text-3xl);
-  margin-bottom: var(--space-4);
-}
-
-@media (min-width: 768px) {
-  .section-title {
-    font-size: var(--text-4xl);
-  }
+  margin-bottom: var(--space-sm);
 }
 
 .section-subtitle {
-  font-size: var(--text-lg);
+  font-size: var(--font-size-md);
   color: var(--text-secondary);
-  max-width: 680px;
+  max-width: 640px;
   margin-left: auto;
   margin-right: auto;
+  line-height: 1.6;
 }
 
 .section-header.text-left .section-subtitle {
@@ -214,11 +200,11 @@ code, pre {
   margin-right: 0;
 }
 
-/* Scroll Reveal Animation Framework */
+/* Scroll Reveal */
 .reveal-on-scroll {
   opacity: 0;
-  transform: translateY(24px);
-  transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1), transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+  transform: translateY(20px);
+  transition: opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1), transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
   will-change: opacity, transform;
 }
 
@@ -227,26 +213,8 @@ code, pre {
   transform: translateY(0);
 }
 
-/* Custom Scrollbar */
-::-webkit-scrollbar {
-  width: 8px;
-}
-
-::-webkit-scrollbar-track {
-  background: var(--bg-body);
-}
-
-::-webkit-scrollbar-thumb {
-  background: #1e293b;
-  border-radius: 4px;
-}
-
-::-webkit-scrollbar-thumb:hover {
-  background: #334155;
-}
-
 /* Selection */
 ::selection {
-  background: rgba(6, 182, 212, 0.3);
+  background: rgba(0, 210, 255, 0.25);
   color: #fff;
 }

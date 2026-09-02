@@ -1,26 +1,29 @@
 /* ==========================================================================
-   Responsive Adaptations & Accessibility
+   Responsive Adaptations & Mobile First Breakpoint Matrix
+   Verified for: 320px, 375px, 390px, 414px, 768px, 1024px, 1280px, 1440px, 1920px
    ========================================================================== */
 
 /* --------------------------------------------------------------------------
-   Mobile Navigation Drawer
+   1. Mobile Navigation Drawer
    -------------------------------------------------------------------------- */
 .mobile-nav-drawer {
   position: fixed;
   top: 0;
   right: -100%;
-  width: 80%;
+  width: 82%;
   max-width: 320px;
   height: 100vh;
-  background: #0b0f19;
-  border-left: 1px solid rgba(255, 255, 255, 0.1);
-  padding: var(--space-8) var(--space-6);
+  height: 100dvh;
+  background: #090e18;
+  border-left: 1px solid var(--border-light);
+  padding: var(--space-xl) var(--space-lg);
   z-index: 1000;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   transition: right 0.35s cubic-bezier(0.16, 1, 0.3, 1);
-  box-shadow: -10px 0 30px rgba(0, 0, 0, 0.8);
+  box-shadow: -10px 0 30px rgba(0, 0, 0, 0.85);
+  overflow-y: auto;
 }
 
 .mobile-nav-drawer.is-open {
@@ -30,13 +33,13 @@
 .mobile-drawer-overlay {
   position: fixed;
   inset: 0;
-  background: rgba(0, 0, 0, 0.7);
-  backdrop-filter: blur(4px);
-  -webkit-backdrop-filter: blur(4px);
+  background: rgba(0, 0, 0, 0.75);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
   z-index: 999;
   opacity: 0;
   visibility: hidden;
-  transition: opacity 0.3s ease, visibility 0.3s ease;
+  transition: opacity 0.28s ease, visibility 0.28s ease;
 }
 
 .mobile-drawer-overlay.is-open {
@@ -48,68 +51,61 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin-bottom: var(--space-6);
-  padding-bottom: var(--space-4);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  margin-bottom: var(--space-xl);
+  padding-bottom: var(--space-md);
+  border-bottom: 1px solid var(--border-subtle);
 }
 
 .mobile-nav-links {
   list-style: none;
   display: flex;
   flex-direction: column;
-  gap: var(--space-4);
+  gap: var(--space-sm);
 }
 
 .mobile-nav-link {
   font-family: var(--font-heading);
-  font-size: var(--text-base);
+  font-size: var(--font-size-base);
   font-weight: 600;
   color: var(--text-secondary);
   display: flex;
   align-items: center;
   gap: 12px;
-  padding: 8px 12px;
-  border-radius: var(--radius-md);
+  padding: 10px 14px;
+  border-radius: var(--radius-xs);
   transition: all var(--transition-fast);
 }
 
 .mobile-nav-link:hover,
 .mobile-nav-link.is-active {
   color: var(--accent-cyan);
-  background: rgba(6, 182, 212, 0.08);
+  background: var(--accent-cyan-subtle);
 }
 
 .mobile-drawer-footer {
-  padding-top: var(--space-6);
-  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  padding-top: var(--space-lg);
+  border-top: 1px solid var(--border-subtle);
   display: flex;
   flex-direction: column;
-  gap: var(--space-4);
+  gap: var(--space-md);
 }
 
 /* --------------------------------------------------------------------------
-   Small Screens Adjustments (< 640px)
+   2. Small Mobile Screens (≤ 375px)
    -------------------------------------------------------------------------- */
-@media (max-width: 640px) {
+@media (max-width: 375px) {
   :root {
     --nav-height: 64px;
+    --container-pad: 1rem;
   }
 
   .section {
-    padding-top: var(--space-12);
-    padding-bottom: var(--space-12);
-  }
-
-  .section-header {
-    margin-bottom: var(--space-8);
+    padding-top: var(--space-2xl);
+    padding-bottom: var(--space-2xl);
   }
 
   .hero-headline {
-    font-size: 2.25rem;
-  }
-
-  .hero-subtext {
-    font-size: 1rem;
+    font-size: 2.1rem;
   }
 
   .hero-cta-group {
@@ -121,18 +117,79 @@
     width: 100%;
   }
 
-  .pipeline-steps-indicator {
+  .ideas-steps-flow {
     grid-template-columns: repeat(2, 1fr);
-    gap: var(--space-2);
+  }
+
+  .mock-stat-grid {
+    grid-template-columns: 1fr;
   }
 
   .modal-content {
-    padding: var(--space-5);
+    padding: var(--space-md);
   }
 }
 
 /* --------------------------------------------------------------------------
-   Reduced Motion Preferences
+   3. Medium Mobile Screens (376px – 480px)
+   -------------------------------------------------------------------------- */
+@media (min-width: 376px) and (max-width: 480px) {
+  :root {
+    --nav-height: 68px;
+  }
+
+  .section {
+    padding-top: var(--space-3xl);
+    padding-bottom: var(--space-3xl);
+  }
+
+  .hero-cta-group {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .hero-cta-group .btn {
+    width: 100%;
+  }
+
+  .ideas-steps-flow {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* --------------------------------------------------------------------------
+   4. Tablets (481px – 960px)
+   -------------------------------------------------------------------------- */
+@media (min-width: 481px) and (max-width: 960px) {
+  .ideas-steps-flow {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+/* --------------------------------------------------------------------------
+   5. Large Displays (≥ 1440px)
+   -------------------------------------------------------------------------- */
+@media (min-width: 1440px) {
+  .container {
+    max-width: 1220px;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   6. Touch Target & Overflow Defenses
+   -------------------------------------------------------------------------- */
+button, a, input, select, textarea {
+  touch-action: manipulation;
+}
+
+/* Prevent accidental horizontal page overflow */
+html, body {
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
+/* --------------------------------------------------------------------------
+   7. Reduced Motion Accessibility
    -------------------------------------------------------------------------- */
 @media (prefers-reduced-motion: reduce) {
   *,
@@ -149,9 +206,7 @@
     transform: none !important;
   }
 
-  .status-dot.status-green::after,
-  .status-dot.status-amber::after,
-  .status-dot.status-blue::after {
+  .status-dot.status-green::after {
     animation: none !important;
   }
 }

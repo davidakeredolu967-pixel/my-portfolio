@@ -1,5 +1,6 @@
 /**
  * Contact Form Handling & Copy Toast Notification
+ * Configured for Niyi (akeredoludavid967@gmail.com / 09054168609)
  */
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -14,23 +15,35 @@ function initContactForm() {
   form.addEventListener('submit', (e) => {
     e.preventDefault();
 
-    const name = form.querySelector('#contact-name').value.trim();
-    const email = form.querySelector('#contact-email').value.trim();
-    const message = form.querySelector('#contact-message').value.trim();
+    const nameInput = form.querySelector('#contact-name');
+    const emailInput = form.querySelector('#contact-email');
+    const messageInput = form.querySelector('#contact-message');
+
+    const name = nameInput ? nameInput.value.trim() : '';
+    const email = emailInput ? emailInput.value.trim() : '';
+    const message = messageInput ? messageInput.value.trim() : '';
 
     if (!name || !email || !message) {
-      showToast('⚠️ Please fill out all fields before sending.', 'warning');
+      showToast('⚠️ Please fill out all required fields.', 'warning');
       return;
     }
 
-    // Prepare mailto link as direct fall-through for static sites
-    const subject = encodeURIComponent(`Portfolio Inquiry from ${name}`);
-    const body = encodeURIComponent(`Hi Niyi,\n\n${message}\n\nFrom: ${name} (${email})`);
-    const mailtoUrl = `mailto:akeredoludavid18@gmail.com?subject=${subject}&body=${body}`;
+    // Basic email format check
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(email)) {
+      showToast('⚠️ Please enter a valid email address.', 'warning');
+      return;
+    }
 
+    // Prepare direct mailto link
+    const subject = encodeURIComponent(`Project / Development Inquiry from ${name}`);
+    const body = encodeURIComponent(`Hi Niyi,\n\n${message}\n\nFrom: ${name}\nEmail: ${email}`);
+    const mailtoUrl = `mailto:akeredoludavid967@gmail.com?subject=${subject}&body=${body}`;
+
+    // Trigger email client
     window.location.href = mailtoUrl;
 
-    showToast('✉️ Opening your email client to send message...', 'success');
+    showToast('✉️ Opening your email client to send message to Niyi...', 'success');
     form.reset();
   });
 }
@@ -40,13 +53,12 @@ function initCopyEmail() {
   if (!copyBtn) return;
 
   copyBtn.addEventListener('click', async () => {
-    const emailToCopy = copyBtn.getAttribute('data-email') || 'akeredoludavid18@gmail.com';
+    const emailToCopy = copyBtn.getAttribute('data-email') || 'akeredoludavid967@gmail.com';
 
     try {
       if (navigator.clipboard && window.isSecureContext) {
         await navigator.clipboard.writeText(emailToCopy);
       } else {
-        // Fallback for non-https / older browsers
         const tempInput = document.createElement('textarea');
         tempInput.value = emailToCopy;
         document.body.appendChild(tempInput);
@@ -62,7 +74,7 @@ function initCopyEmail() {
 }
 
 /**
- * Custom Toast Notification
+ * Toast Notification System
  */
 function showToast(message, type = 'info') {
   let container = document.getElementById('toast-container');
@@ -79,7 +91,6 @@ function showToast(message, type = 'info') {
 
   container.appendChild(toast);
 
-  // Trigger reflow to animate
   requestAnimationFrame(() => {
     toast.classList.add('show');
   });
@@ -91,8 +102,7 @@ function showToast(message, type = 'info') {
         toast.parentNode.removeChild(toast);
       }
     }, 300);
-  }, 3500);
+  }, 3800);
 }
 
-// Make showToast accessible globally if needed
 window.showToast = showToast;

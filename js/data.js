@@ -1,16 +1,18 @@
 /**
- * Portfolio Data Source - Akeredolu Kolade David Omoniyi (niyi)
- * Easy to update, extend, and maintain without editing HTML templates.
+ * Portfolio Data Source — Niyi (Akeredolu Kolade David Omoniyi)
+ * Clean, structured, scalable data object.
  */
 
 window.PORTFOLIO_DATA = {
   profile: {
+    displayName: "Niyi",
     fullName: "Akeredolu Kolade David Omoniyi",
-    displayName: "niyi",
     role: "Web Developer • AI-Assisted Developer • Digital Builder • Problem Solver",
     location: "Nigeria",
     education: "Mathematical Science student at the Federal University of Technology, Akure (FUTA)",
-    email: "akeredoludavid18@gmail.com", // user can easily change or use placeholder
+    email: "akeredoludavid967@gmail.com",
+    phone: "09054168609",
+    phoneTel: "+2349054168609",
     github: "https://github.com/davidakeredolu967-pixel",
     linkedin: "https://linkedin.com/in/",
     twitter: "https://twitter.com/",
@@ -18,33 +20,33 @@ window.PORTFOLIO_DATA = {
 
   skills: {
     development: [
-      { name: "HTML5 / Semantic HTML", level: "Comfortable with", tag: "comfortable" },
-      { name: "CSS3 / Modern Layouts", level: "Comfortable with", tag: "comfortable" },
+      { name: "HTML5 & Semantic Markup", level: "Comfortable with", tag: "comfortable" },
+      { name: "CSS3 / Flexbox & Grid", level: "Comfortable with", tag: "comfortable" },
       { name: "JavaScript (ES6+)", level: "Comfortable with", tag: "comfortable" },
-      { name: "React", level: "Currently learning", tag: "learning" },
-      { name: "Firebase Auth & SDK", level: "Comfortable with", tag: "comfortable" },
-      { name: "Firestore Database", level: "Comfortable with", tag: "comfortable" },
-      { name: "Git Version Control", level: "Comfortable with", tag: "comfortable" },
+      { name: "React Components", level: "Currently learning", tag: "learning" },
+      { name: "Firebase Authentication", level: "Comfortable with", tag: "comfortable" },
+      { name: "Cloud Firestore Database", level: "Comfortable with", tag: "comfortable" },
+      { name: "Git & Version Control", level: "Comfortable with", tag: "comfortable" },
       { name: "GitHub Collaboration", level: "Comfortable with", tag: "comfortable" }
     ],
     aiWorkflow: [
       { name: "AI-Assisted Coding", level: "Comfortable with", tag: "comfortable" },
-      { name: "Vibe Coding & Iteration", level: "Comfortable with", tag: "comfortable" },
-      { name: "Prompt Engineering", level: "Comfortable with", tag: "comfortable" },
-      { name: "Debugging with AI", level: "Comfortable with", tag: "comfortable" },
+      { name: "Vibe Coding & Rapid Scaffolding", level: "Comfortable with", tag: "comfortable" },
+      { name: "Context & Prompt Engineering", level: "Comfortable with", tag: "comfortable" },
+      { name: "Debugging & Stack Trace Analysis", level: "Comfortable with", tag: "comfortable" },
       { name: "Rapid Prototyping", level: "Comfortable with", tag: "comfortable" },
-      { name: "Context & Code Reasoning", level: "Comfortable with", tag: "comfortable" }
+      { name: "Code Understanding & Refactoring", level: "Comfortable with", tag: "comfortable" }
     ],
     digitalBusiness: [
-      { name: "Shopify Store Setup", level: "Exploring", tag: "exploring" },
-      { name: "E-commerce Architecture", level: "Exploring", tag: "exploring" },
-      { name: "Product Research", level: "Exploring", tag: "exploring" },
-      { name: "Dropshipping Concepts", level: "Exploring", tag: "exploring" }
+      { name: "Shopify Store Architecture", level: "Exploring", tag: "exploring" },
+      { name: "E-Commerce Strategy", level: "Exploring", tag: "exploring" },
+      { name: "Product & Market Research", level: "Exploring", tag: "exploring" },
+      { name: "Digital Dropshipping Concepts", level: "Exploring", tag: "exploring" }
     ],
     design: [
-      { name: "Canva Pro", level: "Comfortable with", tag: "comfortable" },
-      { name: "UI & Layout Design", level: "Comfortable with", tag: "comfortable" },
-      { name: "Digital Branding", level: "Comfortable with", tag: "comfortable" },
+      { name: "Canva Design Suite", level: "Comfortable with", tag: "comfortable" },
+      { name: "UI & Layout Hierarchy", level: "Comfortable with", tag: "comfortable" },
+      { name: "Digital Brand Styling", level: "Comfortable with", tag: "comfortable" },
       { name: "Social Media Graphics", level: "Comfortable with", tag: "comfortable" }
     ]
   },
@@ -54,62 +56,71 @@ window.PORTFOLIO_DATA = {
       id: "project-attendance",
       number: "01",
       title: "Attendance Management System",
-      category: "Web Application",
+      category: "Web Application / Cloud System",
       status: "In Development",
       statusColor: "green",
-      shortDesc: "A professional attendance management platform designed to allow users to register, sign in, and sign out while giving administrators a centralized dashboard for real-time tracking.",
+      shortDesc: "A centralized attendance management platform designed to allow users to register, sign in, and sign out while giving administrators real-time tracking dashboards.",
+      problemSolved: "Manual sign-in sheets in organizations and classrooms suffer from lost logs, proxy sign-ins, and tedious end-of-month administrative recalculations.",
+      solutionApproach: "Engineered an authentication-first cloud architecture using Firebase Auth and Firestore with real-time timestamp recording and role-based admin authorization.",
       features: [
-        "User authentication & session persistence",
-        "Sign-in / sign-out timestamp recording",
-        "Centralized administrator monitoring dashboard",
-        "Role-based access & user activity management",
-        "Secure cloud integration with Firebase Firestore"
+        "Secure user registration, authentication & session state",
+        "Automated sign-in / sign-out timestamp recording",
+        "Centralized administrator dashboard for real-time monitoring",
+        "Role-based access controls and user activity logging",
+        "Cloud Firestore dynamic data persistence"
       ],
-      techStack: ["JavaScript", "React", "Firebase Auth", "Firestore", "CSS3"],
+      techStack: ["JavaScript", "React", "Firebase Auth", "Cloud Firestore", "CSS3"],
+      previewType: "dashboard",
       details: {
-        problem: "Manual attendance records lead to lost data, inaccurate timestamps, and administrative delays.",
+        problem: "Paper logs and manual spreadsheets are prone to inaccuracies, buddy-punching, lost records, and tedious end-of-month calculations.",
         solution: "Engineered an automated cloud-backed check-in system with dynamic timestamp logging and instant admin overview.",
-        takeaway: "Deepened practical skills in managing Firebase authentication state, Firestore rules, and complex user flows."
+        takeaway: "Mastered persistent authentication states in asynchronous JavaScript, Firebase security rules, and real-time document listeners."
       }
     },
     {
       id: "project-recipe",
       number: "02",
       title: "Recipe Platform",
-      category: "Web Application",
+      category: "Web Application / Dynamic UI",
       status: "Built / Experimental",
       statusColor: "green",
-      shortDesc: "A responsive culinary platform built to organize, filter, and present diverse recipe collections through a clean, accessible, and mobile-friendly interface.",
+      shortDesc: "A responsive culinary exploration platform built to organize, filter, and present diverse recipe collections through a clean, distraction-free interface.",
+      problemSolved: "Many online cooking platforms are cluttered with overwhelming ads and slow script loads, making it difficult for users to read ingredients and steps on mobile.",
+      solutionApproach: "Designed a lightweight frontend with fast asynchronous Firestore queries, structured ingredient breakdowns, and mobile-first CSS Grid layouts.",
       features: [
-        "Dynamic categorization & recipe search",
-        "Structured ingredient and step breakdown",
-        "Firebase Firestore dynamic content integration",
-        "Responsive, mobile-optimized culinary UI",
-        "Fast client-side rendering"
+        "Dynamic recipe category filtering & instant search",
+        "Clean, structured ingredient and step-by-step instructions",
+        "Cloud Firestore dynamic content integration",
+        "Mobile-optimized culinary view for cooking environments",
+        "Fast client-side rendering with zero bloat"
       ],
-      techStack: ["JavaScript", "Firebase", "Firestore", "CSS Grid", "HTML5"],
+      techStack: ["JavaScript (ES6+)", "Firebase", "Cloud Firestore", "CSS Grid", "HTML5"],
+      previewType: "recipe",
       details: {
         problem: "Users need a fast, clutter-free way to explore and read recipes on both desktop and mobile while cooking.",
         solution: "Crafted a lightweight web app with fast data retrieval from Firestore and clean visual hierarchy.",
-        takeaway: "Mastered asynchronous JavaScript data fetching, UI reactivity, and clean relational data structures."
+        takeaway: "Deepened practical skills in asynchronous JavaScript data handling, UI state reactivity, and mobile design patterns."
       }
     },
     {
       id: "project-avanti",
       number: "03",
       title: "Avanti Vogue — E-commerce Concept",
-      category: "E-Commerce",
+      category: "E-Commerce / Digital Store",
       status: "Concept / Exploration",
       statusColor: "amber",
-      shortDesc: "An e-commerce concept exploring modern online retail aesthetics, Shopify store architecture, curated product selection, and digital brand positioning.",
+      shortDesc: "An e-commerce store concept exploring online fashion retail aesthetics, Shopify store structure, curated lifestyle products, and modern digital brand positioning.",
+      problemSolved: "Emerging e-commerce stores often fail to convert visitors due to generic theme setups, cluttered navigation, and weak visual brand identity.",
+      solutionApproach: "Developed a comprehensive digital retail blueprint focusing on clear typography, product storytelling, friction-free customer journey, and Shopify layout principles.",
       features: [
-        "Modern fashion retail storefront concept",
-        "Product curation and niche research",
-        "Conversion-focused layout & branding",
-        "Online retail customer journey planning",
-        "Shopify digital commerce exploration"
+        "Curated fashion retail storefront layout",
+        "E-commerce product research and lifestyle niche selection",
+        "Conversion-focused customer touchpoint planning",
+        "Digital brand positioning & typography guidelines",
+        "Shopify digital commerce structure exploration"
       ],
-      techStack: ["Shopify Concept", "E-Commerce", "Branding", "UI Design", "Market Research"],
+      techStack: ["Shopify Concept", "E-Commerce Architecture", "UI Design", "Brand Strategy", "Market Research"],
+      previewType: "ecommerce",
       details: {
         problem: "Standing out in modern digital retail requires a balance between strong visual identity and smooth checkout UX.",
         solution: "Explored full brand direction, product catalog strategies, and visual storytelling for digital storefronts.",
@@ -119,18 +130,21 @@ window.PORTFOLIO_DATA = {
     {
       id: "project-branding",
       number: "04",
-      title: "Digital Design & Branding Portfolio",
-      category: "Design & Media",
+      title: "Digital Design & Branding Showcase",
+      category: "Design & Visual Communication",
       status: "Active Gallery",
       statusColor: "blue",
-      shortDesc: "A curated collection of visual designs, university department promotional materials, event posters, and social media branding concepts.",
+      shortDesc: "A curated collection of visual communications, event posters, department designs, and promotional assets created for campus initiatives and digital campaigns.",
+      problemSolved: "University initiatives and digital announcements often struggle to capture audience attention due to inconsistent styling and poor visual hierarchy.",
+      solutionApproach: "Produced high-contrast, eye-catching visual assets adhering to deliberate color theory, readable typography, and coherent visual branding.",
       features: [
-        "Event and department promotional flyers",
-        "Social media graphics & visual identity",
-        "Brand style guide concepts & typography",
-        "Digital banners and visual communication assets"
+        "Departmental and event promotional designs",
+        "Social media graphics & visual identity concepts",
+        "Typography hierarchy and brand style assets",
+        "Digital flyers and communication media"
       ],
-      techStack: ["Canva", "UI Design", "Typography", "Visual Branding", "Digital Media"],
+      techStack: ["Canva Pro", "Visual Identity", "Typography", "Digital Media", "UI Layout"],
+      previewType: "design",
       details: {
         problem: "Campus events and digital campaigns often suffer from dull or inconsistent visual communication.",
         solution: "Designed high-contrast, eye-catching visual assets that clearly deliver key messages and engage audiences.",
@@ -147,11 +161,11 @@ window.PORTFOLIO_DATA = {
       steps: {
         idea: {
           title: "The Idea",
-          desc: "To create a seamless, paperless check-in and check-out platform where student or team attendance is recorded accurately in real-time."
+          desc: "To create a seamless, paperless check-in platform where student or team attendance is recorded accurately in real-time."
         },
         problem: {
           title: "The Problem",
-          desc: "Paper logs and manual spreadsheets are prone to inaccuracies, buddy-punching, lost records, and tedious end-of-month calculations."
+          desc: "Paper logs and manual spreadsheets are prone to inaccuracies, buddy-punching, lost records, and tedious end-of-month recalculations."
         },
         build: {
           title: "The Build",
@@ -211,7 +225,7 @@ window.PORTFOLIO_DATA = {
     },
     {
       id: "portfolio-case",
-      projectName: "Personal Brand & Portfolio",
+      projectName: "Personal Portfolio & Brand",
       badge: "In Development",
       steps: {
         idea: {
@@ -238,42 +252,42 @@ window.PORTFOLIO_DATA = {
     {
       step: "01",
       title: "Idea & Architecture",
-      icon: "lightbulb",
-      summary: "Framing the core objective and technical boundaries before writing a single prompt.",
+      icon: "01",
+      summary: "Framing the core objective and technical boundaries before writing prompts.",
       detail: "I begin by clearly defining what problem the software solves, what data models are required, and what the user experience should feel like. Clear human intent is the essential prerequisite for high-leverage AI collaboration."
     },
     {
       step: "02",
       title: "Targeted Prompting",
-      icon: "terminal",
-      summary: "Drafting precise, context-rich prompts with explicit constraints and technical specifications.",
+      icon: "02",
+      summary: "Drafting precise prompts with explicit constraints and technical specifications.",
       detail: "Instead of generic requests, I provide exact constraints: data schemas, security rules, styling tokens, edge case handling, and preferred library patterns. This ensures generated code fits the existing architecture seamlessly."
     },
     {
       step: "03",
       title: "Build & Assembly",
-      icon: "cpu",
+      icon: "03",
       summary: "Assembling functional modules, combining AI-generated snippets with custom logic.",
       detail: "I inspect and evaluate every generated snippet, ensuring clean separation of concerns, semantic structure, and maintainable organization across components and scripts."
     },
     {
       step: "04",
       title: "Testing & Validation",
-      icon: "check-circle",
-      summary: "Validating edge cases, responsive behavior, and accessibility.",
-      detail: "Code is run through rigorous tests: checking mobile breakpoints, validating form states, ensuring asynchronous promises handle failure gracefully, and auditing rendering speed."
+      icon: "04",
+      summary: "Validating edge cases, responsive behavior, and accessibility across devices.",
+      detail: "Code is run through rigorous checks: validating mobile breakpoints, checking form states, ensuring asynchronous promises handle failure gracefully, and auditing rendering speed."
     },
     {
       step: "05",
       title: "Debugging & Troubleshooting",
-      icon: "bug",
+      icon: "05",
       summary: "Diagnosing console errors, state mismatches, and configuration glitches.",
       detail: "When bugs emerge, I use AI to analyze stack traces and explore alternative solutions, while manually verifying root causes in browser devtools and database rules."
     },
     {
       step: "06",
       title: "Refinement & Polish",
-      icon: "sparkles",
+      icon: "06",
       summary: "Elevating performance, micro-interactions, and visual elegance.",
       detail: "Final tuning of transition easings, reduced motion support, clean comments, and performance optimization to turn a prototype into a refined, reliable digital product."
     }
@@ -338,7 +352,7 @@ window.PORTFOLIO_DATA = {
     },
     {
       period: "Present Day",
-      title: "Now: Advancing Skills & Seeking Building Opportunities",
+      title: "Currently: Advancing Skills & Building",
       desc: "Currently a Mathematical Science student at FUTA, continuously sharpening fullstack & product skills, troubleshooting real website problems, and building useful tools."
     }
   ],
