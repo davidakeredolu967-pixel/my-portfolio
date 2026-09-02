@@ -1,47 +1,50 @@
 /* ==========================================================================
    Design System Tokens — Niyi Portfolio
-   Deep Obsidian Espresso & Antique Copper Architectural Studio Aesthetic
+   Kreatify-Inspired Deep Obsidian & Electric Lime fused with Warm Bronze Chrome
    ========================================================================== */
 
 :root {
-  /* Surface Colors: Deep Obsidian & Espresso */
-  --bg-body: #090A0B;
-  --bg-primary: #11100F;
-  --bg-surface: #171615;
-  --bg-surface-elevated: #1E1D1B;
+  /* Surface Colors: Deep Obsidian Void & Smoked Glass */
+  --bg-body: #05070A;
+  --bg-primary: #0A0D13;
+  --bg-surface: #11141D;
+  --bg-surface-elevated: #181C26;
   --bg-glass: rgba(255, 255, 255, 0.045);
-  --bg-glass-hover: rgba(255, 255, 255, 0.075);
+  --bg-glass-hover: rgba(255, 255, 255, 0.08);
   --bg-glass-subtle: rgba(255, 255, 255, 0.025);
-  --bg-pill-nav: rgba(17, 16, 15, 0.84);
+  --bg-pill-nav: rgba(10, 13, 19, 0.84);
   
   /* Smoked Glass Borders & Dividers */
   --border-subtle: rgba(255, 255, 255, 0.07);
   --border-light: rgba(255, 255, 255, 0.10);
-  --border-hover: rgba(255, 255, 255, 0.18);
-  --border-accent: rgba(184, 137, 90, 0.38);
-  --border-focus: rgba(184, 137, 90, 0.6);
+  --border-hover: rgba(255, 255, 255, 0.20);
+  --border-accent: rgba(198, 255, 58, 0.4);
+  --border-focus: rgba(198, 255, 58, 0.7);
 
-  /* Sophisticated Muted Copper / Antique Bronze Accent */
-  --accent-copper: #B8895A;
-  --accent-copper-light: #D0A878;
-  --accent-copper-subtle: rgba(184, 137, 90, 0.10);
-  --accent-copper-border: rgba(184, 137, 90, 0.25);
-  --accent-copper-glow: rgba(184, 137, 90, 0.18);
+  /* Signature Accents: Kreatify Electric Lime + Warm Bronze Chrome */
+  --accent-lime: #C6FF3A;
+  --accent-lime-light: #D8FF66;
+  --accent-lime-subtle: rgba(198, 255, 58, 0.10);
+  --accent-lime-border: rgba(198, 255, 58, 0.28);
+  --accent-lime-glow: rgba(198, 255, 58, 0.22);
+
+  --accent-copper: #D0A878;
+  --accent-copper-subtle: rgba(208, 168, 120, 0.12);
 
   /* Functional Status Accents */
   --accent-green-soft: #86efac;
   --accent-amber-soft: #fde047;
 
-  /* Typography Colors: Warm Ivory Off-White & Warm Stone Gray */
-  --text-primary: #F2EFE8;
-  --text-secondary: #A7A39B;
-  --text-muted: #716D66;
-  --text-faint: #44423E;
-  --text-accent: #B8895A;
+  /* Typography Colors: Crisp Warm White & Muted Slate Gray */
+  --text-primary: #F4F3EE;
+  --text-secondary: #9DA3AF;
+  --text-muted: #646B79;
+  --text-faint: #3E4450;
+  --text-accent: #C6FF3A;
 
   /* Gradients */
-  --grad-text: linear-gradient(135deg, #F2EFE8 0%, #D8D4CC 55%, #A7A39B 100%);
-  --grad-copper: linear-gradient(135deg, #D0A878 0%, #B8895A 100%);
+  --grad-text: linear-gradient(135deg, #FFFFFF 0%, #E2E8F0 50%, #9DA3AF 100%);
+  --grad-lime: linear-gradient(135deg, #D8FF66 0%, #C6FF3A 100%);
   --grad-glass-surface: linear-gradient(135deg, rgba(255, 255, 255, 0.06) 0%, rgba(255, 255, 255, 0.02) 100%);
 
   /* Typography Stacks */
@@ -49,7 +52,7 @@
   --font-body: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
   --font-mono: 'JetBrains Mono', monospace;
 
-  /* Fluid Responsive Typography (clamp) */
+  /* Fluid Responsive Typography */
   --font-size-xs: clamp(0.72rem, 0.7rem + 0.1vw, 0.78rem);
   --font-size-sm: clamp(0.82rem, 0.8rem + 0.15vw, 0.88rem);
   --font-size-base: clamp(0.92rem, 0.88rem + 0.2vw, 1rem);
@@ -58,7 +61,7 @@
   --font-size-xl: clamp(1.35rem, 1.25rem + 0.65vw, 1.75rem);
   --font-size-2xl: clamp(1.7rem, 1.45rem + 1.1vw, 2.35rem);
   --font-size-3xl: clamp(2.1rem, 1.75rem + 1.6vw, 3.1rem);
-  --font-size-hero: clamp(2.35rem, 2rem + 2.8vw, 4.2rem);
+  --font-size-hero: clamp(2.4rem, 2rem + 2.8vw, 4.3rem);
 
   /* Spacing Tokens */
   --space-2xs: 0.25rem;
@@ -77,7 +80,7 @@
   /* Container & Grid */
   --container-max: 1140px;
   --container-pad: clamp(1.1rem, 4.5vw, 2.5rem);
-  --nav-height: 72px;
+  --nav-height: 64px;
 
   /* Radii */
   --radius-xs: 6px;
@@ -89,8 +92,8 @@
 
   /* Shadows */
   --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.4);
-  --shadow-glass: 0 16px 40px -10px rgba(0, 0, 0, 0.75);
-  --shadow-glass-hover: 0 24px 50px -12px rgba(0, 0, 0, 0.9);
+  --shadow-glass: 0 16px 40px -10px rgba(0, 0, 0, 0.85);
+  --shadow-glass-hover: 0 24px 50px -12px rgba(0, 0, 0, 0.95);
 
   /* Transitions */
   --transition-fast: 160ms cubic-bezier(0.16, 1, 0.3, 1);

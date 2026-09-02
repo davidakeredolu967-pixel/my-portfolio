@@ -63,7 +63,7 @@ window.PORTFOLIO_DATA = {
         "Firebase & Firestore cloud data integration"
       ],
       techStack: ["JavaScript", "React", "Firebase", "Firestore", "CSS"],
-      imageSrc: "assets/images/projects/attendance.png",
+      imageSrc: "assets/images/projects/attendance-system.jpg",
       previewType: "dashboard",
       details: {
         problem: "Manual attendance records lead to lost data, inaccurate timestamps, and administrative delays.",
@@ -88,7 +88,7 @@ window.PORTFOLIO_DATA = {
         "Mobile-friendly interface for kitchen use"
       ],
       techStack: ["JavaScript", "Firebase", "Firestore", "HTML", "CSS"],
-      imageSrc: "assets/images/projects/recipe.png",
+      imageSrc: "assets/images/projects/recipe-platform.jpg",
       previewType: "recipe",
       details: {
         problem: "Users need a fast, clutter-free way to explore and read recipes on both desktop and mobile while cooking.",
@@ -113,7 +113,7 @@ window.PORTFOLIO_DATA = {
         "Store visual branding and typography guidelines"
       ],
       techStack: ["Shopify", "E-commerce", "Product research", "UI design", "Canva"],
-      imageSrc: "assets/images/projects/avanti.png",
+      imageSrc: "assets/images/projects/avanti-vogue.jpg",
       previewType: "ecommerce",
       details: {
         problem: "Standing out in modern digital retail requires a balance between strong visual identity and smooth navigation.",
@@ -138,7 +138,7 @@ window.PORTFOLIO_DATA = {
         "Digital communication and banner assets"
       ],
       techStack: ["Canva", "UI design", "Digital branding", "Social media graphics"],
-      imageSrc: "assets/images/projects/branding.png",
+      imageSrc: "assets/images/projects/branding.jpg",
       previewType: "design",
       details: {
         problem: "Campus events and digital announcements often suffer from dull or inconsistent visual communication.",
@@ -163,7 +163,7 @@ window.PORTFOLIO_DATA = {
         "Zero external framework dependencies (Vanilla JS/CSS)"
       ],
       techStack: ["HTML5", "CSS3", "JavaScript", "Responsive Design", "Git"],
-      imageSrc: "assets/images/projects/portfolio.png",
+      imageSrc: "assets/images/projects/portfolio.jpg",
       previewType: "portfolio",
       details: {
         problem: "Need a high-polish, authentic proof-of-work website that is defensible in an interview and shows real capability.",
