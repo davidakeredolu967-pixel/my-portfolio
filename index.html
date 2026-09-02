@@ -35,7 +35,8 @@
 </head>
 <body>
 
-  <!-- Subtle Atmospheric Canvas Background -->
+  <!-- Abstract 3D Ambient Background Canvas & Atmospheric Glow -->
+  <canvas id="bg-3d-canvas" class="bg-canvas-3d" aria-hidden="true"></canvas>
   <div class="bg-canvas" aria-hidden="true"></div>
   <div class="bg-grid-subtle" aria-hidden="true"></div>
 
@@ -110,52 +111,60 @@
 
   <main>
     <!-- =========================================================================
-         2. Hero Section (Confident, Uncluttered, Editorial Impact)
+         2. Hero Section (Editorial Two-Column with Interactive 3D Canvas)
          ========================================================================= -->
     <section class="hero-section" id="hero">
       <div class="container">
-        <div class="hero-inner-container">
+        <div class="hero-grid-2col">
           
-          <div class="hero-meta-badge reveal-on-scroll">
-            <span>Akeredolu Kolade David Omoniyi • FUTA</span>
+          <!-- Left: Narrative & Pill CTAs -->
+          <div class="hero-content-left">
+            <div class="hero-meta-badge reveal-on-scroll">
+              <span>Akeredolu Kolade David Omoniyi • FUTA</span>
+            </div>
+
+            <h1 class="hero-headline reveal-on-scroll">
+              I Turn Ideas Into <br>
+              <span class="text-lime">Digital Products.</span>
+            </h1>
+
+            <p class="hero-subtext reveal-on-scroll">
+              Web developer, AI-assisted builder and digital problem solver crafting functional web applications, troubleshooting website problems, and turning ideas into usable prototypes.
+            </p>
+
+            <div class="hero-cta-group reveal-on-scroll">
+              <a href="#projects" class="btn btn-primary btn-lg">
+                <span>View My Work</span>
+                <span>↓</span>
+              </a>
+              <a href="#contact" class="btn btn-secondary btn-lg">
+                <span>Let's Talk</span>
+                <span>↗</span>
+              </a>
+              <button class="btn btn-ghost btn-sm cv-download-btn" id="cv-download-btn" title="Download CV">
+                <span>📄 CV (Coming Soon)</span>
+              </button>
+            </div>
+
+            <div class="hero-quick-meta reveal-on-scroll">
+              <div class="hero-meta-item">
+                <span>🌐</span> <strong>Web Development</strong>
+              </div>
+              <div class="hero-meta-item">
+                <span>⚡</span> <strong>AI Workflows</strong>
+              </div>
+              <div class="hero-meta-item">
+                <span>📐</span> <strong>Mathematical Science @ FUTA</strong>
+              </div>
+              <div class="hero-meta-item">
+                <span>🔍</span> <strong>Website Troubleshooting</strong>
+              </div>
+            </div>
           </div>
 
-          <h1 class="hero-headline reveal-on-scroll">
-            I Turn Ideas Into <br>
-            <span class="text-lime">Digital Products.</span>
-          </h1>
-
-          <p class="hero-subtext reveal-on-scroll">
-            Web developer, AI-assisted builder and digital problem solver crafting functional web applications, troubleshooting website problems, and turning ideas into usable prototypes.
-          </p>
-
-          <div class="hero-cta-group reveal-on-scroll">
-            <a href="#projects" class="btn btn-primary btn-lg">
-              <span>View My Work</span>
-              <span>↓</span>
-            </a>
-            <a href="#contact" class="btn btn-secondary btn-lg">
-              <span>Let's Talk</span>
-              <span>↗</span>
-            </a>
-            <button class="btn btn-ghost btn-sm cv-download-btn" id="cv-download-btn" title="Download CV">
-              <span>📄 CV (Coming Soon)</span>
-            </button>
-          </div>
-
-          <div class="hero-quick-meta reveal-on-scroll">
-            <div class="hero-meta-item">
-              <span>🌐</span> <strong>Web Development</strong>
-            </div>
-            <div class="hero-meta-item">
-              <span>⚡</span> <strong>AI Workflows</strong>
-            </div>
-            <div class="hero-meta-item">
-              <span>📐</span> <strong>Mathematical Science @ FUTA</strong>
-            </div>
-            <div class="hero-meta-item">
-              <span>🔍</span> <strong>Website Troubleshooting</strong>
-            </div>
+          <!-- Right: Interactive Abstract 3D Sculpture Viewport -->
+          <div class="hero-3d-viewport reveal-on-scroll" id="hero-3d-viewport" aria-label="Abstract 3D Digital Workspace Visual">
+            <canvas id="hero-interactive-canvas"></canvas>
           </div>
 
         </div>
@@ -531,6 +540,7 @@
   <div class="toast-container" id="toast-container" aria-live="polite"></div>
 
   <!-- Scripts -->
+  <script src="js/canvas3d.js"></script>
   <script src="js/data.js"></script>
   <script src="js/interactions.js"></script>
   <script src="js/projects.js"></script>
