@@ -1,96 +1,132 @@
 /* ==========================================================================
    Section Layouts — Sample-Matched High-End Studio Aesthetic
-   Giant Condensed Typography, Flowing Script Layer, and Floating Matrix
+   Dense Floating Project Grid Filling the Background Completely (Zero Empty Space)
    ========================================================================== */
 
 /* --------------------------------------------------------------------------
-   1. Hero Section (Sample-Matched Impact Layout — Zero Dead Space)
+   1. Hero Section (Dense Background Matrix — Zero Dead Space)
    -------------------------------------------------------------------------- */
 .hero-section {
   position: relative;
   width: 100%;
-  min-height: 80vh;
-  padding-top: 105px;
+  min-height: 90vh;
+  min-height: 90dvh;
+  padding-top: 110px;
   padding-bottom: var(--space-2xl);
   display: flex;
   align-items: center;
   justify-content: center;
   overflow: hidden;
-  background: #040507;
+  background: #000000;
 }
 
 @media (max-width: 768px) {
   .hero-section {
-    padding-top: 90px;
+    padding-top: 95px;
     padding-bottom: var(--space-xl);
-    min-height: auto;
+    min-height: 85vh;
   }
 }
 
-/* Floating Project Showcase Matrix (Layer 2: Richly Visible Behind Typography) */
+/* Dense 2-Row Floating Matrix: Completely Fills Upper & Lower Background */
 .hero-floating-matrix {
   position: absolute;
-  inset: 0;
+  top: -20px;
+  bottom: -20px;
+  left: 0;
+  right: 0;
   width: 100%;
-  height: 100%;
+  height: calc(100% + 40px);
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: var(--space-lg);
+  grid-template-rows: repeat(2, 1fr);
+  gap: var(--space-md);
   padding: 0 var(--space-md);
   pointer-events: none;
   z-index: 1;
-  opacity: 0.82;
-  transform: perspective(1000px) rotateX(2deg);
+  opacity: 0.88;
+  transform: perspective(1000px) rotateX(1deg);
   transition: transform 0.4s ease-out;
 }
 
 @media (max-width: 768px) {
   .hero-floating-matrix {
     grid-template-columns: repeat(2, 1fr);
-    opacity: 0.45;
-    gap: var(--space-sm);
+    grid-template-rows: repeat(3, 1fr);
+    opacity: 0.55;
+    gap: var(--space-xs);
   }
 }
 
 .floating-matrix-card {
   border-radius: var(--radius-lg);
   overflow: hidden;
-  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.95);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.95);
   border: 1px solid rgba(255, 255, 255, 0.12);
   display: flex;
   align-items: center;
   justify-content: center;
   animation: subtleCardFloat 7s infinite ease-in-out alternate;
-  height: 82%;
+  width: 100%;
+  height: 90%;
   align-self: center;
 }
 
+/* Card Visual Color Framing (Matching sample reference) */
 .floating-matrix-card:nth-child(1) {
-  background: #C85A2A;
-  padding: 14px;
-  transform: translateY(-15px) rotate(-3deg);
+  background: #C85A2A; /* Terracotta Card */
+  padding: 12px;
+  transform: translateY(-8px) rotate(-2deg);
   animation-delay: 0s;
 }
 
 .floating-matrix-card:nth-child(2) {
-  background: #0A0E17;
+  background: #121824; /* Dark SaaS Dashboard */
   padding: 6px;
-  transform: translateY(20px);
-  animation-delay: 1.5s;
+  transform: translateY(10px);
+  animation-delay: 1.2s;
 }
 
 .floating-matrix-card:nth-child(3) {
-  background: #3B336A;
-  padding: 14px;
-  transform: translateY(-8px) rotate(2.5deg);
-  animation-delay: 3s;
+  background: #3B336A; /* Deep Purple Card */
+  padding: 12px;
+  transform: translateY(-5px) rotate(2deg);
+  animation-delay: 2.4s;
 }
 
 .floating-matrix-card:nth-child(4) {
-  background: #111622;
+  background: #181C28; /* Dark Storefront */
   padding: 6px;
-  transform: translateY(25px) rotate(-1.5deg);
-  animation-delay: 4.5s;
+  transform: translateY(12px) rotate(-1.5deg);
+  animation-delay: 3.6s;
+}
+
+.floating-matrix-card:nth-child(5) {
+  background: #1A1F2C; /* Recipe App */
+  padding: 6px;
+  transform: translateY(-10px) rotate(1.5deg);
+  animation-delay: 1.8s;
+}
+
+.floating-matrix-card:nth-child(6) {
+  background: #252A38; /* Branding Card */
+  padding: 10px;
+  transform: translateY(8px) rotate(-2.5deg);
+  animation-delay: 3s;
+}
+
+.floating-matrix-card:nth-child(7) {
+  background: #C85A2A; /* Terracotta Store Card */
+  padding: 12px;
+  transform: translateY(-6px);
+  animation-delay: 4.2s;
+}
+
+.floating-matrix-card:nth-child(8) {
+  background: #3B336A; /* Purple Mobile Card */
+  padding: 10px;
+  transform: translateY(14px) rotate(2deg);
+  animation-delay: 5s;
 }
 
 .floating-matrix-card img {
@@ -98,15 +134,15 @@
   height: 100%;
   object-fit: cover;
   border-radius: var(--radius-md);
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.6);
 }
 
 @keyframes subtleCardFloat {
   0% { transform: translateY(-8px); }
-  100% { transform: translateY(12px); }
+  100% { transform: translateY(10px); }
 }
 
-/* Foreground Editorial Content — Immediate 100% Visibility */
+/* Foreground Editorial Content — Dominant Impact Front & Center */
 .hero-content-wrapper {
   position: relative;
   z-index: 3;
@@ -127,15 +163,20 @@
   font-weight: 500;
   color: #E2E8F0;
   letter-spacing: -0.01em;
-  margin-bottom: 6px;
-  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.9);
+  margin-bottom: 4px;
+  text-shadow: 0 2px 14px rgba(0, 0, 0, 0.95);
+  background: rgba(0, 0, 0, 0.4);
+  padding: 4px 16px;
+  border-radius: var(--radius-full);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(8px);
 }
 
 /* Giant Bold Condensed Typography Block */
 .hero-giant-typography-stack {
   position: relative;
   display: inline-block;
-  margin: 6px 0 14px 0;
+  margin: 8px 0 16px 0;
   width: 100%;
 }
 
@@ -148,13 +189,13 @@
   text-transform: uppercase;
   margin: 0;
   white-space: normal;
-  text-shadow: 0 12px 50px rgba(0, 0, 0, 0.95), 0 0 30px rgba(0, 0, 0, 0.8);
+  text-shadow: 0 14px 60px rgba(0, 0, 0, 1), 0 0 40px rgba(0, 0, 0, 0.95);
 }
 
 /* Flowing Cursive Script Layered Across Giant Text */
 .hero-script-layered {
   font-family: var(--font-script);
-  font-size: clamp(2.6rem, 2.2rem + 4.2vw, 6.2rem);
+  font-size: clamp(2.6rem, 2.2rem + 4.2vw, 6.4rem);
   font-weight: 400;
   color: #ffffff;
   position: absolute;
@@ -163,7 +204,7 @@
   transform: translateX(-50%) rotate(-4deg);
   white-space: nowrap;
   pointer-events: none;
-  text-shadow: 0 6px 25px rgba(0, 0, 0, 0.95), 0 0 16px rgba(255, 255, 255, 0.4);
+  text-shadow: 0 8px 30px rgba(0, 0, 0, 1), 0 0 18px rgba(255, 255, 255, 0.5);
   z-index: 4;
 }
 
@@ -175,11 +216,16 @@
 
 .hero-subtext-sample {
   font-size: var(--font-size-base);
-  color: var(--text-secondary);
+  color: #CBD5E1;
   max-width: 620px;
   margin: var(--space-md) auto 0 auto;
   line-height: 1.62;
-  text-shadow: 0 2px 12px rgba(0, 0, 0, 0.9);
+  text-shadow: 0 2px 14px rgba(0, 0, 0, 0.95);
+  background: rgba(0, 0, 0, 0.4);
+  padding: 8px 18px;
+  border-radius: var(--radius-md);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  backdrop-filter: blur(8px);
 }
 
 .hero-cta-group {
