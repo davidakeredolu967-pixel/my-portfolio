@@ -1,56 +1,43 @@
 /* ==========================================================================
    Design System Tokens — Niyi Portfolio
-   Kreatify-Inspired Deep Obsidian & Electric Lime fused with Warm Bronze Chrome
+   Sample-Matched High-End Studio Aesthetic: Condensed & Script Layering
    ========================================================================== */
 
 :root {
   /* Surface Colors: Deep Obsidian Void & Smoked Glass */
-  --bg-body: #05070A;
-  --bg-primary: #0A0D13;
-  --bg-surface: #11141D;
-  --bg-surface-elevated: #181C26;
-  --bg-glass: rgba(255, 255, 255, 0.045);
+  --bg-body: #050608;
+  --bg-primary: #0A0C10;
+  --bg-surface: #10131A;
+  --bg-surface-elevated: #161A24;
+  --bg-glass: rgba(255, 255, 255, 0.04);
   --bg-glass-hover: rgba(255, 255, 255, 0.08);
-  --bg-glass-subtle: rgba(255, 255, 255, 0.025);
-  --bg-pill-nav: rgba(10, 13, 19, 0.84);
+  --bg-glass-subtle: rgba(255, 255, 255, 0.02);
+  --bg-capsule-nav: rgba(14, 16, 22, 0.88);
   
-  /* Smoked Glass Borders & Dividers */
-  --border-subtle: rgba(255, 255, 255, 0.07);
+  /* Borders & Dividers */
+  --border-subtle: rgba(255, 255, 255, 0.06);
   --border-light: rgba(255, 255, 255, 0.10);
-  --border-hover: rgba(255, 255, 255, 0.20);
+  --border-hover: rgba(255, 255, 255, 0.22);
   --border-accent: rgba(198, 255, 58, 0.4);
-  --border-focus: rgba(198, 255, 58, 0.7);
 
-  /* Signature Accents: Kreatify Electric Lime + Warm Bronze Chrome */
+  /* Accents */
   --accent-lime: #C6FF3A;
-  --accent-lime-light: #D8FF66;
-  --accent-lime-subtle: rgba(198, 255, 58, 0.10);
-  --accent-lime-border: rgba(198, 255, 58, 0.28);
-  --accent-lime-glow: rgba(198, 255, 58, 0.22);
-
   --accent-copper: #D0A878;
-  --accent-copper-subtle: rgba(208, 168, 120, 0.12);
+  --accent-terracotta: #C85A2A;
+  --accent-purple: #483D8B;
 
-  /* Functional Status Accents */
-  --accent-green-soft: #86efac;
-  --accent-amber-soft: #fde047;
-
-  /* Typography Colors: Crisp Warm White & Muted Slate Gray */
+  /* Typography Colors */
   --text-primary: #F4F3EE;
   --text-secondary: #9DA3AF;
   --text-muted: #646B79;
   --text-faint: #3E4450;
-  --text-accent: #C6FF3A;
-
-  /* Gradients */
-  --grad-text: linear-gradient(135deg, #FFFFFF 0%, #E2E8F0 50%, #9DA3AF 100%);
-  --grad-lime: linear-gradient(135deg, #D8FF66 0%, #C6FF3A 100%);
-  --grad-glass-surface: linear-gradient(135deg, rgba(255, 255, 255, 0.06) 0%, rgba(255, 255, 255, 0.02) 100%);
 
   /* Typography Stacks */
-  --font-heading: 'Space Grotesk', 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-  --font-body: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-heading: 'Space Grotesk', sans-serif;
+  --font-body: 'Inter', sans-serif;
   --font-mono: 'JetBrains Mono', monospace;
+  --font-condensed: 'Bebas Neue', -apple-system, sans-serif;
+  --font-script: 'Caveat', cursive, sans-serif;
 
   /* Fluid Responsive Typography */
   --font-size-xs: clamp(0.72rem, 0.7rem + 0.1vw, 0.78rem);
@@ -61,7 +48,7 @@
   --font-size-xl: clamp(1.35rem, 1.25rem + 0.65vw, 1.75rem);
   --font-size-2xl: clamp(1.7rem, 1.45rem + 1.1vw, 2.35rem);
   --font-size-3xl: clamp(2.1rem, 1.75rem + 1.6vw, 3.1rem);
-  --font-size-hero: clamp(2.4rem, 2rem + 2.8vw, 4.3rem);
+  --font-size-giant: clamp(3.2rem, 2.5rem + 6.5vw, 8.5rem);
 
   /* Spacing Tokens */
   --space-2xs: 0.25rem;
@@ -78,9 +65,9 @@
   --touch-target-min: 44px;
 
   /* Container & Grid */
-  --container-max: 1140px;
+  --container-max: 1200px;
   --container-pad: clamp(1.1rem, 4.5vw, 2.5rem);
-  --nav-height: 64px;
+  --nav-height: 68px;
 
   /* Radii */
   --radius-xs: 6px;
@@ -91,7 +78,6 @@
   --radius-full: 9999px;
 
   /* Shadows */
-  --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.4);
   --shadow-glass: 0 16px 40px -10px rgba(0, 0, 0, 0.85);
   --shadow-glass-hover: 0 24px 50px -12px rgba(0, 0, 0, 0.95);
 

@@ -1,6 +1,6 @@
 /**
  * Main Application Script — Niyi Portfolio
- * Handles Navbar scroll effects, Mobile Drawer (with accessibility & scroll lock), IntersectionObserver, and ScrollSpy
+ * Handles Navbar scroll effects, Capsule ScrollSpy, Mobile Drawer, and Floating Matrix Parallax
  */
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -9,6 +9,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initScrollReveal();
   initScrollSpy();
   initSmoothScroll();
+  initHeroParallax();
 });
 
 /**
@@ -109,11 +110,11 @@ function initScrollReveal() {
 }
 
 /**
- * 4. Active Section ScrollSpy
+ * 4. Active Section ScrollSpy (Updates solid white active chip on capsule nav)
  */
 function initScrollSpy() {
   const sections = document.querySelectorAll('section[id]');
-  const desktopLinks = document.querySelectorAll('.nav-menu .nav-link');
+  const desktopLinks = document.querySelectorAll('.capsule-link, .nav-menu .nav-link');
 
   if (!sections.length || !desktopLinks.length) return;
 
@@ -163,4 +164,18 @@ function initSmoothScroll() {
       }
     });
   });
+}
+
+/**
+ * 6. Subtle Mouse Parallax on Floating Matrix Cards
+ */
+function initHeroParallax() {
+  const matrix = document.getElementById('hero-floating-matrix');
+  if (!matrix) return;
+
+  window.addEventListener('mousemove', (e) => {
+    const x = (e.clientX / window.innerWidth - 0.5) * 20;
+    const y = (e.clientY / window.innerHeight - 0.5) * 20;
+    matrix.style.transform = `perspective(1000px) rotateX(${4 - y * 0.2}deg) rotateY(${x * 0.2}deg) translate3d(${x * 0.5}px, ${y * 0.5}px, 0)`;
+  }, { passive: true });
 }
