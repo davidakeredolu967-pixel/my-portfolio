@@ -181,16 +181,16 @@ function getUiPreviewMockup(project) {
       <div class="ui-preview-canvas">
         <div style="font-size: 13px; font-weight: 600; color: #F2EFE8; margin-bottom: 6px;">Campus & Event Design Assets</div>
         <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 6px;">
-          <div style="background: var(--bg-glass); border: 1px solid var(--border-subtle); border-radius: 4px; padding: 10px; text-align: center;">
-            <div style="font-size: 16px; margin-bottom: 2px;">📐</div>
+          <div style="background: var(--bg-glass); border: 1px solid var(--border-subtle); border-radius: 4px; padding: 10px; text-align: center; display: flex; flex-direction: column; align-items: center; justify-content: center;">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--accent-lime)" stroke-width="2" style="margin-bottom: 4px;"><path d="M2 20h20"></path><path d="M5 20V8l7 5 7-5v12"></path></svg>
             <div style="font-size: 10px; color: #F2EFE8; font-weight: 500;">Seminars</div>
           </div>
-          <div style="background: var(--bg-glass); border: 1px solid var(--border-subtle); border-radius: 4px; padding: 10px; text-align: center;">
-            <div style="font-size: 16px; margin-bottom: 2px;">⚡</div>
+          <div style="background: var(--bg-glass); border: 1px solid var(--border-subtle); border-radius: 4px; padding: 10px; text-align: center; display: flex; flex-direction: column; align-items: center; justify-content: center;">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--accent-lime)" stroke-width="2" style="margin-bottom: 4px;"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon></svg>
             <div style="font-size: 10px; color: #F2EFE8; font-weight: 500;">Tech Talks</div>
           </div>
-          <div style="background: var(--bg-glass); border: 1px solid var(--border-subtle); border-radius: 4px; padding: 10px; text-align: center;">
-            <div style="font-size: 16px; margin-bottom: 2px;">🎨</div>
+          <div style="background: var(--bg-glass); border: 1px solid var(--border-subtle); border-radius: 4px; padding: 10px; text-align: center; display: flex; flex-direction: column; align-items: center; justify-content: center;">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--accent-lime)" stroke-width="2" style="margin-bottom: 4px;"><circle cx="12" cy="12" r="10"></circle><path d="M12 2a14.5 14.5 0 0 0 0 20 10 10 0 0 0 0-20"></path><circle cx="12" cy="8" r="1"></circle><circle cx="9" cy="12" r="1"></circle><circle cx="15" cy="12" r="1"></circle></svg>
             <div style="font-size: 10px; color: #F2EFE8; font-weight: 500;">Social Graphics</div>
           </div>
         </div>

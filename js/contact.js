@@ -24,14 +24,14 @@ function initContactForm() {
     const message = messageInput ? messageInput.value.trim() : '';
 
     if (!name || !email || !message) {
-      showToast('⚠️ Please fill out all required fields.', 'warning');
+      showToast('Please fill out all required fields.', 'warning');
       return;
     }
 
     // Basic email format check
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (!emailRegex.test(email)) {
-      showToast('⚠️ Please enter a valid email address.', 'warning');
+      showToast('Please enter a valid email address.', 'warning');
       return;
     }
 
@@ -43,7 +43,7 @@ function initContactForm() {
     // Trigger email client
     window.location.href = mailtoUrl;
 
-    showToast('✉️ Opening your email client to send message to Niyi...', 'success');
+    showToast('Opening your email client to send message...', 'success');
     form.reset();
   });
 }
@@ -66,9 +66,9 @@ function initCopyEmail() {
         document.execCommand('copy');
         document.body.removeChild(tempInput);
       }
-      showToast(`✓ Copied ${emailToCopy} to clipboard!`, 'success');
+      showToast(`Copied ${emailToCopy} to clipboard!`, 'success');
     } catch (err) {
-      showToast('⚠️ Could not copy email automatically.', 'warning');
+      showToast('Could not copy email automatically.', 'warning');
     }
   });
 }

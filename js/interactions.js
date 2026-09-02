@@ -229,7 +229,7 @@ function initCvButton() {
       window.open(cvPath, '_blank');
     } else {
       if (typeof window.showToast === 'function') {
-        window.showToast('📄 CV will be available for download soon. Feel free to reach out via email!', 'info');
+        window.showToast('CV will be available for download soon. Feel free to reach out via email!', 'info');
       }
     }
   });
