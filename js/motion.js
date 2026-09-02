@@ -216,6 +216,7 @@ function initSectionHeadersMotion() {
 
 /**
  * 3. Selected Work (Centerpiece Cinematic Scroll-Scrubbed Showcase)
+ * Unified single-tween scrub with zero collisions or filter repaints
  */
 function initProjectsScrollScrubMotion() {
   const cards = gsap.utils.toArray('.project-scroll-card-wrap');
@@ -227,23 +228,6 @@ function initProjectsScrollScrubMotion() {
     const row = cardWrap.querySelector('.project-editorial-row');
     if (!row) return;
 
-    // Entrance animation
-    gsap.fromTo(row,
-      { y: 35, opacity: 0.6, scale: 0.97 },
-      {
-        y: 0,
-        opacity: 1,
-        scale: 1,
-        duration: 0.75,
-        ease: 'power2.out',
-        scrollTrigger: {
-          trigger: cardWrap,
-          start: 'top 90%',
-          once: true
-        }
-      }
-    );
-
     // Scroll-scrub recession (for all except the last card)
     if (i < cards.length - 1) {
       const nextCard = cards[i + 1];
@@ -251,16 +235,17 @@ function initProjectsScrollScrubMotion() {
       gsap.to(row, {
         scrollTrigger: {
           trigger: nextCard,
-          start: 'top 85%',
-          end: 'top 18%',
-          scrub: 0.5
+          start: 'top 88%',
+          end: 'top 22%',
+          scrub: 0.6,
+          fastScrollEnd: true,
+          invalidateOnRefresh: true
         },
         scale: isMobile ? 0.94 : 0.88,
-        y: isMobile ? -14 : -30,
-        rotationX: isMobile ? 0 : 2,
-        filter: isMobile ? 'brightness(0.85)' : 'brightness(0.65)',
-        opacity: isMobile ? 0.9 : 0.8,
-        ease: 'power1.inOut',
+        y: isMobile ? -12 : -28,
+        rotationX: isMobile ? 0 : 1.5,
+        opacity: isMobile ? 0.92 : 0.82,
+        ease: 'none',
         transformPerspective: 1000,
         transformOrigin: 'center top'
       });
