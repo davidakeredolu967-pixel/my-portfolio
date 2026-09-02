@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64">
+  <rect width="64" height="64" rx="14" fill="#07090e" stroke="rgba(255,255,255,0.12)" stroke-width="2"/>
+  <path d="M18 46 V18 L34 38 V18 H46 V46 L30 26 V46 Z" fill="url(#niyi-grad)"/>
+  <circle cx="48" cy="18" r="3" fill="#00d2ff"/>
+  <defs>
+    <linearGradient id="niyi-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#ffffff"/>
+      <stop offset="60%" stop-color="#00d2ff"/>
+      <stop offset="100%" stop-color="#6366f1"/>
+    </linearGradient>
+  </defs>
+</svg>

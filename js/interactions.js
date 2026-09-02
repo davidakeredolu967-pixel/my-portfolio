@@ -1,5 +1,5 @@
 /**
- * Interactive Modules for Ideas -> Built, AI Workflow, Troubleshooting, and Hero Canvas
+ * Interactive Modules for Ideas -> Built, AI Workflow, Troubleshooting, Hero Canvas, and CV
  */
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -7,6 +7,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initIdeasToBuilt();
   initAiWorkflow();
   initTroubleshooting();
+  initCvButton();
 });
 
 /**
@@ -53,7 +54,7 @@ function initHeroCanvas() {
       </div>
       <div class="canvas-line" style="margin-top: 6px;">
         <span class="canvas-ln">09</span>
-        <span class="canvas-text"><span class="token-fn">builder</span>.<span class="token-fn">turnIdeaIntoProduct</span>({ speed: <span class="token-str">"fast"</span>, quality: <span class="token-str">"high"</span> });</span>
+        <span class="canvas-text"><span class="token-fn">builder</span>.<span class="token-fn">turnIdeaIntoProduct</span>();</span>
       </div>
     `,
     telemetry: `
@@ -67,19 +68,19 @@ function initHeroCanvas() {
       </div>
       <div class="canvas-line">
         <span class="canvas-ln">03</span>
-        <span class="canvas-text"><span class="token-prop">core_frameworks</span>: [<span class="token-str">"HTML5"</span>, <span class="token-str">"CSS3 (Vanilla Grid/Flex)"</span>, <span class="token-str">"ES6+ JS"</span>, <span class="token-str">"React"</span>]</span>
+        <span class="canvas-text"><span class="token-prop">core_frameworks</span>: [<span class="token-str">"HTML"</span>, <span class="token-str">"CSS"</span>, <span class="token-str">"JavaScript"</span>, <span class="token-str">"React"</span>]</span>
       </div>
       <div class="canvas-line">
         <span class="canvas-ln">04</span>
-        <span class="canvas-text"><span class="token-prop">cloud_backend</span>: [<span class="token-str">"Firebase Auth"</span>, <span class="token-str">"Firestore NoSQL"</span>, <span class="token-str">"Cloud Functions"</span>]</span>
+        <span class="canvas-text"><span class="token-prop">cloud_backend</span>: [<span class="token-str">"Firebase Auth"</span>, <span class="token-str">"Firestore"</span>]</span>
       </div>
       <div class="canvas-line">
         <span class="canvas-ln">05</span>
-        <span class="canvas-text"><span class="token-prop">ai_pairing_engine</span>: [<span class="token-str">"Context Scaffolding"</span>, <span class="token-str">"Trace Debugging"</span>, <span class="token-str">"UI Prototyping"</span>]</span>
+        <span class="canvas-text"><span class="token-prop">ai_workflow</span>: [<span class="token-str">"Prompting"</span>, <span class="token-str">"Debugging"</span>, <span class="token-str">"Rapid Prototyping"</span>]</span>
       </div>
       <div class="canvas-line">
         <span class="canvas-ln">06</span>
-        <span class="canvas-text"><span class="token-prop">contact_endpoints</span>: <span class="token-str">"akeredoludavid967@gmail.com"</span> | <span class="token-str">"09054168609"</span></span>
+        <span class="canvas-text"><span class="token-prop">contact</span>: <span class="token-str">"akeredoludavid967@gmail.com"</span> | <span class="token-str">"09054168609"</span></span>
       </div>
       <div class="canvas-line" style="margin-top: 6px;">
         <span class="canvas-ln">07</span>
@@ -98,6 +99,9 @@ function initHeroCanvas() {
       mount.innerHTML = views[viewKey];
     });
   });
+
+  // Initial render
+  mount.innerHTML = views.code;
 }
 
 /**
@@ -170,13 +174,13 @@ function initIdeasToBuilt() {
 
           <div class="ideas-stage-card stage-build">
             <span class="stage-tag">🛠️ ${current.steps.build.title}</span>
-            <h4 class="stage-heading">Engineering Solution</h4>
+            <h4 class="stage-heading">How I Approached It</h4>
             <p class="stage-text">${current.steps.build.desc}</p>
           </div>
 
           <div class="ideas-stage-card stage-result">
             <span class="stage-tag">🚀 ${current.steps.result.title}</span>
-            <h4 class="stage-heading">Outcome & Takeaway</h4>
+            <h4 class="stage-heading">Outcome & Learning</h4>
             <p class="stage-text">${current.steps.result.desc}</p>
           </div>
         </div>
@@ -218,13 +222,13 @@ function initAiWorkflow() {
         <div class="ai-credo-card">
           <div class="ai-quote-box">
             <div style="font-family: var(--font-mono); font-size: 11px; color: var(--accent-indigo-light); margin-bottom: 8px; text-transform: uppercase; letter-spacing: 0.1em;">
-              Core Engineering Mindset
+              Development Approach
             </div>
             <p class="ai-quote-text">
               "AI doesn't replace my thinking. It accelerates it."
             </p>
             <p class="ai-quote-detail">
-              I leverage modern AI tools to accelerate rapid prototyping, debug edge cases, and test ideas—while keeping software architecture, data modeling, and code verification in my own hands.
+              I use AI as part of my development workflow for rapid prototyping, debugging, brainstorming, and exploring solutions—while making the architectural decisions and understanding the code myself.
             </p>
           </div>
 
@@ -301,4 +305,26 @@ function initTroubleshooting() {
       `).join('')}
     </div>
   `;
+}
+
+/**
+ * 4. CV Download Button Handler
+ */
+function initCvButton() {
+  const cvBtn = document.getElementById('cv-download-btn');
+  if (!cvBtn || !window.PORTFOLIO_DATA) return;
+
+  const cvAvailable = window.PORTFOLIO_DATA.profile.cvAvailable;
+  const cvPath = window.PORTFOLIO_DATA.profile.cvPath;
+
+  cvBtn.addEventListener('click', (e) => {
+    e.preventDefault();
+    if (cvAvailable) {
+      window.open(cvPath, '_blank');
+    } else {
+      if (typeof window.showToast === 'function') {
+        window.showToast('📄 CV will be available for download soon. Feel free to reach out via email!', 'info');
+      }
+    }
+  });
 }

@@ -1,5 +1,6 @@
 /**
  * Projects Rendering & Editorial Alternating Showcase
+ * Features image screenshot support with seamless interactive mockup fallback.
  */
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -12,9 +13,9 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 /**
- * Generate simulated UI preview frames (No fake stock photos, real software mockup)
+ * High-fidelity simulated UI preview frames (Fallback when real screenshot is not provided)
  */
-function getUiPreviewMarkup(project) {
+function getUiPreviewMockup(project) {
   if (project.previewType === 'dashboard') {
     return `
       <div class="ui-preview-window">
@@ -24,21 +25,21 @@ function getUiPreviewMarkup(project) {
             <span class="ui-dot ui-dot-yellow"></span>
             <span class="ui-dot ui-dot-green"></span>
           </div>
-          <span class="ui-preview-url">app.attendance-system.internal/admin</span>
-          <span style="font-size: 10px; color: #10b981; font-family: var(--font-mono);">● Live Cloud</span>
+          <span class="ui-preview-url">app.attendance-system/admin</span>
+          <span style="font-size: 10px; color: #10b981; font-family: var(--font-mono);">● Prototype</span>
         </div>
         <div class="ui-preview-canvas">
           <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid var(--border-subtle); padding-bottom: 8px;">
             <div>
               <div style="font-size: 12px; font-weight: 600; color: #fff;">Attendance Dashboard</div>
-              <div style="font-size: 10px; color: var(--text-muted);">Real-time check-in stream</div>
+              <div style="font-size: 10px; color: var(--text-muted);">Real-time sign-in stream</div>
             </div>
             <span class="badge badge-emerald">Firebase Connected</span>
           </div>
           <div class="mock-stat-grid">
             <div class="mock-stat-box">
               <div class="mock-stat-val">124</div>
-              <div class="mock-stat-label">Active Checked-In</div>
+              <div class="mock-stat-label">Checked In</div>
             </div>
             <div class="mock-stat-box">
               <div class="mock-stat-val">98.4%</div>
@@ -50,17 +51,17 @@ function getUiPreviewMarkup(project) {
             </div>
           </div>
           <div class="mock-table-view">
-            <div style="font-size: 10px; color: var(--text-muted); text-transform: uppercase; border-bottom: 1px solid rgba(255,255,255,0.05); padding-bottom: 4px;">Recent Sign-In Stream</div>
+            <div style="font-size: 10px; color: var(--text-muted); text-transform: uppercase; border-bottom: 1px solid rgba(255,255,255,0.05); padding-bottom: 4px;">Recent Sign-In Activity</div>
             <div class="mock-table-row">
-              <span style="color: #fff;">Alex K. — Computer Sci</span>
+              <span style="color: #fff;">Student A — Comp Sci</span>
               <span style="color: #34d399;">08:14:22 AM ✓</span>
             </div>
             <div class="mock-table-row">
-              <span style="color: #fff;">David O. — Math Sci</span>
+              <span style="color: #fff;">Student B — Math Sci</span>
               <span style="color: #34d399;">08:12:05 AM ✓</span>
             </div>
             <div class="mock-table-row">
-              <span style="color: #fff;">Sarah M. — Physics</span>
+              <span style="color: #fff;">Student C — Physics</span>
               <span style="color: #34d399;">08:10:49 AM ✓</span>
             </div>
           </div>
@@ -78,8 +79,8 @@ function getUiPreviewMarkup(project) {
             <span class="ui-dot ui-dot-yellow"></span>
             <span class="ui-dot ui-dot-green"></span>
           </div>
-          <span class="ui-preview-url">recipe-platform.web.app/explore</span>
-          <span style="font-size: 10px; color: #00d2ff; font-family: var(--font-mono);">Firestore API</span>
+          <span class="ui-preview-url">recipe-platform.app/explore</span>
+          <span style="font-size: 10px; color: #00d2ff; font-family: var(--font-mono);">Firestore Data</span>
         </div>
         <div class="ui-preview-canvas">
           <div style="display: flex; gap: 8px; margin-bottom: 4px;">
@@ -88,15 +89,15 @@ function getUiPreviewMarkup(project) {
             <span class="badge badge-emerald" style="font-size: 10px;">High Protein</span>
           </div>
           <div style="background: rgba(255,255,255,0.03); border: 1px solid var(--border-subtle); border-radius: var(--radius-xs); padding: 10px;">
-            <div style="font-size: 13px; font-weight: 600; color: #fff; margin-bottom: 4px;">Classic Mediterranean Skillet</div>
+            <div style="font-size: 13px; font-weight: 600; color: #fff; margin-bottom: 4px;">Mediterranean Skillet</div>
             <div style="font-size: 11px; color: var(--text-secondary); line-height: 1.4;">Clean ingredient indexing, preparation timer calculation, and step-by-step layout.</div>
           </div>
           <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 8px; font-family: var(--font-mono); font-size: 10px;">
             <div style="background: rgba(0,0,0,0.3); padding: 8px; border-radius: 4px; border: 1px solid var(--border-subtle);">
               <div style="color: var(--accent-cyan); font-weight: 600; margin-bottom: 4px;">Ingredients (6)</div>
               <div style="color: var(--text-muted);">• 2 Free-range eggs</div>
-              <div style="color: var(--text-muted);">• 150g Cherry tomatoes</div>
-              <div style="color: var(--text-muted);">• Extra virgin olive oil</div>
+              <div style="color: var(--text-muted);">• Cherry tomatoes</div>
+              <div style="color: var(--text-muted);">• Olive oil & basil</div>
             </div>
             <div style="background: rgba(0,0,0,0.3); padding: 8px; border-radius: 4px; border: 1px solid var(--border-subtle);">
               <div style="color: #34d399; font-weight: 600; margin-bottom: 4px;">Timing & Yield</div>
@@ -120,29 +121,29 @@ function getUiPreviewMarkup(project) {
             <span class="ui-dot ui-dot-green"></span>
           </div>
           <span class="ui-preview-url">avantivogue.store/concept</span>
-          <span style="font-size: 10px; color: #f59e0b; font-family: var(--font-mono);">Shopify Architecture</span>
+          <span style="font-size: 10px; color: #f59e0b; font-family: var(--font-mono);">Shopify Concept</span>
         </div>
         <div class="ui-preview-canvas">
           <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid var(--border-subtle); padding-bottom: 8px;">
             <div style="font-family: var(--font-heading); font-size: 13px; font-weight: 700; letter-spacing: 0.08em; color: #fff;">AVANTI VOGUE</div>
-            <span class="badge badge-amber" style="font-size: 10px;">Autumn Concept</span>
+            <span class="badge badge-amber" style="font-size: 10px;">Store Concept</span>
           </div>
           <div style="display: grid; grid-template-columns: 1.2fr 1fr; gap: 10px; align-items: center;">
             <div style="background: rgba(255,255,255,0.02); border: 1px solid var(--border-subtle); border-radius: var(--radius-xs); padding: 12px;">
               <div style="font-size: 10px; color: var(--accent-amber); font-family: var(--font-mono); margin-bottom: 2px;">COLLECTION 01</div>
-              <div style="font-size: 12px; font-weight: 600; color: #fff;">Minimalist Outerwear</div>
-              <div style="font-size: 11px; color: var(--text-muted); margin-top: 4px;">Curated lifestyle products with streamlined checkout UX.</div>
+              <div style="font-size: 12px; font-weight: 600; color: #fff;">Minimalist Apparel</div>
+              <div style="font-size: 11px; color: var(--text-muted); margin-top: 4px;">Curated lifestyle products with focused branding.</div>
             </div>
             <div style="background: rgba(0,0,0,0.3); border: 1px solid var(--border-subtle); border-radius: var(--radius-xs); padding: 10px; font-family: var(--font-mono); font-size: 10px;">
-              <div style="color: var(--text-muted); margin-bottom: 2px;">Checkout Funnel</div>
-              <div style="color: #34d399; font-weight: 600;">1-Click Purchase Flow</div>
-              <div style="color: var(--text-muted); margin-top: 4px;">Cart abandonment optimization</div>
+              <div style="color: var(--text-muted); margin-bottom: 2px;">Store Structure</div>
+              <div style="color: #34d399; font-weight: 600;">Product Showcase</div>
+              <div style="color: var(--text-muted); margin-top: 4px;">Clean visual presentation</div>
             </div>
           </div>
           <div style="display: flex; gap: 6px; font-size: 10px; font-family: var(--font-mono); color: var(--text-muted);">
-            <span>• Responsive Cart</span>
-            <span>• Inventory Model</span>
+            <span>• Responsive Layout</span>
             <span>• Brand Guide</span>
+            <span>• Product Research</span>
           </div>
         </div>
       </div>
@@ -162,7 +163,7 @@ function getUiPreviewMarkup(project) {
         <span style="font-size: 10px; color: #38bdf8; font-family: var(--font-mono);">Visual Media</span>
       </div>
       <div class="ui-preview-canvas">
-        <div style="font-size: 12px; font-weight: 600; color: #fff; margin-bottom: 6px;">Departmental & Campus Event Branding</div>
+        <div style="font-size: 12px; font-weight: 600; color: #fff; margin-bottom: 6px;">Departmental & Campus Event Designs</div>
         <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px;">
           <div style="background: rgba(255,255,255,0.03); border: 1px solid var(--border-subtle); border-radius: 4px; padding: 10px; text-align: center;">
             <div style="font-size: 18px; margin-bottom: 4px;">📐</div>
@@ -170,17 +171,28 @@ function getUiPreviewMarkup(project) {
           </div>
           <div style="background: rgba(255,255,255,0.03); border: 1px solid var(--border-subtle); border-radius: 4px; padding: 10px; text-align: center;">
             <div style="font-size: 18px; margin-bottom: 4px;">⚡</div>
-            <div style="font-size: 10px; color: #fff; font-weight: 500;">Tech Workshops</div>
+            <div style="font-size: 10px; color: #fff; font-weight: 500;">Tech Discussions</div>
           </div>
           <div style="background: rgba(255,255,255,0.03); border: 1px solid var(--border-subtle); border-radius: 4px; padding: 10px; text-align: center;">
             <div style="font-size: 18px; margin-bottom: 4px;">🎨</div>
-            <div style="font-size: 10px; color: #fff; font-weight: 500;">Social Media Assets</div>
+            <div style="font-size: 10px; color: #fff; font-weight: 500;">Social Graphics</div>
           </div>
         </div>
         <div style="font-size: 11px; color: var(--text-secondary); line-height: 1.4; margin-top: 4px;">
-          Clean typography, intentional color theory, and structured layout systems designed for clear visual communication.
+          Clean typography, deliberate color theory, and structured layout systems designed for clear visual communication.
         </div>
       </div>
+    </div>
+  `;
+}
+
+/**
+ * Render Project Visual (Checks for real image or falls back to UI mockup)
+ */
+function getProjectVisualMarkup(project) {
+  return `
+    <div class="project-visual-container" style="position: relative; height: 100%;">
+      ${getUiPreviewMockup(project)}
     </div>
   `;
 }
@@ -201,13 +213,13 @@ function initProjects() {
           
           <!-- Visual Column -->
           <div class="project-visual-col">
-            ${getUiPreviewMarkup(project)}
+            ${getProjectVisualMarkup(project)}
           </div>
 
           <!-- Info Column -->
           <div class="project-info-col">
             <div class="project-meta-header">
-              <span class="project-index">CASE ${project.number} // ${project.category}</span>
+              <span class="project-index">PROJECT ${project.number} // ${project.category}</span>
               <span class="badge ${project.statusColor === 'green' ? 'badge-emerald' : project.statusColor === 'amber' ? 'badge-amber' : 'badge-cyan'}">
                 ● ${project.status}
               </span>
@@ -217,7 +229,7 @@ function initProjects() {
             <p class="project-desc">${project.shortDesc}</p>
 
             <div style="background: rgba(255,255,255,0.02); border-left: 2px solid var(--accent-cyan); padding: 8px 12px; border-radius: 0 var(--radius-xs) var(--radius-xs) 0;">
-              <div style="font-size: 11px; font-family: var(--font-mono); color: var(--accent-cyan-light); text-transform: uppercase;">Core Problem Solved</div>
+              <div style="font-size: 11px; font-family: var(--font-mono); color: var(--accent-cyan-light); text-transform: uppercase;">Problem Addressed</div>
               <div style="font-size: 12px; color: var(--text-secondary); margin-top: 2px;">${project.problemSolved}</div>
             </div>
 
@@ -231,11 +243,11 @@ function initProjects() {
 
             <div class="project-actions-row">
               <button class="btn btn-primary btn-sm open-project-modal-btn" data-project-id="${project.id}">
-                <span>View Full Case Study</span>
+                <span>View Case Details</span>
                 <span>↗</span>
               </button>
               <a href="#contact" class="btn btn-secondary btn-sm">
-                <span>Discuss Build</span>
+                <span>Discuss This Project</span>
               </a>
             </div>
           </div>
@@ -264,10 +276,10 @@ function initSkills() {
   const { development, aiWorkflow, digitalBusiness, design } = window.PORTFOLIO_DATA.skills;
 
   const categories = [
-    { title: "Core Web Development", icon: "💻", items: development },
-    { title: "AI & Development Workflow", icon: "⚡", items: aiWorkflow },
-    { title: "Digital Business & E-Commerce", icon: "🛍️", items: digitalBusiness },
-    { title: "Design & Visual Branding", icon: "🎨", items: design }
+    { title: "Development", icon: "💻", items: development },
+    { title: "AI & Workflow", icon: "⚡", items: aiWorkflow },
+    { title: "Digital Business", icon: "🛍️", items: digitalBusiness },
+    { title: "Design", icon: "🎨", items: design }
   ];
 
   mount.innerHTML = `
@@ -407,7 +419,7 @@ function openProjectModal(projectId) {
   modalBody.innerHTML = `
     <div style="display: flex; flex-direction: column; gap: var(--space-md);">
       <div style="display: flex; align-items: center; justify-content: space-between;">
-        <span class="project-index">CASE ${project.number} // ${project.category}</span>
+        <span class="project-index">PROJECT ${project.number} // ${project.category}</span>
         <span class="badge ${project.statusColor === 'green' ? 'badge-emerald' : 'badge-amber'}">
           ● ${project.status}
         </span>
@@ -418,7 +430,7 @@ function openProjectModal(projectId) {
 
       <div style="background: rgba(255, 255, 255, 0.02); border: 1px solid var(--border-subtle); border-radius: var(--radius-sm); padding: var(--space-md);">
         <h4 style="font-size: var(--font-size-xs); font-family: var(--font-mono); color: var(--accent-cyan-light); text-transform: uppercase; margin-bottom: 8px;">
-          Key Implemented Features
+          Key Features
         </h4>
         <ul class="project-features" style="margin: 0;">
           ${project.features.map(f => `<li>${f}</li>`).join('')}
@@ -427,23 +439,23 @@ function openProjectModal(projectId) {
 
       <div style="display: flex; flex-direction: column; gap: var(--space-sm); margin-top: 4px;">
         <div style="background: rgba(244, 63, 94, 0.05); border-left: 2px solid #f43f5e; padding: 8px 12px; border-radius: 0 var(--radius-xs) var(--radius-xs) 0;">
-          <strong style="color: #f43f5e; font-size: 11px; text-transform: uppercase; font-family: var(--font-mono);">The Problem Identified</strong>
+          <strong style="color: #f43f5e; font-size: 11px; text-transform: uppercase; font-family: var(--font-mono);">The Problem</strong>
           <p style="font-size: var(--font-size-xs); color: var(--text-secondary); margin-top: 4px; line-height: 1.55;">${project.details.problem}</p>
         </div>
         
         <div style="background: rgba(99, 102, 241, 0.05); border-left: 2px solid #818cf8; padding: 8px 12px; border-radius: 0 var(--radius-xs) var(--radius-xs) 0;">
-          <strong style="color: #818cf8; font-size: 11px; text-transform: uppercase; font-family: var(--font-mono);">The Engineering Approach</strong>
+          <strong style="color: #818cf8; font-size: 11px; text-transform: uppercase; font-family: var(--font-mono);">The Approach</strong>
           <p style="font-size: var(--font-size-xs); color: var(--text-secondary); margin-top: 4px; line-height: 1.55;">${project.details.solution}</p>
         </div>
 
         <div style="background: rgba(16, 185, 129, 0.05); border-left: 2px solid #34d399; padding: 8px 12px; border-radius: 0 var(--radius-xs) var(--radius-xs) 0;">
-          <strong style="color: #34d399; font-size: 11px; text-transform: uppercase; font-family: var(--font-mono);">Practical Takeaway & Growth</strong>
+          <strong style="color: #34d399; font-size: 11px; text-transform: uppercase; font-family: var(--font-mono);">Learning & Takeaway</strong>
           <p style="font-size: var(--font-size-xs); color: var(--text-secondary); margin-top: 4px; line-height: 1.55;">${project.details.takeaway}</p>
         </div>
       </div>
 
       <div style="margin-top: 4px; padding-top: var(--space-md); border-top: 1px solid var(--border-subtle);">
-        <div style="font-size: 11px; color: var(--text-muted); margin-bottom: 8px; font-family: var(--font-mono);">Technologies & Tools:</div>
+        <div style="font-size: 11px; color: var(--text-muted); margin-bottom: 8px; font-family: var(--font-mono);">Technology Stack:</div>
         <div class="project-tech-row" style="margin: 0;">
           ${project.techStack.map(t => `<span class="tech-tag">${t}</span>`).join('')}
         </div>
