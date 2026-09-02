@@ -1,0 +1,580 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Akeredolu Kolade David Omoniyi (niyi) — Web Developer & Digital Builder</title>
+  
+  <!-- SEO Meta Tags -->
+  <meta name="description" content="Portfolio of Akeredolu Kolade David Omoniyi (niyi). Mathematical Science student at FUTA, Web Developer, AI-Assisted Builder, and Problem Solver turning ideas into digital products.">
+  <meta name="keywords" content="Akeredolu Kolade David Omoniyi, niyi, Web Developer Nigeria, FUTA Mathematical Science, AI-Assisted Developer, Frontend Developer, Firebase Developer, Digital Products">
+  <meta name="author" content="Akeredolu Kolade David Omoniyi">
+  <meta name="theme-color" content="#07090e">
+  
+  <!-- Open Graph / Social Sharing -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Akeredolu Kolade David Omoniyi (niyi) — Web Developer & Digital Builder">
+  <meta property="og:description" content="I turn ideas into digital products. Explore my projects, AI-assisted development workflow, and problem-solving showcase.">
+  <meta property="og:site_name" content="niyi.dev">
+  
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+  
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="css/variables.css">
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/sections.css">
+  <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+
+  <!-- Ambient Glowing Background & Subtle Grid -->
+  <div class="bg-ambient-layer" aria-hidden="true"></div>
+  <div class="bg-grid-overlay" aria-hidden="true"></div>
+
+  <!-- =========================================================================
+       1. Header & Navigation
+       ========================================================================= -->
+  <header class="site-header" id="site-header">
+    <div class="container nav-container">
+      <a href="#hero" class="brand-logo" aria-label="Home">
+        <span>niyi<span class="logo-accent">.dev</span></span>
+        <span class="logo-tag">// builder</span>
+      </a>
+
+      <!-- Desktop Nav Menu -->
+      <nav aria-label="Main Navigation">
+        <ul class="nav-menu">
+          <li><a href="#about" class="nav-link">About</a></li>
+          <li><a href="#skills" class="nav-link">Skills</a></li>
+          <li><a href="#projects" class="nav-link">Projects</a></li>
+          <li><a href="#ideas-built" class="nav-link">Ideas → Built</a></li>
+          <li><a href="#ai-workflow" class="nav-link">AI Workflow</a></li>
+          <li><a href="#troubleshooting" class="nav-link">Problem Solving</a></li>
+          <li><a href="#journey" class="nav-link">Journey</a></li>
+        </ul>
+      </nav>
+
+      <!-- Nav Actions -->
+      <div class="nav-actions">
+        <a href="#contact" class="btn btn-primary btn-sm">
+          <span>Let's Talk</span>
+          <span>→</span>
+        </a>
+        <button class="mobile-menu-toggle" id="mobile-menu-toggle" aria-label="Toggle Navigation Menu">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile Drawer Overlay & Menu -->
+  <div class="mobile-drawer-overlay" id="mobile-drawer-overlay" aria-hidden="true"></div>
+  <aside class="mobile-nav-drawer" id="mobile-nav-drawer" aria-label="Mobile Navigation">
+    <div>
+      <div class="mobile-drawer-header">
+        <div class="brand-logo">
+          <span>niyi<span class="logo-accent">.dev</span></span>
+        </div>
+        <button class="modal-close" id="mobile-drawer-close" aria-label="Close menu">✕</button>
+      </div>
+      <ul class="mobile-nav-links">
+        <li><a href="#about" class="mobile-nav-link"><span>01.</span> About</a></li>
+        <li><a href="#skills" class="mobile-nav-link"><span>02.</span> Skills</a></li>
+        <li><a href="#projects" class="mobile-nav-link"><span>03.</span> Projects</a></li>
+        <li><a href="#ideas-built" class="mobile-nav-link"><span>04.</span> Ideas → Built</a></li>
+        <li><a href="#ai-workflow" class="mobile-nav-link"><span>05.</span> AI Workflow</a></li>
+        <li><a href="#troubleshooting" class="mobile-nav-link"><span>06.</span> Problem Solving</a></li>
+        <li><a href="#journey" class="mobile-nav-link"><span>07.</span> Journey</a></li>
+        <li><a href="#currently-building" class="mobile-nav-link"><span>08.</span> Currently Building</a></li>
+        <li><a href="#contact" class="mobile-nav-link"><span>09.</span> Contact</a></li>
+      </ul>
+    </div>
+    <div class="mobile-drawer-footer">
+      <div class="status-pill" style="width: fit-content;">
+        <span class="status-dot status-green"></span>
+        <span>Currently building</span>
+      </div>
+      <a href="#contact" class="btn btn-primary" style="width: 100%;">Get in Touch</a>
+    </div>
+  </aside>
+
+  <main>
+    <!-- =========================================================================
+         2. Hero Section
+         ========================================================================= -->
+    <section class="hero-section" id="hero">
+      <div class="container">
+        <div class="hero-grid">
+          
+          <!-- Hero Text Content -->
+          <div class="hero-content">
+            <div style="display: flex; flex-wrap: wrap; align-items: center; gap: 10px;">
+              <span class="hero-name-pill">
+                <span>✦</span> Akeredolu Kolade David Omoniyi
+              </span>
+              <div class="status-pill">
+                <span class="status-dot status-green"></span>
+                <span>Currently building</span>
+              </div>
+            </div>
+
+            <h1 class="hero-headline">
+              I Turn Ideas Into <br>
+              <span class="text-gradient">Digital Products.</span>
+            </h1>
+
+            <p class="hero-subtext">
+              Web developer, AI-assisted builder and problem solver focused on creating useful digital experiences, solving website problems and turning ideas into functional products.
+            </p>
+
+            <div class="hero-tags">
+              <span class="hero-tag-item"><span>💻</span> Web Development</span>
+              <span class="hero-tag-item"><span>⚡</span> AI-Augmented Workflow</span>
+              <span class="hero-tag-item"><span>📐</span> Mathematical Science @ FUTA</span>
+              <span class="hero-tag-item"><span>🔍</span> Website Troubleshooting</span>
+            </div>
+
+            <div class="hero-cta-group">
+              <a href="#projects" class="btn btn-primary">
+                <span>View My Work</span>
+                <span>↓</span>
+              </a>
+              <a href="#contact" class="btn btn-secondary">
+                <span>Let's Work Together</span>
+                <span>↗</span>
+              </a>
+            </div>
+          </div>
+
+          <!-- Hero Code Visualizer / Terminal -->
+          <div class="hero-code-terminal reveal-on-scroll">
+            <div class="terminal-header">
+              <div class="terminal-dots">
+                <span class="terminal-dot dot-red"></span>
+                <span class="terminal-dot dot-yellow"></span>
+                <span class="terminal-dot dot-green"></span>
+              </div>
+              <span class="terminal-title">builder_profile.js</span>
+              <span class="terminal-badge">LIVE STATE</span>
+            </div>
+            <div class="terminal-body">
+              <div class="code-line">
+                <span class="line-num">01</span>
+                <span class="code-content"><span class="code-keyword">const</span> <span class="code-fn">developer</span> = {</span>
+              </div>
+              <div class="code-line">
+                <span class="line-num">02</span>
+                <span class="code-content">&nbsp;&nbsp;<span class="code-prop">name</span>: <span class="code-string">"Akeredolu Kolade David Omoniyi"</span>,</span>
+              </div>
+              <div class="code-line">
+                <span class="line-num">03</span>
+                <span class="code-content">&nbsp;&nbsp;<span class="code-prop">alias</span>: <span class="code-string">"niyi"</span>,</span>
+              </div>
+              <div class="code-line">
+                <span class="line-num">04</span>
+                <span class="code-content">&nbsp;&nbsp;<span class="code-prop">education</span>: <span class="code-string">"Mathematical Science @ FUTA"</span>,</span>
+              </div>
+              <div class="code-line">
+                <span class="line-num">05</span>
+                <span class="code-content">&nbsp;&nbsp;<span class="code-prop">focus</span>: [<span class="code-string">"Web Apps"</span>, <span class="code-string">"AI Workflows"</span>, <span class="code-string">"E-Commerce"</span>],</span>
+              </div>
+              <div class="code-line">
+                <span class="line-num">06</span>
+                <span class="code-content">&nbsp;&nbsp;<span class="code-prop">superpower</span>: <span class="code-string">"Troubleshooting & rapid prototyping"</span>,</span>
+              </div>
+              <div class="code-line">
+                <span class="line-num">07</span>
+                <span class="code-content">&nbsp;&nbsp;<span class="code-prop">status</span>: <span class="code-string">"Building & problem solving daily"</span></span>
+              </div>
+              <div class="code-line">
+                <span class="line-num">08</span>
+                <span class="code-content">};</span>
+              </div>
+              <div class="code-line" style="margin-top: 8px;">
+                <span class="line-num">09</span>
+                <span class="code-comment">// "AI doesn't replace my thinking. It accelerates it."</span>
+              </div>
+              <div class="code-line">
+                <span class="line-num">10</span>
+                <span class="code-content"><span class="code-fn">developer</span>.<span class="code-fn">turnIdeaIntoProduct</span>();</span>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================================================================
+         3. About Section
+         ========================================================================= -->
+    <section class="section" id="about">
+      <div class="container">
+        <div class="section-header text-left reveal-on-scroll">
+          <span class="section-tag">01 // Background & Ethos</span>
+          <h2 class="section-title">Driven by Curiosity, Grounded in Logic.</h2>
+        </div>
+
+        <div class="about-grid">
+          <!-- Left Bio Card -->
+          <div class="about-bio-card glass-card reveal-on-scroll">
+            <h3 style="font-size: var(--text-xl); color: var(--text-primary);">About Me</h3>
+            <p class="about-bio-text">
+              I am a Mathematical Science student at the Federal University of Technology, Akure (FUTA) with a strong passion for technology, digital products, and digital business.
+            </p>
+            <p class="about-bio-text">
+              I enjoy taking raw ideas and figuring out how to transform them into real, functional websites and applications. Using modern development tools and AI-assisted workflows, I build faster, experiment boldly, and systematically solve technical roadblocks.
+            </p>
+            <p class="about-bio-text">
+              Beyond creating new websites from scratch, I have a natural drive for troubleshooting existing platforms, refining interfaces, and finding dependable solutions when things don't work as expected.
+            </p>
+            <div class="about-highlight-box">
+              <p>
+                "I view software development through a problem-solving lens: analyze the core constraint, structure the logic, leverage modern AI acceleration, and deliver clean, reliable results."
+              </p>
+            </div>
+          </div>
+
+          <!-- Right "What I Do" Grid -->
+          <div class="what-i-do-grid reveal-on-scroll">
+            <div class="service-card">
+              <div class="service-icon">🌐</div>
+              <h4 class="service-title">Web Development</h4>
+              <p class="service-desc">Building responsive, accessible websites and dynamic web applications from the ground up.</p>
+            </div>
+
+            <div class="service-card">
+              <div class="service-icon">⚡</div>
+              <h4 class="service-title">AI-Assisted Development</h4>
+              <p class="service-desc">Leveraging modern AI tools for rapid prototyping, deep debugging, and accelerated iteration.</p>
+            </div>
+
+            <div class="service-card">
+              <div class="service-icon">🔍</div>
+              <h4 class="service-title">Website Troubleshooting</h4>
+              <p class="service-desc">Pinpointing broken functionality, layout bugs, auth states, and configuration bottlenecks.</p>
+            </div>
+
+            <div class="service-card">
+              <div class="service-icon">📦</div>
+              <h4 class="service-title">Digital Products</h4>
+              <p class="service-desc">Transforming practical concepts into usable prototypes, tools, and digital solutions.</p>
+            </div>
+
+            <div class="service-card" style="grid-column: 1 / -1;">
+              <div class="service-icon">🛍️</div>
+              <h4 class="service-title">E-Commerce & Digital Business</h4>
+              <p class="service-desc">Exploring Shopify architectures, product research, conversion principles, and modern online store branding.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================================================================
+         4. Categorized Skills Section
+         ========================================================================= -->
+    <section class="section" id="skills" style="background: rgba(9, 13, 21, 0.5);">
+      <div class="container">
+        <div class="section-header reveal-on-scroll">
+          <span class="section-tag">02 // Technical Capabilities</span>
+          <h2 class="section-title">Skills & Workflow Competencies</h2>
+          <p class="section-subtitle">
+            Authentic capabilities categorized by practical experience—no inflated percentages, just genuine hands-on practice.
+          </p>
+        </div>
+
+        <!-- Dynamic Mount for Skills -->
+        <div id="skills-mount"></div>
+      </div>
+    </section>
+
+    <!-- =========================================================================
+         5. Featured Projects Section
+         ========================================================================= -->
+    <section class="section" id="projects">
+      <div class="container">
+        <div class="section-header reveal-on-scroll">
+          <span class="section-tag">03 // Proof of Work</span>
+          <h2 class="section-title">Featured Projects & Concepts</h2>
+          <p class="section-subtitle">
+            A showcase of web applications, system architectures, e-commerce explorations, and digital design work I have built and experimented with.
+          </p>
+        </div>
+
+        <!-- Dynamic Mount for Projects -->
+        <div id="projects-mount"></div>
+      </div>
+    </section>
+
+    <!-- =========================================================================
+         6. "Ideas → Built" Signature Section
+         ========================================================================= -->
+    <section class="section" id="ideas-built" style="background: rgba(11, 16, 28, 0.4);">
+      <div class="container">
+        <div class="section-header reveal-on-scroll">
+          <span class="section-tag">04 // Builder Mindset</span>
+          <h2 class="section-title">Ideas → Built</h2>
+          <p class="section-subtitle">
+            I like taking ideas from "what if?" to "let's build it." Explore how I approach each project through a structured 4-phase problem-solving lens.
+          </p>
+        </div>
+
+        <!-- Dynamic Mount for Ideas -> Built Interactive Module -->
+        <div id="ideas-built-mount" class="reveal-on-scroll"></div>
+      </div>
+    </section>
+
+    <!-- =========================================================================
+         7. "Building With AI" Section
+         ========================================================================= -->
+    <section class="section" id="ai-workflow">
+      <div class="container">
+        <div class="section-header reveal-on-scroll">
+          <span class="section-tag">05 // Augmented Engineering</span>
+          <h2 class="section-title">Building With AI</h2>
+          <p class="section-subtitle">
+            AI is a foundational amplifier in my modern development workflow—accelerating exploration while human logic maintains structural integrity.
+          </p>
+        </div>
+
+        <!-- Dynamic Mount for AI Workflow Stepper -->
+        <div id="ai-workflow-mount" class="reveal-on-scroll"></div>
+      </div>
+    </section>
+
+    <!-- =========================================================================
+         8. Problem Solving & Troubleshooting Section
+         ========================================================================= -->
+    <section class="section" id="troubleshooting" style="background: rgba(10, 15, 26, 0.5);">
+      <div class="container">
+        <div class="section-header reveal-on-scroll">
+          <span class="section-tag">06 // Technical Resilience</span>
+          <h2 class="section-title">When Things Break, I Figure Them Out.</h2>
+          <p class="section-subtitle">
+            True software engineering is tested when things go wrong. Here are concrete examples of troubleshooting hurdles diagnosed and resolved across my builds.
+          </p>
+        </div>
+
+        <!-- Dynamic Mount for Troubleshooting Cases -->
+        <div id="troubleshooting-mount" class="reveal-on-scroll"></div>
+      </div>
+    </section>
+
+    <!-- =========================================================================
+         9. My Journey Timeline
+         ========================================================================= -->
+    <section class="section" id="journey">
+      <div class="container">
+        <div class="section-header reveal-on-scroll">
+          <span class="section-tag">07 // Path of Growth</span>
+          <h2 class="section-title">My Journey</h2>
+          <p class="section-subtitle">
+            From initial explorations in digital commerce to fullstack web development, Firebase integration, and AI-accelerated product building.
+          </p>
+        </div>
+
+        <!-- Dynamic Mount for Journey Timeline -->
+        <div id="journey-mount"></div>
+      </div>
+    </section>
+
+    <!-- =========================================================================
+         10. Leadership & Collaboration
+         ========================================================================= -->
+    <section class="section" id="leadership" style="background: rgba(9, 14, 24, 0.4);">
+      <div class="container">
+        <div class="section-header reveal-on-scroll">
+          <span class="section-tag">08 // Teamwork & Initiative</span>
+          <h2 class="section-title">Leadership & Collaboration</h2>
+          <p class="section-subtitle">
+            Experience organizing initiatives, coordinating academic teams, and fostering collaborative problem solving as a university student at FUTA.
+          </p>
+        </div>
+
+        <!-- Dynamic Mount for Leadership Grid -->
+        <div id="leadership-mount"></div>
+      </div>
+    </section>
+
+    <!-- =========================================================================
+         11. Currently Building Radar
+         ========================================================================= -->
+    <section class="section" id="currently-building">
+      <div class="container">
+        <div class="section-header reveal-on-scroll">
+          <span class="section-tag">09 // Live Activity</span>
+          <h2 class="section-title">Currently Building</h2>
+          <p class="section-subtitle">
+            An active snapshot of what is currently on my development workbench, in exploration, or being planned next.
+          </p>
+        </div>
+
+        <!-- Dynamic Mount for Currently Building Radar -->
+        <div id="currently-building-mount"></div>
+      </div>
+    </section>
+
+    <!-- =========================================================================
+         12. Contact Section
+         ========================================================================= -->
+    <section class="section" id="contact" style="background: rgba(7, 10, 17, 0.8);">
+      <div class="container">
+        <div class="section-header reveal-on-scroll">
+          <span class="section-tag">10 // Get in Touch</span>
+          <h2 class="section-title">Have an idea? Let's build it.</h2>
+          <p class="section-subtitle">
+            Whether you want a website built, need help solving a website problem, or simply want to discuss an idea, I'd love to hear about it.
+          </p>
+        </div>
+
+        <div class="contact-grid">
+          <!-- Left: Direct Info & Quick Copy -->
+          <div class="contact-info-card reveal-on-scroll">
+            <div>
+              <h3 style="font-size: var(--text-2xl); margin-bottom: 8px;">Let's Connect</h3>
+              <p style="color: var(--text-secondary); line-height: 1.6;">
+                I'm always open to discussing new projects, troubleshooting technical challenges, collaborative builds, or internship opportunities.
+              </p>
+            </div>
+
+            <div class="contact-direct-actions">
+              <div class="contact-quick-item">
+                <div class="contact-quick-left">
+                  <span style="font-size: 20px;">✉️</span>
+                  <div>
+                    <div class="contact-quick-label">Email Address</div>
+                    <div class="contact-quick-val">akeredoludavid18@gmail.com</div>
+                  </div>
+                </div>
+                <button class="btn btn-secondary btn-sm" id="copy-email-btn" data-email="akeredoludavid18@gmail.com" title="Copy email to clipboard">
+                  <span>Copy</span>
+                  <span>📋</span>
+                </button>
+              </div>
+
+              <div class="contact-quick-item">
+                <div class="contact-quick-left">
+                  <span style="font-size: 20px;">📍</span>
+                  <div>
+                    <div class="contact-quick-label">Location</div>
+                    <div class="contact-quick-val">Akure, Ondo State, Nigeria</div>
+                  </div>
+                </div>
+                <span class="badge badge-cyan">Remote Ready</span>
+              </div>
+
+              <div class="contact-quick-item">
+                <div class="contact-quick-left">
+                  <span style="font-size: 20px;">🎓</span>
+                  <div>
+                    <div class="contact-quick-label">University</div>
+                    <div class="contact-quick-val">FUTA — Mathematical Science</div>
+                  </div>
+                </div>
+                <span class="badge badge-indigo">Undergraduate</span>
+              </div>
+            </div>
+
+            <div style="display: flex; gap: 12px; margin-top: 8px;">
+              <a href="https://github.com/davidakeredolu967-pixel" target="_blank" rel="noopener noreferrer" class="btn btn-secondary btn-sm" style="flex: 1;">
+                <span>GitHub Profile</span>
+                <span>↗</span>
+              </a>
+              <a href="https://linkedin.com/in/" target="_blank" rel="noopener noreferrer" class="btn btn-secondary btn-sm" style="flex: 1;">
+                <span>LinkedIn</span>
+                <span>↗</span>
+              </a>
+            </div>
+          </div>
+
+          <!-- Right: Interactive Contact Form -->
+          <div class="contact-form-card reveal-on-scroll">
+            <form class="contact-form" id="contact-form">
+              <div class="form-group">
+                <label for="contact-name" class="form-label">Your Name</label>
+                <input type="text" id="contact-name" class="form-input" placeholder="e.g. Alex Johnson" required>
+              </div>
+
+              <div class="form-group">
+                <label for="contact-email" class="form-label">Your Email</label>
+                <input type="email" id="contact-email" class="form-input" placeholder="e.g. alex@example.com" required>
+              </div>
+
+              <div class="form-group">
+                <label for="contact-message" class="form-label">Message / Project Idea</label>
+                <textarea id="contact-message" class="form-textarea" placeholder="Tell me about the website you want built or the problem you're trying to solve..." required></textarea>
+              </div>
+
+              <button type="submit" class="btn btn-primary" style="width: 100%; padding: 14px;">
+                <span>Send Message</span>
+                <span>✉️</span>
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- =========================================================================
+       13. Footer
+       ========================================================================= -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-top">
+        <div>
+          <div class="footer-brand-name">Akeredolu Kolade David Omoniyi</div>
+          <div class="footer-tagline">Building ideas into digital products.</div>
+        </div>
+
+        <ul class="footer-links">
+          <li><a href="#about" class="footer-link">About</a></li>
+          <li><a href="#skills" class="footer-link">Skills</a></li>
+          <li><a href="#projects" class="footer-link">Projects</a></li>
+          <li><a href="#ideas-built" class="footer-link">Ideas → Built</a></li>
+          <li><a href="#ai-workflow" class="footer-link">AI Workflow</a></li>
+          <li><a href="#contact" class="footer-link">Contact</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-bottom">
+        <div>
+          © 2026 Akeredolu Kolade David Omoniyi (niyi). All rights reserved.
+        </div>
+        <div style="font-family: var(--font-code); color: var(--text-muted);">
+          Crafted with HTML, Modern CSS & Pure JavaScript.
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- =========================================================================
+       Project Details Modal Dialog
+       ========================================================================= -->
+  <div class="modal-backdrop" id="project-modal" role="dialog" aria-modal="true" aria-labelledby="modal-project-title">
+    <div class="modal-content">
+      <button class="modal-close" id="modal-close-btn" aria-label="Close Project Details">✕</button>
+      <div id="modal-dynamic-content">
+        <!-- Injected via JavaScript -->
+      </div>
+    </div>
+  </div>
+
+  <!-- Toast Notification Container -->
+  <div class="toast-container" id="toast-container" aria-live="polite"></div>
+
+  <!-- Scripts -->
+  <script src="js/data.js"></script>
+  <script src="js/interactions.js"></script>
+  <script src="js/projects.js"></script>
+  <script src="js/contact.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>
