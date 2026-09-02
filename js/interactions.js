@@ -1,6 +1,6 @@
 /**
  * Interactive Modules for Ideas -> Built, AI Workflow, Troubleshooting, and CV Download
- * Restrained, Subtle, High-Polish Interactions
+ * Mature Smoked Glass & Creative Digital Studio Interactions
  */
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -37,55 +37,55 @@ function initIdeasToBuilt() {
               aria-selected="${idx === activeIndex}"
             >
               <span>${item.projectName}</span>
-              <span class="badge ${item.badge.includes('Development') ? 'badge-lime' : item.badge.includes('Built') ? 'badge-cyan' : 'badge-amber'}" style="font-size: 10px;">
+              <span class="badge badge-glass" style="font-size: 10px;">
                 ${item.badge}
               </span>
             </button>
           `).join('')}
         </div>
 
-        <!-- 4-Stage Visual Pipeline Header -->
+        <!-- 4-Stage Horizontal Pipeline Header -->
         <div class="ideas-steps-flow">
           <div class="ideas-flow-item active">
             <span class="ideas-flow-step">01</span>
-            <span class="ideas-flow-label">1. The Idea</span>
+            <span class="ideas-flow-label">IDEA</span>
           </div>
           <div class="ideas-flow-item active">
             <span class="ideas-flow-step">02</span>
-            <span class="ideas-flow-label">2. The Problem</span>
+            <span class="ideas-flow-label">PROBLEM</span>
           </div>
           <div class="ideas-flow-item active">
             <span class="ideas-flow-step">03</span>
-            <span class="ideas-flow-label">3. The Build</span>
+            <span class="ideas-flow-label">BUILD</span>
           </div>
           <div class="ideas-flow-item active">
             <span class="ideas-flow-step">04</span>
-            <span class="ideas-flow-label">4. The Result</span>
+            <span class="ideas-flow-label">RESULT</span>
           </div>
         </div>
 
         <!-- 4-Grid Breakdown Cards -->
         <div class="ideas-4grid-content">
           <div class="ideas-stage-card stage-idea">
-            <span class="stage-tag">💡 ${current.steps.idea.title}</span>
+            <span class="stage-tag">01 // ${current.steps.idea.title}</span>
             <h4 class="stage-heading">What I Wanted to Create</h4>
             <p class="stage-text">${current.steps.idea.desc}</p>
           </div>
 
           <div class="ideas-stage-card stage-problem">
-            <span class="stage-tag">⚠️ ${current.steps.problem.title}</span>
+            <span class="stage-tag">02 // ${current.steps.problem.title}</span>
             <h4 class="stage-heading">The Real Challenge</h4>
             <p class="stage-text">${current.steps.problem.desc}</p>
           </div>
 
           <div class="ideas-stage-card stage-build">
-            <span class="stage-tag">🛠️ ${current.steps.build.title}</span>
+            <span class="stage-tag">03 // ${current.steps.build.title}</span>
             <h4 class="stage-heading">How I Approached It</h4>
             <p class="stage-text">${current.steps.build.desc}</p>
           </div>
 
           <div class="ideas-stage-card stage-result">
-            <span class="stage-tag">🚀 ${current.steps.result.title}</span>
+            <span class="stage-tag">04 // ${current.steps.result.title}</span>
             <h4 class="stage-heading">Outcome & Learning</h4>
             <p class="stage-text">${current.steps.result.desc}</p>
           </div>
@@ -127,14 +127,14 @@ function initAiWorkflow() {
         <!-- Left: Credo & Focus Spotlight -->
         <div class="ai-credo-card">
           <div class="ai-quote-box">
-            <div style="font-family: var(--font-mono); font-size: 11px; color: var(--accent-lime); margin-bottom: 8px; text-transform: uppercase; letter-spacing: 0.12em;">
-              Development Approach
+            <div style="font-family: var(--font-mono); font-size: 11px; color: var(--accent-champagne); margin-bottom: 8px; text-transform: uppercase; letter-spacing: 0.14em;">
+              DEVELOPMENT PHILOSOPHY
             </div>
             <p class="ai-quote-text">
               "AI doesn't replace my thinking. It accelerates it."
             </p>
             <p class="ai-quote-detail">
-              I use modern AI tools to explore ideas, understand problems, accelerate development, debug, and learn faster—while keeping architectural decisions, logic, and code quality in my own hands.
+              I use modern AI tools to explore ideas, understand problems, accelerate prototyping, debug, iterate, and learn faster—while keeping architectural decisions, logic, and code quality strictly in my own hands.
             </p>
           </div>
 
@@ -158,7 +158,7 @@ function initAiWorkflow() {
                   <div class="ai-step-summary">${item.summary}</div>
                 </div>
               </div>
-              <span style="font-size: 11px; font-family: var(--font-mono); color: ${idx === activeIndex ? 'var(--accent-lime)' : 'var(--text-muted)'};">
+              <span style="font-size: 11px; font-family: var(--font-mono); color: ${idx === activeIndex ? 'var(--accent-champagne)' : 'var(--text-muted)'};">
                 ${idx === activeIndex ? '● ACTIVE' : '▹'}
               </span>
             </div>
@@ -196,15 +196,15 @@ function initTroubleshooting() {
       ${items.map(item => `
         <div class="troubleshoot-case-item reveal-on-scroll">
           <div class="troubleshoot-case-header">
-            <span class="badge badge-indigo">${item.category}</span>
-            <span class="badge badge-lime">✓ Resolved</span>
+            <span class="badge badge-glass">${item.category}</span>
+            <span class="badge badge-champagne">✓ Resolved</span>
           </div>
           <h4 class="troubleshoot-case-title">${item.title}</h4>
           <p class="troubleshoot-case-body">
             <strong style="color: var(--text-primary); font-size: 11px; text-transform: uppercase; font-family: var(--font-mono);">Hurdle:</strong> ${item.problem}
           </p>
           <div class="troubleshoot-case-resolution">
-            <span>🛠️ Fix:</span>
+            <span>Fix:</span>
             <span>${item.solution}</span>
           </div>
         </div>

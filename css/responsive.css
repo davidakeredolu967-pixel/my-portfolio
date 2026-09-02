@@ -1,10 +1,11 @@
 /* ==========================================================================
    Responsive Adaptations & Mobile First Breakpoint Matrix
    Verified for: 320px, 360px, 375px, 390px, 414px, 480px, 768px, 1024px, 1280px, 1440px, 1920px
+   Mature Glass & Creative Digital Studio Aesthetic
    ========================================================================== */
 
 /* --------------------------------------------------------------------------
-   1. Mobile Navigation Drawer (Hardware-Accelerated Slide)
+   1. Mobile Navigation Drawer (Smoked Glass Slide)
    -------------------------------------------------------------------------- */
 .mobile-nav-drawer {
   position: fixed;
@@ -14,7 +15,7 @@
   max-width: 340px;
   height: 100vh;
   height: 100dvh;
-  background: #090d16;
+  background: #0E1015;
   border-left: 1px solid var(--border-light);
   padding: var(--space-lg) var(--space-md);
   z-index: 1000;
@@ -36,9 +37,9 @@
 .mobile-drawer-overlay {
   position: fixed;
   inset: 0;
-  background: rgba(0, 0, 0, 0.8);
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
+  background: rgba(0, 0, 0, 0.85);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
   z-index: 999;
   opacity: 0;
   visibility: hidden;
@@ -70,7 +71,7 @@
 .mobile-nav-link {
   font-family: var(--font-heading);
   font-size: var(--font-size-base);
-  font-weight: 600;
+  font-weight: 500;
   color: var(--text-secondary);
   display: flex;
   align-items: center;
@@ -84,8 +85,12 @@
 
 .mobile-nav-link:hover,
 .mobile-nav-link.is-active {
-  color: var(--accent-lime);
-  background: var(--accent-lime-subtle);
+  color: var(--text-primary);
+  background: var(--bg-glass-hover);
+}
+
+.mobile-nav-link.is-active {
+  color: var(--accent-champagne);
 }
 
 .mobile-drawer-footer {
@@ -110,7 +115,7 @@
   }
 
   .liquid-glass-header {
-    height: 50px;
+    height: 48px;
     padding: 0 12px;
   }
 
@@ -164,7 +169,7 @@
   }
 
   .liquid-glass-header {
-    height: 52px;
+    height: 50px;
     padding: 0 14px;
   }
 
