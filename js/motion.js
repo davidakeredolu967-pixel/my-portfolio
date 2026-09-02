@@ -1,28 +1,25 @@
 /**
  * ==========================================================================
  * Cinematic Motion Engine — Niyi Portfolio
- * Powered by GSAP 3 & ScrollTrigger with Safe Vanilla Fallbacks
+ * Powered by GSAP 3 & ScrollTrigger with Safe Non-Destructive Animations
  * ==========================================================================
  */
 
 document.addEventListener('DOMContentLoaded', () => {
-  // Ensure DOM and dynamic mounts are ready
+  // Wait a moment for dynamic data to mount
   setTimeout(() => {
     initMotionEngine();
-  }, 60);
+  }, 80);
 });
 
 function initMotionEngine() {
   const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   if (prefersReducedMotion) {
-    // Reveal all static elements immediately
-    document.querySelectorAll('.reveal-on-scroll').forEach(el => el.classList.add('is-revealed'));
     return;
   }
 
   // Check for GSAP availability
   if (typeof gsap === 'undefined' || typeof ScrollTrigger === 'undefined') {
-    initVanillaMotionFallback();
     return;
   }
 
@@ -31,7 +28,7 @@ function initMotionEngine() {
   // Set default ease
   gsap.defaults({
     ease: 'power3.out',
-    duration: 0.9
+    duration: 0.85
   });
 
   // 1. Hero Entrance & Scroll Parallax
@@ -49,16 +46,25 @@ function initMotionEngine() {
   // 5. About Section & Service Cards Motion
   initAboutMotion();
 
-  // 6. Process (Ideas -> Built) & Journey Timeline
-  initProcessAndJourneyMotion();
+  // 6. Process (Ideas -> Built) & AI Workflow Motion
+  initProcessMotion();
 
-  // 7. Contact Section Motion
+  // 7. Troubleshooting Cases Motion
+  initTroubleshootingMotion();
+
+  // 8. Journey Timeline Motion
+  initJourneyMotion();
+
+  // 9. Currently Building Snapshot Motion
+  initCurrentlyBuildingMotion();
+
+  // 10. Contact Section Motion
   initContactMotion();
 
-  // 8. 3D Hover Tilt Micro-Interactions
+  // 11. 3D Hover Tilt Micro-Interactions
   initCardTiltMicroInteractions();
 
-  // Refresh ScrollTrigger when images finish loading
+  // Refresh ScrollTrigger when images load
   window.addEventListener('load', () => {
     ScrollTrigger.refresh();
   });
@@ -82,62 +88,51 @@ function initHeroMotion() {
   const heroTL = gsap.timeline({ delay: 0.1 });
 
   if (matrixCards.length) {
-    heroTL.from(matrixCards, {
-      scale: 0.88,
-      opacity: 0,
-      y: 30,
-      stagger: 0.06,
-      duration: 1.1,
-      ease: 'power3.out'
-    }, 0);
+    heroTL.fromTo(matrixCards, 
+      { scale: 0.85, opacity: 0, y: 25 },
+      { scale: 1, opacity: 1, y: 0, stagger: 0.05, duration: 1.0, ease: 'power3.out', clearProps: 'transform,opacity' }, 
+      0
+    );
   }
 
   if (tagline) {
-    heroTL.from(tagline, {
-      y: -18,
-      opacity: 0,
-      duration: 0.7,
-      ease: 'power2.out'
-    }, 0.15);
+    heroTL.fromTo(tagline,
+      { y: -16, opacity: 0 },
+      { y: 0, opacity: 1, duration: 0.7, ease: 'power2.out', clearProps: 'transform,opacity' },
+      0.15
+    );
   }
 
   if (title) {
-    heroTL.from(title, {
-      y: 35,
-      scale: 0.94,
-      opacity: 0,
-      duration: 1.0,
-      ease: 'power4.out'
-    }, 0.25);
+    heroTL.fromTo(title,
+      { y: 30, scale: 0.94, opacity: 0 },
+      { y: 0, scale: 1, opacity: 1, duration: 0.9, ease: 'power4.out', clearProps: 'transform,opacity' },
+      0.25
+    );
   }
 
   if (script) {
-    heroTL.from(script, {
-      scale: 0.8,
-      rotation: -10,
-      opacity: 0,
-      duration: 1.1,
-      ease: 'back.out(1.5)'
-    }, 0.45);
+    heroTL.fromTo(script,
+      { scale: 0.8, rotation: -10, opacity: 0 },
+      { scale: 1, rotation: -4, opacity: 1, duration: 1.0, ease: 'back.out(1.4)' },
+      0.45
+    );
   }
 
   if (subtext) {
-    heroTL.from(subtext, {
-      y: 20,
-      opacity: 0,
-      duration: 0.8,
-      ease: 'power2.out'
-    }, 0.6);
+    heroTL.fromTo(subtext,
+      { y: 18, opacity: 0 },
+      { y: 0, opacity: 1, duration: 0.75, ease: 'power2.out', clearProps: 'transform,opacity' },
+      0.6
+    );
   }
 
   if (ctaGroup) {
-    heroTL.from(ctaGroup.children, {
-      y: 16,
-      opacity: 0,
-      stagger: 0.08,
-      duration: 0.7,
-      ease: 'power2.out'
-    }, 0.75);
+    heroTL.fromTo(ctaGroup.children,
+      { y: 16, opacity: 0 },
+      { y: 0, opacity: 1, stagger: 0.08, duration: 0.7, ease: 'power2.out', clearProps: 'transform,opacity' },
+      0.75
+    );
   }
 
   // Scroll Parallax Scrub on Hero
@@ -152,9 +147,9 @@ function initHeroMotion() {
         end: 'bottom top',
         scrub: 0.4
       },
-      y: -75,
-      scale: 0.95,
-      opacity: 0.25,
+      y: -60,
+      scale: 0.96,
+      opacity: 0.3,
       ease: 'none'
     });
   }
@@ -167,9 +162,9 @@ function initHeroMotion() {
         end: 'bottom top',
         scrub: 0.5
       },
-      y: -45,
-      scale: 1.03,
-      opacity: 0.35,
+      y: -40,
+      scale: 1.02,
+      opacity: 0.4,
       ease: 'none'
     });
   }
@@ -189,43 +184,38 @@ function initSectionHeadersMotion() {
     const tl = gsap.timeline({
       scrollTrigger: {
         trigger: header,
-        start: 'top 88%',
-        toggleActions: 'play none none reverse'
+        start: 'top 92%',
+        once: true
       }
     });
 
     if (meta) {
-      tl.from(meta, {
-        x: -25,
-        opacity: 0,
-        duration: 0.7,
-        ease: 'power3.out'
-      });
+      tl.fromTo(meta, 
+        { x: -25, opacity: 0 }, 
+        { x: 0, opacity: 1, duration: 0.65, ease: 'power3.out', clearProps: 'all' }
+      );
     }
 
     if (title) {
-      tl.from(title, {
-        y: 28,
-        opacity: 0,
-        duration: 0.8,
-        ease: 'power3.out'
-      }, '-=0.45');
+      tl.fromTo(title, 
+        { y: 24, opacity: 0 }, 
+        { y: 0, opacity: 1, duration: 0.75, ease: 'power3.out', clearProps: 'all' }, 
+        '-=0.45'
+      );
     }
 
     if (subtitle) {
-      tl.from(subtitle, {
-        y: 18,
-        opacity: 0,
-        duration: 0.7,
-        ease: 'power2.out'
-      }, '-=0.5');
+      tl.fromTo(subtitle, 
+        { y: 16, opacity: 0 }, 
+        { y: 0, opacity: 1, duration: 0.65, ease: 'power2.out', clearProps: 'all' }, 
+        '-=0.5'
+      );
     }
   });
 }
 
 /**
  * 3. Selected Work (Centerpiece Cinematic Scroll-Scrubbed Showcase)
- * Scales down previous project smoothly into space as next project ascends
  */
 function initProjectsScrollScrubMotion() {
   const cards = gsap.utils.toArray('.project-scroll-card-wrap');
@@ -237,21 +227,24 @@ function initProjectsScrollScrubMotion() {
     const row = cardWrap.querySelector('.project-editorial-row');
     if (!row) return;
 
-    // Entrance animation for each card as it arrives
-    gsap.from(row, {
-      scrollTrigger: {
-        trigger: cardWrap,
-        start: 'top 85%',
-        toggleActions: 'play none none reverse'
-      },
-      y: 40,
-      opacity: 0.4,
-      scale: 0.96,
-      duration: 0.8,
-      ease: 'power2.out'
-    });
+    // Entrance animation
+    gsap.fromTo(row,
+      { y: 35, opacity: 0.6, scale: 0.97 },
+      {
+        y: 0,
+        opacity: 1,
+        scale: 1,
+        duration: 0.75,
+        ease: 'power2.out',
+        scrollTrigger: {
+          trigger: cardWrap,
+          start: 'top 90%',
+          once: true
+        }
+      }
+    );
 
-    // Scroll-scrub recession (all except the last card)
+    // Scroll-scrub recession (for all except the last card)
     if (i < cards.length - 1) {
       const nextCard = cards[i + 1];
 
@@ -263,10 +256,10 @@ function initProjectsScrollScrubMotion() {
           scrub: 0.5
         },
         scale: isMobile ? 0.94 : 0.88,
-        y: isMobile ? -14 : -32,
+        y: isMobile ? -14 : -30,
         rotationX: isMobile ? 0 : 2,
         filter: isMobile ? 'brightness(0.85)' : 'brightness(0.65)',
-        opacity: isMobile ? 0.9 : 0.78,
+        opacity: isMobile ? 0.9 : 0.8,
         ease: 'power1.inOut',
         transformPerspective: 1000,
         transformOrigin: 'center top'
@@ -285,37 +278,22 @@ function initCapabilitiesMotion() {
   const columns = section.querySelectorAll('.capability-column-block');
   if (!columns.length) return;
 
-  gsap.from(columns, {
-    scrollTrigger: {
-      trigger: section,
-      start: 'top 80%',
-      toggleActions: 'play none none reverse'
-    },
-    y: 35,
-    opacity: 0,
-    stagger: 0.14,
-    duration: 0.85,
-    ease: 'power3.out'
-  });
-
-  // Animate individual list items inside columns
-  columns.forEach(col => {
-    const items = col.querySelectorAll('.capability-row-item');
-    if (items.length) {
-      gsap.from(items, {
-        scrollTrigger: {
-          trigger: col,
-          start: 'top 82%',
-          toggleActions: 'play none none reverse'
-        },
-        x: -12,
-        opacity: 0,
-        stagger: 0.04,
-        duration: 0.6,
-        ease: 'power2.out'
-      });
+  gsap.fromTo(columns,
+    { y: 30, opacity: 0 },
+    {
+      y: 0,
+      opacity: 1,
+      stagger: 0.12,
+      duration: 0.8,
+      ease: 'power3.out',
+      clearProps: 'all',
+      scrollTrigger: {
+        trigger: section,
+        start: 'top 85%',
+        once: true
+      }
     }
-  });
+  );
 }
 
 /**
@@ -329,137 +307,199 @@ function initAboutMotion() {
   const serviceCards = section.querySelectorAll('.service-card');
 
   if (storyCard) {
-    gsap.from(storyCard, {
-      scrollTrigger: {
-        trigger: storyCard,
-        start: 'top 82%',
-        toggleActions: 'play none none reverse'
-      },
-      y: 30,
-      opacity: 0,
-      duration: 0.85,
-      ease: 'power3.out'
-    });
+    gsap.fromTo(storyCard,
+      { y: 25, opacity: 0 },
+      {
+        y: 0,
+        opacity: 1,
+        duration: 0.8,
+        ease: 'power3.out',
+        clearProps: 'all',
+        scrollTrigger: {
+          trigger: storyCard,
+          start: 'top 88%',
+          once: true
+        }
+      }
+    );
   }
 
   if (serviceCards.length) {
-    gsap.from(serviceCards, {
-      scrollTrigger: {
-        trigger: section.querySelector('.what-i-do-grid') || section,
-        start: 'top 82%',
-        toggleActions: 'play none none reverse'
-      },
-      y: 28,
-      opacity: 0,
-      stagger: 0.08,
-      duration: 0.75,
-      ease: 'power3.out'
-    });
+    gsap.fromTo(serviceCards,
+      { y: 25, opacity: 0 },
+      {
+        y: 0,
+        opacity: 1,
+        stagger: 0.08,
+        duration: 0.75,
+        ease: 'power3.out',
+        clearProps: 'all',
+        scrollTrigger: {
+          trigger: section.querySelector('.what-i-do-grid') || section,
+          start: 'top 88%',
+          once: true
+        }
+      }
+    );
   }
 }
 
 /**
- * 6. Process (Ideas -> Built) & Journey Timeline Motion
+ * 6. Process (Ideas -> Built) & AI Workflow Motion
  */
-function initProcessAndJourneyMotion() {
-  // Process Section
+function initProcessMotion() {
   const processSection = document.getElementById('process');
   if (processSection) {
     const module = processSection.querySelector('.ideas-built-module');
     if (module) {
-      gsap.from(module, {
-        scrollTrigger: {
-          trigger: processSection,
-          start: 'top 80%',
-          toggleActions: 'play none none reverse'
-        },
-        y: 35,
-        opacity: 0,
-        duration: 0.85,
-        ease: 'power3.out'
-      });
+      gsap.fromTo(module,
+        { y: 30, opacity: 0 },
+        {
+          y: 0,
+          opacity: 1,
+          duration: 0.85,
+          ease: 'power3.out',
+          clearProps: 'all',
+          scrollTrigger: {
+            trigger: processSection,
+            start: 'top 88%',
+            once: true
+          }
+        }
+      );
     }
   }
 
-  // AI Workflow
   const aiSection = document.getElementById('ai-workflow');
   if (aiSection) {
     const credoCard = aiSection.querySelector('.ai-credo-card');
     const stepRows = aiSection.querySelectorAll('.ai-step-row');
 
     if (credoCard) {
-      gsap.from(credoCard, {
-        scrollTrigger: {
-          trigger: aiSection,
-          start: 'top 82%',
-          toggleActions: 'play none none reverse'
-        },
-        x: -25,
-        opacity: 0,
-        duration: 0.85,
-        ease: 'power3.out'
-      });
+      gsap.fromTo(credoCard,
+        { x: -25, opacity: 0 },
+        {
+          x: 0,
+          opacity: 1,
+          duration: 0.8,
+          ease: 'power3.out',
+          clearProps: 'all',
+          scrollTrigger: {
+            trigger: aiSection,
+            start: 'top 88%',
+            once: true
+          }
+        }
+      );
     }
 
     if (stepRows.length) {
-      gsap.from(stepRows, {
-        scrollTrigger: {
-          trigger: aiSection,
-          start: 'top 80%',
-          toggleActions: 'play none none reverse'
-        },
-        x: 25,
-        opacity: 0,
-        stagger: 0.06,
-        duration: 0.7,
-        ease: 'power2.out'
-      });
-    }
-  }
-
-  // Troubleshooting Section
-  const troubleshoot = document.getElementById('troubleshooting');
-  if (troubleshoot) {
-    const cases = troubleshoot.querySelectorAll('.troubleshoot-case-item');
-    if (cases.length) {
-      gsap.from(cases, {
-        scrollTrigger: {
-          trigger: troubleshoot,
-          start: 'top 80%',
-          toggleActions: 'play none none reverse'
-        },
-        y: 25,
-        opacity: 0,
-        stagger: 0.1,
-        duration: 0.75,
-        ease: 'power3.out'
-      });
-    }
-  }
-
-  // Journey Timeline
-  const journeySection = document.getElementById('journey');
-  if (journeySection) {
-    const nodes = journeySection.querySelectorAll('.journey-step-node');
-    if (nodes.length) {
-      gsap.from(nodes, {
-        scrollTrigger: {
-          trigger: journeySection,
-          start: 'top 80%',
-          toggleActions: 'play none none reverse'
-        },
-        x: -20,
-        opacity: 0,
-        stagger: 0.12,
-        duration: 0.75,
-        ease: 'power3.out'
-      });
+      gsap.fromTo(stepRows,
+        { x: 20, opacity: 0 },
+        {
+          x: 0,
+          opacity: 1,
+          stagger: 0.05,
+          duration: 0.65,
+          ease: 'power2.out',
+          clearProps: 'all',
+          scrollTrigger: {
+            trigger: aiSection,
+            start: 'top 88%',
+            once: true
+          }
+        }
+      );
     }
   }
 }
 
 /**
- * 7. Contact Section Motion
+ * 7. Troubleshooting Cases Motion
+ */
+function initTroubleshootingMotion() {
+  const troubleshoot = document.getElementById('troubleshooting');
+  if (!troubleshoot) return;
+
+  const cases = troubleshoot.querySelectorAll('.troubleshoot-case-item');
+  if (!cases.length) return;
+
+  gsap.fromTo(cases,
+    { y: 25, opacity: 0 },
+    {
+      y: 0,
+      opacity: 1,
+      stagger: 0.08,
+      duration: 0.75,
+      ease: 'power3.out',
+      clearProps: 'all',
+      scrollTrigger: {
+        trigger: troubleshoot,
+        start: 'top 88%',
+        once: true
+      }
+    }
+  );
+}
+
+/**
+ * 8. Journey Timeline Motion (Guaranteed 100% Visibility)
+ */
+function initJourneyMotion() {
+  const journeySection = document.getElementById('journey');
+  if (!journeySection) return;
+
+  const nodes = journeySection.querySelectorAll('.journey-step-node');
+  if (!nodes.length) return;
+
+  gsap.fromTo(nodes,
+    { x: -20, opacity: 0 },
+    {
+      x: 0,
+      opacity: 1,
+      stagger: 0.1,
+      duration: 0.75,
+      ease: 'power3.out',
+      clearProps: 'all',
+      scrollTrigger: {
+        trigger: journeySection,
+        start: 'top 88%',
+        once: true
+      }
+    }
+  );
+}
+
+/**
+ * 9. Currently Building Snapshot Motion
+ */
+function initCurrentlyBuildingMotion() {
+  const section = document.getElementById('currently-building');
+  if (!section) return;
+
+  const cards = section.querySelectorAll('.service-card');
+  if (!cards.length) return;
+
+  gsap.fromTo(cards,
+    { y: 25, opacity: 0 },
+    {
+      y: 0,
+      opacity: 1,
+      stagger: 0.08,
+      duration: 0.75,
+      ease: 'power3.out',
+      clearProps: 'all',
+      scrollTrigger: {
+        trigger: section,
+        start: 'top 88%',
+        once: true
+      }
+    }
+  );
+}
+
+/**
+ * 10. Contact Section Motion
  */
 function initContactMotion() {
   const contact = document.getElementById('contact');
@@ -469,36 +509,44 @@ function initContactMotion() {
   const formFrame = contact.querySelector('.contact-form-frame');
 
   if (directCard) {
-    gsap.from(directCard, {
-      scrollTrigger: {
-        trigger: contact,
-        start: 'top 80%',
-        toggleActions: 'play none none reverse'
-      },
-      x: -30,
-      opacity: 0,
-      duration: 0.85,
-      ease: 'power3.out'
-    });
+    gsap.fromTo(directCard,
+      { x: -25, opacity: 0 },
+      {
+        x: 0,
+        opacity: 1,
+        duration: 0.8,
+        ease: 'power3.out',
+        clearProps: 'all',
+        scrollTrigger: {
+          trigger: contact,
+          start: 'top 88%',
+          once: true
+        }
+      }
+    );
   }
 
   if (formFrame) {
-    gsap.from(formFrame, {
-      scrollTrigger: {
-        trigger: contact,
-        start: 'top 80%',
-        toggleActions: 'play none none reverse'
-      },
-      x: 30,
-      opacity: 0,
-      duration: 0.85,
-      ease: 'power3.out'
-    });
+    gsap.fromTo(formFrame,
+      { x: 25, opacity: 0 },
+      {
+        x: 0,
+        opacity: 1,
+        duration: 0.8,
+        ease: 'power3.out',
+        clearProps: 'all',
+        scrollTrigger: {
+          trigger: contact,
+          start: 'top 88%',
+          once: true
+        }
+      }
+    );
   }
 }
 
 /**
- * 8. 3D Card Hover Tilt Micro-Interactions
+ * 11. 3D Card Hover Tilt Micro-Interactions
  */
 function initCardTiltMicroInteractions() {
   const tiltCards = document.querySelectorAll('.project-visual-frame, .service-card');
@@ -523,20 +571,4 @@ function initCardTiltMicroInteractions() {
       card.style.transform = '';
     });
   });
-}
-
-/**
- * Safe Vanilla Fallback (if GSAP CDN is unreachable)
- */
-function initVanillaMotionFallback() {
-  const elements = document.querySelectorAll('.reveal-on-scroll');
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('is-revealed');
-      }
-    });
-  }, { threshold: 0.1 });
-
-  elements.forEach(el => observer.observe(el));
 }
