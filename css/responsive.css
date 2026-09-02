@@ -1,33 +1,36 @@
 /* ==========================================================================
    Responsive Adaptations & Mobile First Breakpoint Matrix
-   Verified for: 320px, 375px, 390px, 414px, 768px, 1024px, 1280px, 1440px, 1920px
+   Verified for: 320px, 360px, 375px, 390px, 414px, 480px, 768px, 1024px, 1280px, 1440px, 1920px
    ========================================================================== */
 
 /* --------------------------------------------------------------------------
-   1. Mobile Navigation Drawer
+   1. Mobile Navigation Drawer (Hardware-Accelerated Slide)
    -------------------------------------------------------------------------- */
 .mobile-nav-drawer {
   position: fixed;
   top: 0;
-  right: -100%;
-  width: 82%;
+  right: 0;
+  width: 84%;
   max-width: 320px;
   height: 100vh;
   height: 100dvh;
   background: #090e18;
   border-left: 1px solid var(--border-light);
-  padding: var(--space-xl) var(--space-lg);
+  padding: var(--space-lg) var(--space-md);
   z-index: 1000;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  transition: right 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+  transform: translateX(100%);
+  transition: transform 0.32s cubic-bezier(0.16, 1, 0.3, 1);
   box-shadow: -10px 0 30px rgba(0, 0, 0, 0.85);
   overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+  will-change: transform;
 }
 
 .mobile-nav-drawer.is-open {
-  right: 0;
+  transform: translateX(0);
 }
 
 .mobile-drawer-overlay {
@@ -40,6 +43,7 @@
   opacity: 0;
   visibility: hidden;
   transition: opacity 0.28s ease, visibility 0.28s ease;
+  will-change: opacity;
 }
 
 .mobile-drawer-overlay.is-open {
@@ -51,8 +55,8 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin-bottom: var(--space-xl);
-  padding-bottom: var(--space-md);
+  margin-bottom: var(--space-lg);
+  padding-bottom: var(--space-sm);
   border-bottom: 1px solid var(--border-subtle);
 }
 
@@ -60,7 +64,7 @@
   list-style: none;
   display: flex;
   flex-direction: column;
-  gap: var(--space-sm);
+  gap: var(--space-xs);
 }
 
 .mobile-nav-link {
@@ -70,10 +74,12 @@
   color: var(--text-secondary);
   display: flex;
   align-items: center;
-  gap: 12px;
+  gap: 10px;
   padding: 10px 14px;
+  min-height: var(--touch-target-min);
   border-radius: var(--radius-xs);
   transition: all var(--transition-fast);
+  touch-action: manipulation;
 }
 
 .mobile-nav-link:hover,
@@ -83,42 +89,54 @@
 }
 
 .mobile-drawer-footer {
-  padding-top: var(--space-lg);
+  padding-top: var(--space-md);
   border-top: 1px solid var(--border-subtle);
   display: flex;
   flex-direction: column;
-  gap: var(--space-md);
+  gap: var(--space-sm);
 }
 
 /* --------------------------------------------------------------------------
-   2. Small Mobile Screens (≤ 375px)
+   2. Small Mobile Screens (320px – 360px)
    -------------------------------------------------------------------------- */
-@media (max-width: 375px) {
+@media (max-width: 360px) {
   :root {
-    --nav-height: 64px;
-    --container-pad: 1rem;
+    --nav-height: 62px;
+    --container-pad: 0.85rem;
   }
 
   .section {
-    padding-top: var(--space-2xl);
-    padding-bottom: var(--space-2xl);
+    padding-top: var(--space-xl);
+    padding-bottom: var(--space-xl);
   }
 
   .hero-headline {
-    font-size: 2.1rem;
+    font-size: 1.85rem;
+    line-height: 1.18;
   }
 
   .hero-cta-group {
     flex-direction: column;
     width: 100%;
+    align-items: stretch;
   }
 
   .hero-cta-group .btn {
     width: 100%;
   }
 
+  .project-actions-row {
+    flex-direction: column;
+    width: 100%;
+    align-items: stretch;
+  }
+
+  .project-actions-row .btn {
+    width: 100%;
+  }
+
   .ideas-steps-flow {
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: 1fr;
   }
 
   .mock-stat-grid {
@@ -127,42 +145,51 @@
 
   .modal-content {
     padding: var(--space-md);
+    border-radius: var(--radius-md);
   }
 }
 
 /* --------------------------------------------------------------------------
-   3. Medium Mobile Screens (376px – 480px)
+   3. Medium Mobile Screens (361px – 480px)
    -------------------------------------------------------------------------- */
-@media (min-width: 376px) and (max-width: 480px) {
+@media (min-width: 361px) and (max-width: 480px) {
   :root {
-    --nav-height: 68px;
+    --nav-height: 66px;
   }
 
   .section {
-    padding-top: var(--space-3xl);
-    padding-bottom: var(--space-3xl);
+    padding-top: var(--space-2xl);
+    padding-bottom: var(--space-2xl);
   }
 
   .hero-cta-group {
     flex-direction: column;
     width: 100%;
+    align-items: stretch;
   }
 
   .hero-cta-group .btn {
     width: 100%;
   }
 
-  .ideas-steps-flow {
-    grid-template-columns: repeat(2, 1fr);
+  .project-actions-row {
+    flex-direction: column;
+    width: 100%;
+    align-items: stretch;
+  }
+
+  .project-actions-row .btn {
+    width: 100%;
   }
 }
 
 /* --------------------------------------------------------------------------
-   4. Tablets (481px – 960px)
+   4. Phablets & Small Tablets (481px – 768px)
    -------------------------------------------------------------------------- */
-@media (min-width: 481px) and (max-width: 960px) {
-  .ideas-steps-flow {
-    grid-template-columns: repeat(4, 1fr);
+@media (min-width: 481px) and (max-width: 768px) {
+  .hero-cta-group {
+    flex-direction: row;
+    flex-wrap: wrap;
   }
 }
 
@@ -182,10 +209,11 @@ button, a, input, select, textarea {
   touch-action: manipulation;
 }
 
-/* Prevent accidental horizontal page overflow */
+/* Prevent horizontal page overflow */
 html, body {
   max-width: 100%;
   overflow-x: hidden;
+  position: relative;
 }
 
 /* --------------------------------------------------------------------------
@@ -204,6 +232,10 @@ html, body {
   .reveal-on-scroll {
     opacity: 1 !important;
     transform: none !important;
+  }
+
+  .mobile-nav-drawer {
+    transition: none !important;
   }
 
   .status-dot.status-green::after {

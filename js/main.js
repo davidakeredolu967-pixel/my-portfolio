@@ -1,6 +1,6 @@
 /**
  * Main Application Script — Niyi Portfolio
- * Handles Navbar scroll effects, Mobile Drawer, IntersectionObserver, and ScrollSpy
+ * Handles Navbar scroll effects, Mobile Drawer (with accessibility & scroll lock), IntersectionObserver, and ScrollSpy
  */
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -31,7 +31,7 @@ function initNavbar() {
 }
 
 /**
- * 2. Mobile Navigation Drawer
+ * 2. Mobile Navigation Drawer with full accessibility & scroll lock
  */
 function initMobileDrawer() {
   const toggleBtn = document.getElementById('mobile-menu-toggle');
@@ -46,6 +46,7 @@ function initMobileDrawer() {
     drawer.classList.add('is-open');
     overlay.classList.add('is-open');
     toggleBtn.classList.add('is-open');
+    toggleBtn.setAttribute('aria-expanded', 'true');
     document.body.style.overflow = 'hidden';
   };
 
@@ -53,6 +54,7 @@ function initMobileDrawer() {
     drawer.classList.remove('is-open');
     overlay.classList.remove('is-open');
     toggleBtn.classList.remove('is-open');
+    toggleBtn.setAttribute('aria-expanded', 'false');
     document.body.style.overflow = '';
   };
 
@@ -69,6 +71,12 @@ function initMobileDrawer() {
 
   navLinks.forEach(link => {
     link.addEventListener('click', closeDrawer);
+  });
+
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && drawer.classList.contains('is-open')) {
+      closeDrawer();
+    }
   });
 }
 
@@ -144,7 +152,7 @@ function initSmoothScroll() {
       const targetElement = document.querySelector(targetId);
       if (targetElement) {
         e.preventDefault();
-        const headerOffset = 76;
+        const headerOffset = 72;
         const elementPosition = targetElement.getBoundingClientRect().top;
         const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
 

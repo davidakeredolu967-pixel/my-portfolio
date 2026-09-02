@@ -1,6 +1,6 @@
 /**
  * Projects Rendering & Editorial Alternating Showcase
- * Features image screenshot support with seamless interactive mockup fallback.
+ * Features real image screenshot support with seamless interactive mockup fallback.
  */
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -13,7 +13,7 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 /**
- * High-fidelity simulated UI preview frames (Fallback when real screenshot is not provided)
+ * High-fidelity simulated UI preview frames (Fallback when real screenshot is pending)
  */
 function getUiPreviewMockup(project) {
   if (project.previewType === 'dashboard') {
@@ -25,16 +25,16 @@ function getUiPreviewMockup(project) {
             <span class="ui-dot ui-dot-yellow"></span>
             <span class="ui-dot ui-dot-green"></span>
           </div>
-          <span class="ui-preview-url">app.attendance-system/admin</span>
+          <span class="ui-preview-url">attendance-system (prototype)</span>
           <span style="font-size: 10px; color: #10b981; font-family: var(--font-mono);">● Prototype</span>
         </div>
         <div class="ui-preview-canvas">
           <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid var(--border-subtle); padding-bottom: 8px;">
             <div>
               <div style="font-size: 12px; font-weight: 600; color: #fff;">Attendance Dashboard</div>
-              <div style="font-size: 10px; color: var(--text-muted);">Real-time sign-in stream</div>
+              <div style="font-size: 10px; color: var(--text-muted);">Sign-in monitoring view</div>
             </div>
-            <span class="badge badge-emerald">Firebase Connected</span>
+            <span class="badge badge-emerald">Firebase</span>
           </div>
           <div class="mock-stat-grid">
             <div class="mock-stat-box">
@@ -79,14 +79,14 @@ function getUiPreviewMockup(project) {
             <span class="ui-dot ui-dot-yellow"></span>
             <span class="ui-dot ui-dot-green"></span>
           </div>
-          <span class="ui-preview-url">recipe-platform.app/explore</span>
-          <span style="font-size: 10px; color: #00d2ff; font-family: var(--font-mono);">Firestore Data</span>
+          <span class="ui-preview-url">recipe-platform (concept)</span>
+          <span style="font-size: 10px; color: #00d2ff; font-family: var(--font-mono);">Firestore</span>
         </div>
         <div class="ui-preview-canvas">
-          <div style="display: flex; gap: 8px; margin-bottom: 4px;">
+          <div style="display: flex; gap: 8px; margin-bottom: 4px; flex-wrap: wrap;">
             <span class="badge badge-cyan" style="font-size: 10px;">Breakfast</span>
             <span class="badge badge-indigo" style="font-size: 10px;">Quick Prep</span>
-            <span class="badge badge-emerald" style="font-size: 10px;">High Protein</span>
+            <span class="badge badge-emerald" style="font-size: 10px;">Healthy</span>
           </div>
           <div style="background: rgba(255,255,255,0.03); border: 1px solid var(--border-subtle); border-radius: var(--radius-xs); padding: 10px;">
             <div style="font-size: 13px; font-weight: 600; color: #fff; margin-bottom: 4px;">Mediterranean Skillet</div>
@@ -95,14 +95,14 @@ function getUiPreviewMockup(project) {
           <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 8px; font-family: var(--font-mono); font-size: 10px;">
             <div style="background: rgba(0,0,0,0.3); padding: 8px; border-radius: 4px; border: 1px solid var(--border-subtle);">
               <div style="color: var(--accent-cyan); font-weight: 600; margin-bottom: 4px;">Ingredients (6)</div>
-              <div style="color: var(--text-muted);">• 2 Free-range eggs</div>
-              <div style="color: var(--text-muted);">• Cherry tomatoes</div>
-              <div style="color: var(--text-muted);">• Olive oil & basil</div>
+              <div style="color: var(--text-muted);">• 2 Eggs</div>
+              <div style="color: var(--text-muted);">• Tomatoes</div>
+              <div style="color: var(--text-muted);">• Olive oil</div>
             </div>
             <div style="background: rgba(0,0,0,0.3); padding: 8px; border-radius: 4px; border: 1px solid var(--border-subtle);">
-              <div style="color: #34d399; font-weight: 600; margin-bottom: 4px;">Timing & Yield</div>
-              <div style="color: var(--text-muted);">Prep: 10 mins</div>
-              <div style="color: var(--text-muted);">Cook: 15 mins</div>
+              <div style="color: #34d399; font-weight: 600; margin-bottom: 4px;">Timing</div>
+              <div style="color: var(--text-muted);">Prep: 10m</div>
+              <div style="color: var(--text-muted);">Cook: 15m</div>
               <div style="color: var(--text-muted);">Servings: 2</div>
             </div>
           </div>
@@ -120,30 +120,29 @@ function getUiPreviewMockup(project) {
             <span class="ui-dot ui-dot-yellow"></span>
             <span class="ui-dot ui-dot-green"></span>
           </div>
-          <span class="ui-preview-url">avantivogue.store/concept</span>
+          <span class="ui-preview-url">avantivogue (store concept)</span>
           <span style="font-size: 10px; color: #f59e0b; font-family: var(--font-mono);">Shopify Concept</span>
         </div>
         <div class="ui-preview-canvas">
           <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid var(--border-subtle); padding-bottom: 8px;">
             <div style="font-family: var(--font-heading); font-size: 13px; font-weight: 700; letter-spacing: 0.08em; color: #fff;">AVANTI VOGUE</div>
-            <span class="badge badge-amber" style="font-size: 10px;">Store Concept</span>
+            <span class="badge badge-amber" style="font-size: 10px;">Concept</span>
           </div>
-          <div style="display: grid; grid-template-columns: 1.2fr 1fr; gap: 10px; align-items: center;">
-            <div style="background: rgba(255,255,255,0.02); border: 1px solid var(--border-subtle); border-radius: var(--radius-xs); padding: 12px;">
+          <div style="display: grid; grid-template-columns: 1.2fr 1fr; gap: 8px; align-items: center;">
+            <div style="background: rgba(255,255,255,0.02); border: 1px solid var(--border-subtle); border-radius: var(--radius-xs); padding: 10px;">
               <div style="font-size: 10px; color: var(--accent-amber); font-family: var(--font-mono); margin-bottom: 2px;">COLLECTION 01</div>
-              <div style="font-size: 12px; font-weight: 600; color: #fff;">Minimalist Apparel</div>
-              <div style="font-size: 11px; color: var(--text-muted); margin-top: 4px;">Curated lifestyle products with focused branding.</div>
+              <div style="font-size: 12px; font-weight: 600; color: #fff;">Apparel Showcase</div>
+              <div style="font-size: 10px; color: var(--text-muted); margin-top: 2px;">Curated lifestyle catalog.</div>
             </div>
-            <div style="background: rgba(0,0,0,0.3); border: 1px solid var(--border-subtle); border-radius: var(--radius-xs); padding: 10px; font-family: var(--font-mono); font-size: 10px;">
-              <div style="color: var(--text-muted); margin-bottom: 2px;">Store Structure</div>
-              <div style="color: #34d399; font-weight: 600;">Product Showcase</div>
-              <div style="color: var(--text-muted); margin-top: 4px;">Clean visual presentation</div>
+            <div style="background: rgba(0,0,0,0.3); border: 1px solid var(--border-subtle); border-radius: var(--radius-xs); padding: 8px; font-family: var(--font-mono); font-size: 10px;">
+              <div style="color: var(--text-muted); margin-bottom: 2px;">Store Flow</div>
+              <div style="color: #34d399; font-weight: 600;">Product View</div>
+              <div style="color: var(--text-muted); margin-top: 2px;">Clean checkout steps</div>
             </div>
           </div>
-          <div style="display: flex; gap: 6px; font-size: 10px; font-family: var(--font-mono); color: var(--text-muted);">
+          <div style="display: flex; gap: 6px; font-size: 10px; font-family: var(--font-mono); color: var(--text-muted); flex-wrap: wrap;">
             <span>• Responsive Layout</span>
-            <span>• Brand Guide</span>
-            <span>• Product Research</span>
+            <span>• Brand Style</span>
           </div>
         </div>
       </div>
@@ -159,23 +158,23 @@ function getUiPreviewMockup(project) {
           <span class="ui-dot ui-dot-yellow"></span>
           <span class="ui-dot ui-dot-green"></span>
         </div>
-        <span class="ui-preview-url">branding.niyi.dev/gallery</span>
+        <span class="ui-preview-url">branding-gallery (concept)</span>
         <span style="font-size: 10px; color: #38bdf8; font-family: var(--font-mono);">Visual Media</span>
       </div>
       <div class="ui-preview-canvas">
-        <div style="font-size: 12px; font-weight: 600; color: #fff; margin-bottom: 6px;">Departmental & Campus Event Designs</div>
-        <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px;">
-          <div style="background: rgba(255,255,255,0.03); border: 1px solid var(--border-subtle); border-radius: 4px; padding: 10px; text-align: center;">
-            <div style="font-size: 18px; margin-bottom: 4px;">📐</div>
-            <div style="font-size: 10px; color: #fff; font-weight: 500;">Academic Seminars</div>
+        <div style="font-size: 12px; font-weight: 600; color: #fff; margin-bottom: 6px;">Campus & Event Design Assets</div>
+        <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 6px;">
+          <div style="background: rgba(255,255,255,0.03); border: 1px solid var(--border-subtle); border-radius: 4px; padding: 8px; text-align: center;">
+            <div style="font-size: 16px; margin-bottom: 2px;">📐</div>
+            <div style="font-size: 10px; color: #fff; font-weight: 500;">Seminars</div>
           </div>
-          <div style="background: rgba(255,255,255,0.03); border: 1px solid var(--border-subtle); border-radius: 4px; padding: 10px; text-align: center;">
-            <div style="font-size: 18px; margin-bottom: 4px;">⚡</div>
-            <div style="font-size: 10px; color: #fff; font-weight: 500;">Tech Discussions</div>
+          <div style="background: rgba(255,255,255,0.03); border: 1px solid var(--border-subtle); border-radius: 4px; padding: 8px; text-align: center;">
+            <div style="font-size: 16px; margin-bottom: 2px;">⚡</div>
+            <div style="font-size: 10px; color: #fff; font-weight: 500;">Tech Talks</div>
           </div>
-          <div style="background: rgba(255,255,255,0.03); border: 1px solid var(--border-subtle); border-radius: 4px; padding: 10px; text-align: center;">
-            <div style="font-size: 18px; margin-bottom: 4px;">🎨</div>
-            <div style="font-size: 10px; color: #fff; font-weight: 500;">Social Graphics</div>
+          <div style="background: rgba(255,255,255,0.03); border: 1px solid var(--border-subtle); border-radius: 4px; padding: 8px; text-align: center;">
+            <div style="font-size: 16px; margin-bottom: 2px;">🎨</div>
+            <div style="font-size: 10px; color: #fff; font-weight: 500;">Social Media</div>
           </div>
         </div>
         <div style="font-size: 11px; color: var(--text-secondary); line-height: 1.4; margin-top: 4px;">
@@ -187,12 +186,22 @@ function getUiPreviewMockup(project) {
 }
 
 /**
- * Render Project Visual (Checks for real image or falls back to UI mockup)
+ * Render Project Visual: checks for real screenshot image with seamless fallback to mockup
  */
 function getProjectVisualMarkup(project) {
   return `
-    <div class="project-visual-container" style="position: relative; height: 100%;">
-      ${getUiPreviewMockup(project)}
+    <div class="project-visual-frame">
+      <img 
+        src="${project.imageSrc}" 
+        alt="${project.title} Preview" 
+        loading="lazy" 
+        class="project-real-img" 
+        onload="this.style.display='block'; if(this.nextElementSibling) this.nextElementSibling.style.display='none';" 
+        onerror="this.style.display='none'; if(this.nextElementSibling) this.nextElementSibling.style.display='flex';"
+      />
+      <div class="project-mockup-fallback" style="display: flex; width: 100%;">
+        ${getUiPreviewMockup(project)}
+      </div>
     </div>
   `;
 }
@@ -208,7 +217,7 @@ function initProjects() {
 
   mount.innerHTML = `
     <div class="projects-editorial-list">
-      ${projects.map((project, idx) => `
+      ${projects.map((project) => `
         <article class="project-editorial-row reveal-on-scroll" id="${project.id}">
           
           <!-- Visual Column -->
@@ -349,7 +358,7 @@ function initLeadership() {
         <div class="service-card reveal-on-scroll">
           <div class="service-header">
             <span class="service-icon">🤝</span>
-            <h4 class="service-title">${item.title}</h4>
+            <h3 class="service-title">${item.title}</h3>
           </div>
           <p class="service-desc">${item.desc}</p>
         </div>
@@ -371,8 +380,8 @@ function initCurrentlyBuilding() {
     <div class="what-i-do-grid" style="grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));">
       ${items.map(item => `
         <div class="service-card reveal-on-scroll">
-          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 4px;">
-            <h4 class="service-title">${item.title}</h4>
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 4px; gap: 8px;">
+            <h3 class="service-title">${item.title}</h3>
             <span class="status-pill">
               <span class="status-dot status-${item.statusType}"></span>
               <span>${item.status}</span>
@@ -418,7 +427,7 @@ function openProjectModal(projectId) {
 
   modalBody.innerHTML = `
     <div style="display: flex; flex-direction: column; gap: var(--space-md);">
-      <div style="display: flex; align-items: center; justify-content: space-between;">
+      <div style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 8px;">
         <span class="project-index">PROJECT ${project.number} // ${project.category}</span>
         <span class="badge ${project.statusColor === 'green' ? 'badge-emerald' : 'badge-amber'}">
           ● ${project.status}
