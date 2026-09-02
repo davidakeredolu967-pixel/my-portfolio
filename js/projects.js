@@ -234,51 +234,53 @@ function initProjects() {
 
   mount.innerHTML = `
     <div class="projects-editorial-list">
-      ${projects.map((project) => `
-        <article class="project-editorial-row reveal-on-scroll" id="${project.id}">
-          
-          <!-- Visual Column -->
-          <div class="project-visual-col">
-            ${getProjectVisualMarkup(project)}
-          </div>
-
-          <!-- Info Column -->
-          <div class="project-info-col">
-            <div class="project-meta-header">
-              <span class="project-index">0${project.number} // ${project.category}</span>
-              <span class="badge badge-copper">
-                ● ${project.statusBadge}
-              </span>
+      ${projects.map((project, index) => `
+        <div class="project-scroll-card-wrap" data-project-index="${index}">
+          <article class="project-editorial-row" id="${project.id}">
+            
+            <!-- Visual Column -->
+            <div class="project-visual-col">
+              ${getProjectVisualMarkup(project)}
             </div>
 
-            <h3 class="project-title">${project.title}</h3>
-            <p class="project-desc">${project.shortDesc}</p>
+            <!-- Info Column -->
+            <div class="project-info-col">
+              <div class="project-meta-header">
+                <span class="project-index">0${project.number} // ${project.category}</span>
+                <span class="badge badge-copper">
+                  ● ${project.statusBadge}
+                </span>
+              </div>
 
-            <div style="background: var(--bg-glass); border-left: 2px solid var(--accent-copper); padding: 8px 12px; border-radius: 0 var(--radius-xs) var(--radius-xs) 0;">
-              <div style="font-size: 11px; font-family: var(--font-mono); color: var(--accent-copper); text-transform: uppercase;">Problem Addressed</div>
-              <div style="font-size: 12px; color: var(--text-secondary); margin-top: 2px;">${project.problemSolved}</div>
+              <h3 class="project-title">${project.title}</h3>
+              <p class="project-desc">${project.shortDesc}</p>
+
+              <div style="background: var(--bg-glass); border-left: 2px solid var(--accent-copper); padding: 8px 12px; border-radius: 0 var(--radius-xs) var(--radius-xs) 0;">
+                <div style="font-size: 11px; font-family: var(--font-mono); color: var(--accent-copper); text-transform: uppercase;">Problem Addressed</div>
+                <div style="font-size: 12px; color: var(--text-secondary); margin-top: 2px;">${project.problemSolved}</div>
+              </div>
+
+              <ul class="project-features">
+                ${project.features.slice(0, 3).map(feat => `<li>${feat}</li>`).join('')}
+              </ul>
+
+              <div class="project-tech-row">
+                ${project.techStack.map(tech => `<span class="tech-tag">${tech}</span>`).join('')}
+              </div>
+
+              <div class="project-actions-row">
+                <button class="btn btn-primary btn-sm open-project-modal-btn" data-project-id="${project.id}">
+                  <span>View Case Details</span>
+                  <span>↗</span>
+                </button>
+                <a href="#contact" class="btn btn-secondary btn-sm">
+                  <span>Discuss This Project</span>
+                </a>
+              </div>
             </div>
 
-            <ul class="project-features">
-              ${project.features.slice(0, 3).map(feat => `<li>${feat}</li>`).join('')}
-            </ul>
-
-            <div class="project-tech-row">
-              ${project.techStack.map(tech => `<span class="tech-tag">${tech}</span>`).join('')}
-            </div>
-
-            <div class="project-actions-row">
-              <button class="btn btn-primary btn-sm open-project-modal-btn" data-project-id="${project.id}">
-                <span>View Case Details</span>
-                <span>↗</span>
-              </button>
-              <a href="#contact" class="btn btn-secondary btn-sm">
-                <span>Discuss This Project</span>
-              </a>
-            </div>
-          </div>
-
-        </article>
+          </article>
+        </div>
       `).join('')}
     </div>
   `;
@@ -290,6 +292,104 @@ function initProjects() {
       openProjectModal(pid);
     });
   });
+
+  // Initialize scroll-driven zoom-out scrub effect
+  initProjectScrollScrub();
+}
+
+/**
+ * 1.b Scroll-Driven Scrubbing Controller for Selected Work Showcase
+ * Smoothly scales down previous project and recedes into space as next project ascends
+ */
+function initProjectScrollScrub() {
+  const cards = Array.from(document.querySelectorAll('.project-scroll-card-wrap'));
+  if (!cards.length) return;
+
+  const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (prefersReducedMotion) return;
+
+  let ticking = false;
+
+  function updateCardsOnScroll() {
+    const isMobile = window.innerWidth < 768;
+    const maxScaleDown = isMobile ? 0.06 : 0.12; // scales from 1.0 down to 0.88 on desktop, 0.94 on mobile
+    const maxTranslateY = isMobile ? 12 : 28;
+    const maxDimming = isMobile ? 0.15 : 0.35;
+
+    cards.forEach((cardWrap, index) => {
+      const row = cardWrap.querySelector('.project-editorial-row');
+      if (!row) return;
+
+      if (index === cards.length - 1) {
+        // Last card remains prominent and static
+        row.style.transform = 'scale(1) translate3d(0, 0, 0)';
+        row.style.filter = 'brightness(1)';
+        row.style.opacity = '1';
+        return;
+      }
+
+      const nextCard = cards[index + 1];
+      const cardRect = cardWrap.getBoundingClientRect();
+      const nextRect = nextCard.getBoundingClientRect();
+
+      // Top sticky target threshold
+      const stickyTop = cardRect.top;
+
+      // When next card approaches from bottom of viewport to sticky top
+      const startTrigger = window.innerHeight * 0.85;
+      const endTrigger = stickyTop;
+
+      if (nextRect.top > startTrigger) {
+        // Next card is below scrub zone, current card is 100% large and dominant
+        row.style.transform = 'scale(1) translate3d(0, 0, 0)';
+        row.style.filter = 'brightness(1)';
+        row.style.opacity = '1';
+      } else if (nextRect.top <= endTrigger) {
+        // Next card has reached or stacked over current card
+        const scale = 1 - maxScaleDown;
+        const translateY = -maxTranslateY;
+        const brightness = 1 - maxDimming;
+        const opacity = 1 - (maxDimming * 0.4);
+
+        row.style.transform = `scale(${scale}) translate3d(0, ${translateY}px, 0) perspective(1000px) rotateX(1.5deg)`;
+        row.style.filter = `brightness(${brightness})`;
+        row.style.opacity = `${opacity}`;
+      } else {
+        // Active scroll-scrubbed interpolation range
+        const totalDistance = startTrigger - endTrigger;
+        const currentDistance = startTrigger - nextRect.top;
+        const progress = Math.min(Math.max(currentDistance / totalDistance, 0), 1);
+
+        // Smooth cubic ease out
+        const ease = progress * progress * (3 - 2 * progress);
+
+        const scale = 1 - (ease * maxScaleDown);
+        const translateY = -(ease * maxTranslateY);
+        const brightness = 1 - (ease * maxDimming);
+        const opacity = 1 - (ease * maxDimming * 0.4);
+        const rotateX = ease * 1.5;
+
+        row.style.transform = `scale(${scale.toFixed(4)}) translate3d(0, ${translateY.toFixed(1)}px, 0) perspective(1000px) rotateX(${rotateX.toFixed(2)}deg)`;
+        row.style.filter = `brightness(${brightness.toFixed(3)})`;
+        row.style.opacity = `${opacity.toFixed(3)}`;
+      }
+    });
+
+    ticking = false;
+  }
+
+  function onScroll() {
+    if (!ticking) {
+      requestAnimationFrame(updateCardsOnScroll);
+      ticking = true;
+    }
+  }
+
+  window.addEventListener('scroll', onScroll, { passive: true });
+  window.addEventListener('resize', onScroll, { passive: true });
+  
+  // Initial frame
+  updateCardsOnScroll();
 }
 
 /**

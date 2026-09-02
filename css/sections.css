@@ -238,12 +238,26 @@
 }
 
 /* --------------------------------------------------------------------------
-   2. Featured Projects (Large Case-Study Blocks)
+   2. Featured Projects (Scroll-Driven Editorial Stack & Perspective)
    -------------------------------------------------------------------------- */
 .projects-editorial-list {
   display: flex;
   flex-direction: column;
-  gap: var(--space-3xl);
+  position: relative;
+  width: 100%;
+}
+
+.project-scroll-card-wrap {
+  position: sticky;
+  top: calc(var(--nav-height) + 16px);
+  margin-bottom: 22vh;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.project-scroll-card-wrap:last-child {
+  margin-bottom: 4vh;
 }
 
 .project-editorial-row {
@@ -251,13 +265,17 @@
   grid-template-columns: 1fr;
   gap: var(--space-xl);
   align-items: center;
-  background: var(--bg-glass);
+  background: #0E121A;
   border: 1px solid var(--border-light);
   border-radius: var(--radius-xl);
   padding: var(--space-lg);
-  backdrop-filter: blur(14px);
-  -webkit-backdrop-filter: blur(14px);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  box-shadow: 0 30px 70px -15px rgba(0, 0, 0, 0.95);
+  transform-origin: center top;
+  will-change: transform, filter, opacity;
   transition: border-color var(--transition-normal), box-shadow var(--transition-normal);
+  width: 100%;
 }
 
 .project-editorial-row:hover {
@@ -266,8 +284,13 @@
 }
 
 @media (min-width: 960px) {
+  .project-scroll-card-wrap {
+    top: calc(var(--nav-height) + 24px);
+    margin-bottom: 28vh;
+  }
+
   .project-editorial-row {
-    grid-template-columns: 1.2fr 0.8fr;
+    grid-template-columns: 1.18fr 0.82fr;
     padding: var(--space-2xl);
     gap: var(--space-2xl);
   }
@@ -277,6 +300,18 @@
   }
   .project-editorial-row:nth-child(even) .project-info-col {
     order: 1;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .project-scroll-card-wrap {
+    position: static;
+    margin-bottom: var(--space-3xl);
+  }
+  .project-editorial-row {
+    transform: none !important;
+    filter: none !important;
+    opacity: 1 !important;
   }
 }
 
